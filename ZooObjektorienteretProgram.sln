@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooObjektorienteretProgram", "ZooObjektorienteretProgram\ZooObjektorienteretProgram.csproj", "{7863EAEC-32F5-40E8-AACC-92BDC6436F4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7863EAEC-32F5-40E8-AACC-92BDC6436F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7863EAEC-32F5-40E8-AACC-92BDC6436F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7863EAEC-32F5-40E8-AACC-92BDC6436F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7863EAEC-32F5-40E8-AACC-92BDC6436F4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12785788-4595-4F27-B7A8-B39749A61E2C}
+	EndGlobalSection
+EndGlobal

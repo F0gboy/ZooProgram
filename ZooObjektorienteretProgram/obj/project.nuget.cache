@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "DzTB2yRx4nLVxXZWzO3Fx1h0K3VwzaDma+TGwE2HMjen8fpRT7iSNAcxBoTNftnE4EtltB6Hi8/OfCm2ZlZLuQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jasper\\source\\repos\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jasper\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Jasper\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+  ],
+  "logs": []
+}
