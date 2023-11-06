@@ -9,17 +9,22 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ZooObjektorienteretProgram
 {
-    internal class Button
+    internal class Button : GameObject
     {
         public Rectangle rect;
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
+        public override void Draw(GameTime GameTime)
+        {
 
 
+        }
+
+        public override void LoadContent()
+        {
 
 
-
-
+        }
     }
 }
