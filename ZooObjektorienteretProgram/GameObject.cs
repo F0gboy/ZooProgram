@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace ZooObjektorienteretProgram
 
         public GameObject() { }
 
-        public abstract void LoadContent();
+        public abstract void LoadContent(ContentManager content);
 
         public abstract void Draw(GameTime GameTime);
         
