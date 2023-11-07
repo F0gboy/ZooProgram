@@ -48,3 +48,9 @@ F:\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\refint\ZooObjektorient
 F:\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektorienteretProgram.pdb
 F:\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektorienteretProgram.genruntimeconfig.cache
 F:\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ref\ZooObjektorienteretProgram.dll
+F:\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence1.xnb
+F:\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence2.xnb
+F:\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence3.xnb
+F:\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence4.xnb
+F:\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence5.xnb
+F:\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence6.xnb

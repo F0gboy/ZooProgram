@@ -13,35 +13,39 @@ namespace ZooObjektorienteretProgram
 {
     internal class AnimalBoundaries : GameObject
     {
-        private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Rectangle rectangle;
-        private List<Texture2D> boundarySprites = new List<Texture2D>(6);
+        private List<Texture2D> boundarySprites = new List<Texture2D>();
         private int boundarySize;
+        private float spriteX = 50;
+        private float spriteY = 50;
+        private Vector2 spritePosition;
+       
 
-        public AnimalBoundaries(int BoundarySize, List<Texture2D> BoundarySprites, SpriteBatch spriteBatch) 
+        public AnimalBoundaries(int BoundarySize) 
         { 
             this.boundarySize = BoundarySize;
-            this.boundarySprites = BoundarySprites;
-            this._spriteBatch = spriteBatch;
+            spritePosition.X = GameWorld.ScreenSize.X / 2;
+            spritePosition.Y = GameWorld.ScreenSize.Y / 2;
         }
 
 
         public override void LoadContent(ContentManager content)
         {
-            for (int i = 0; i < boundarySprites.Count; i++)
+            for (int i = 0; i < 6; i++)
             {
-                this.boundarySprites[i] = content.Load<Texture2D>(i + 1 + "Fence");
+                boundarySprites.Add(content.Load<Texture2D>("Fence" + (1 + i)));
             }
         }
 
-        public override void Draw(GameTime GameTime)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < boundarySprites.Count; i++)
+            for (int i = 0; i < 5; i++)
             {
-                Vector2 origin = new Vector2(boundarySprites[i].Width / 2, boundarySprites[i].Height / 2);
-                _spriteBatch.Draw(boundarySprites[i], Vector2.Zero, null, Color.White, 0, origin, 1, SpriteEffects.None, 0);
+                Vector2 origin = new Vector2(boundarySprites[1].Width / 2, boundarySprites[1].Height / 2);
+                spriteBatch.Draw(boundarySprites[1], spritePosition , null, Color.White, 0, origin, 3, SpriteEffects.None, 0);
             }
+
         }
     }
 }
