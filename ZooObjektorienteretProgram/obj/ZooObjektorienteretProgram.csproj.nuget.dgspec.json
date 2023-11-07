@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj": {}
+    "C:\\Users\\zappe\\OneDrive\\Dokumenter\\GitHub\\Not The End\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj": {}
   },
   "projects": {
-    "F:\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj": {
+    "C:\\Users\\zappe\\OneDrive\\Dokumenter\\GitHub\\Not The End\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
+        "projectUniqueName": "C:\\Users\\zappe\\OneDrive\\Dokumenter\\GitHub\\Not The End\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
         "projectName": "ZooObjektorienteretProgram",
-        "projectPath": "F:\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
-        "packagesPath": "C:\\Users\\Jasper\\.nuget\\packages\\",
-        "outputPath": "F:\\ZooProgram\\ZooObjektorienteretProgram\\obj\\",
+        "projectPath": "C:\\Users\\zappe\\OneDrive\\Dokumenter\\GitHub\\Not The End\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
+        "packagesPath": "C:\\Users\\zappe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zappe\\OneDrive\\Dokumenter\\GitHub\\Not The End\\ZooProgram\\ZooObjektorienteretProgram\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Jasper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zappe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
