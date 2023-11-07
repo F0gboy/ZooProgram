@@ -8,6 +8,7 @@ namespace ZooObjektorienteretProgram
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private Player _player;
 
         public GameWorld()
         {
@@ -19,13 +20,14 @@ namespace ZooObjektorienteretProgram
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _player = new Player(Content, _spriteBatch);
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            
 
             // TODO: use this.Content to load your game content here
         }
@@ -36,7 +38,7 @@ namespace ZooObjektorienteretProgram
                 Exit();
 
             // TODO: Add your update logic here
-
+            _player.MouseUpdate(_spriteBatch);
             base.Update(gameTime);
         }
 

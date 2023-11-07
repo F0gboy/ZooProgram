@@ -35,7 +35,7 @@ namespace ZooObjektorienteretProgram
             }
         }
 
-        public override void Draw(GameTime GameTime)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             for (int i = 0; i < boundarySprites.Count; i++)
             {

@@ -73,3 +73,10 @@ C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ref
 C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektorienteretProgram.pdb
 C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektorienteretProgram.genruntimeconfig.cache
 C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ref\ZooObjektorienteretProgram.dll
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence1.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence2.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence3.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence4.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence5.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence6.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Button.xnb
