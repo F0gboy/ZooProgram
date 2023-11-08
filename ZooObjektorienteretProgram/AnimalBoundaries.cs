@@ -16,19 +16,19 @@ namespace ZooObjektorienteretProgram
         private SpriteBatch _spriteBatch;
         private Rectangle rectangle;
         private List<Texture2D> boundarySprites = new List<Texture2D>();
-        private int boundarySize;
-        private float spriteX = 50;
-        private float spriteY = 50;
         private Vector2 spritePosition;
-       
+        private int chosenSprite;
+        private int moveAmountX;
+        private int moveAmountY;
+        private string name;
 
-        public AnimalBoundaries(int BoundarySize) 
+        public AnimalBoundaries(int ChosenSprite, string Name, int MoveAmountX, int MoveAmountY) 
         { 
-            this.boundarySize = BoundarySize;
-            spritePosition.X = GameWorld.ScreenSize.X / 2;
-            spritePosition.Y = GameWorld.ScreenSize.Y / 2;
+            this.chosenSprite = ChosenSprite;
+            this.moveAmountX = MoveAmountX;
+            this.moveAmountY = MoveAmountY;
+            this.name = Name;
         }
-
 
         public override void LoadContent(ContentManager content)
         {
@@ -36,16 +36,15 @@ namespace ZooObjektorienteretProgram
             {
                 boundarySprites.Add(content.Load<Texture2D>("Fence" + (1 + i)));
             }
+
+            spritePosition.X = GameWorld.ScreenSize.X / 2 + moveAmountX;
+            spritePosition.Y = GameWorld.ScreenSize.Y / 2 + moveAmountY;
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                Vector2 origin = new Vector2(boundarySprites[1].Width / 2, boundarySprites[1].Height / 2);
-                spriteBatch.Draw(boundarySprites[1], spritePosition , null, Color.White, 0, origin, 3, SpriteEffects.None, 0);
-            }
-
+            Vector2 origin = new Vector2(boundarySprites[chosenSprite].Width / 2, boundarySprites[chosenSprite].Height / 2);
+            spriteBatch.Draw(boundarySprites[chosenSprite], spritePosition, null, Color.White, 0, origin, 3, SpriteEffects.None, 0);
         }
     }
 }
