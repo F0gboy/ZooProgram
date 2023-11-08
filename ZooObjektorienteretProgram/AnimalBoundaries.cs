@@ -38,7 +38,7 @@ namespace ZooObjektorienteretProgram
         {
             for(int i = 0;i < boundarySprites.Count;i++) 
             {
-                _spriteBatch.Draw(boundarySprites[i], position, null, Color.White, 0, origin, 1, SpriteEffects.None, 0);
+              //  _spriteBatch.Draw(boundarySprites[i], position, null, Color.White, 0, origin, 1, SpriteEffects.None, 0);
 
             }
 
