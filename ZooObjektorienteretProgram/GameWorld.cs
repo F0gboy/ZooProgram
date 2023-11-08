@@ -9,6 +9,7 @@ namespace ZooObjektorienteretProgram
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Player _player;
+        
 
         public GameWorld()
         {
