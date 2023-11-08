@@ -14,8 +14,6 @@ namespace ZooObjektorienteretProgram
     internal class Sheep : Animal
     {
 
-        public int XPosition = 1;
-        public int YPosition = 1; 
 
         public override void Move()
         {

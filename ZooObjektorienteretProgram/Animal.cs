@@ -17,7 +17,9 @@ namespace ZooObjektorienteretProgram
         protected int thirst;
         protected int hunger;
         protected Vector2 Velocity;
-        protected float produce; 
+        protected float produce;
+        public int XPosition = 1;
+        public int YPosition = 1;
 
 
         public Animal()

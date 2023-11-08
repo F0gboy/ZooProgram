@@ -13,23 +13,42 @@ namespace ZooObjektorienteretProgram
             // placeholder to get acces to the case. 
             Console.WriteLine("Choice an animal");
             string animal = Console.ReadLine();
-            // placeholder to get acces to the case. 
-
-
+            
             // Case to choice animals. 
             switch (animal)
             {
-                case "1":
+                case "sheep":
                     // needs to be change into spawning an animal. 
-                    
+                    Console.WriteLine("pig");
                     // needs something to add position here. 
-
                     break;
-                case "2":
+                case "Pig":
+                    Console.WriteLine("pig");
+                    break;
+                case "Cow":
+                    Console.WriteLine("cow");
+                    break;
+                case "Chicken":
+                    Console.WriteLine("chicken");
+                    break;
+                case "Horse":
+                    Console.WriteLine("horse");
+                    break;
+                case "Bunny":
+                    Console.WriteLine("bunny");
+                    break;
+                case "Bee":
+                    Console.WriteLine("bee");
+                    break;
+                case "Unicorn":
+                    Console.WriteLine("unicorn");
+                    break;
+                case "Fish":
+                    Console.WriteLine("fish");
+                    break;
+                case "Duck":
                     Console.WriteLine("Duck");
                     break;
-                // add more animals above here. 
-                // need the default or something will go wrong. 
                 default:
                     Console.WriteLine("could not find an animal");
                     break;
