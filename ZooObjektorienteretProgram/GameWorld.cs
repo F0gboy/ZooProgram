@@ -23,6 +23,58 @@ namespace ZooObjektorienteretProgram
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(Content, _spriteBatch);
             base.Initialize();
+<<<<<<< Updated upstream
+=======
+
+            
+        }
+
+        public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
+        {
+            for (int i = 0; i < boundarySizeY - 1; i++)
+            {
+                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY1" + (1 + i), 0, -5 + moveAmount);
+                fences.Add(fence);
+                moveAmount += 48;
+            }
+
+            moveAmount = 0;
+
+            for (int i = 0; i < boundarySizeX - 1; i++)
+            {
+                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), moveAmount + 48, 0);
+                fences.Add(fence);
+                moveAmount += 48;
+            }
+
+            AnimalBoundaries fenceCorner1 = new AnimalBoundaries(1, "TopRightCorner", 230, 0);
+            fences.Add(fenceCorner1);
+
+            moveAmount = 40;
+
+            for (int i = 0; i < boundarySizeY - 1; i++)
+            {
+                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY2" + (1 + i), 233, moveAmount);
+                fences.Add(fence);
+                moveAmount += 48;
+            }
+
+            AnimalBoundaries fenceCorner2 = new AnimalBoundaries(4, "DownRightCorner", 230, 230);
+            fences.Add(fenceCorner2);
+
+            moveAmount = 44;
+
+            for (int i = 0; i < boundarySizeX - 1; i++)
+            {
+                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), moveAmount, 233);
+                fences.Add(fence);
+                moveAmount += 48;
+            }
+
+            AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", 6, 230);
+            fences.Add(fenceCorner3);
+
+>>>>>>> Stashed changes
         }
 
         protected override void LoadContent()
