@@ -21,6 +21,7 @@ namespace ZooObjektorienteretProgram
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            _graphics.IsFullScreen = true;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(Content, _spriteBatch);
             base.Initialize();

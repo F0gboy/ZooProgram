@@ -18,6 +18,7 @@ namespace ZooObjektorienteretProgram
         private GraphicsDeviceManager graphics;
         private Texture2D sprite;
         private ContentManager content;
+        
 
 
         public Button(ContentManager content)
