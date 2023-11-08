@@ -21,8 +21,6 @@ namespace ZooObjektorienteretProgram
             {
                 case "1":
                     // needs to be change into spawning an animal. 
-                    Console.WriteLine("sheep");
-                    Sheep sheep = new Sheep();
                     
                     // needs something to add position here. 
 

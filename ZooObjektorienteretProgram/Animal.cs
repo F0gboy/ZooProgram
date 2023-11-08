@@ -35,8 +35,7 @@ namespace ZooObjektorienteretProgram
 
         public override void LoadContent(ContentManager content)
         {
-            sprite = new Texture2D[1];
-            sprite[0] = content.Load<Texture2D>("sheep");
+            
         }
     }
 }

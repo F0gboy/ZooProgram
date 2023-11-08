@@ -8,6 +8,9 @@ namespace ZooObjektorienteretProgram
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private Texture2D sheep; 
+
+        private Vector2 Position = Vector2.Zero;
 
         public GameWorld()
         {
@@ -27,6 +30,9 @@ namespace ZooObjektorienteretProgram
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+
+            sheep = Content.Load<Texture2D>("sheep"); 
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -44,7 +50,11 @@ namespace ZooObjektorienteretProgram
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+
+            _spriteBatch.Draw(sheep, Position, Color.White);
+            
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
