@@ -16,6 +16,7 @@ namespace ZooObjektorienteretProgram
         private MouseState mouseState;
         private bool pressed;
         private ContentManager content;
+        GraphicsDeviceManager graphicsDeviceManager;
 
         private Button testButton;
 
@@ -28,27 +29,33 @@ namespace ZooObjektorienteretProgram
             testButton.rect = new Rectangle(100,100,testButton.rect.Width, testButton.rect.Height);
         }
 
-        public void MouseUpdate(SpriteBatch spriteBatch)
+        public void MouseUpdate()
         {
+            mouseState = Mouse.GetState();
             mousePosition = new Point(mouseState.X, mouseState.Y);
-            mouseState = new MouseState();
 
 
             //Test Button
-            testButton.Draw(spriteBatch);
-            if (testButton.rect.Contains(mousePosition) && mouseState.LeftButton == ButtonState.Pressed && pressed == false)
+            if (testButton.rect.Contains(mousePosition) == true && mouseState.LeftButton == ButtonState.Pressed && pressed == false)
             {
+
+
                 pressed = true;
                 
             }
             else if (mouseState.LeftButton == ButtonState.Released)
             {
                 pressed = false;
-            }
-            {
+            
+            
                 
             }
             
+        }
+        public void DrawButtons(SpriteBatch spriteBatch) 
+        {
+            testButton.Draw(spriteBatch);
+
         }
 
     }

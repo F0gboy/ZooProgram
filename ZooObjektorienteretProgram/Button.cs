@@ -28,17 +28,17 @@ namespace ZooObjektorienteretProgram
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin(samplerState: SamplerState.PointWrap);
+            
             spriteBatch.Draw(sprite, rect, Color.White);
-            spriteBatch.End();
+            
 
         }
 
         public override void LoadContent(ContentManager content)
         {
 
-            sprite = content.Load<Texture2D>("Fence1");
-            rect = new Rectangle(rect.X,rect.Y,sprite.Width,sprite.Height);
+            sprite = content.Load<Texture2D>("Button");
+            rect = new Rectangle(rect.X,rect.Y,sprite.Width/4,sprite.Height/4);
 
         }
     }

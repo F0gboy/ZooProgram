@@ -38,7 +38,7 @@ namespace ZooObjektorienteretProgram
                 Exit();
 
             // TODO: Add your update logic here
-            _player.MouseUpdate(_spriteBatch);
+            _player.MouseUpdate();
             base.Update(gameTime);
         }
 
@@ -47,6 +47,12 @@ namespace ZooObjektorienteretProgram
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            _spriteBatch.Begin(samplerState: SamplerState.PointWrap);
+
+            _player.DrawButtons(_spriteBatch);
+
+            _spriteBatch.End();
+
 
             base.Draw(gameTime);
         }
