@@ -25,13 +25,15 @@ namespace ZooObjektorienteretProgram
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            animalFence = new AnimalBoundaries(0,"TopLeftCorner", 5, 0);
-            fences.Add(animalFence);
+            
 
             _graphics.PreferredBackBufferWidth = 1200;
             _graphics.PreferredBackBufferHeight = 800;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
+
+            fencePosition.X = -250;
+            fencePosition.Y = -250;
         }
 
 
@@ -41,16 +43,21 @@ namespace ZooObjektorienteretProgram
             // TODO: Add your initialization logic here
 
             base.Initialize();
-
-            
         }
 
-        public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY)
+        public void GenerateAnimalBoundaries(float boundarySizeX, float boundarySizeY, Vector2 position)
         {
+            animalFence = new AnimalBoundaries(0, "TopLeftCorner", position.X + 5, position.Y + 0);
+            fences.Add(animalFence);
+
+            float tempPos3 = boundarySizeY * 48;
+            float tempPos2 = boundarySizeX * 48;
+
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
-                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY1" + (1 + i), 0, -5 + moveAmount);
+                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY1" + (1 + i), position.X, position.Y + -5f + moveAmount);
                 fences.Add(fence);
+                float tempPos1 = boundarySizeY * 48;
                 moveAmount += 48;
             }
 
@@ -58,52 +65,50 @@ namespace ZooObjektorienteretProgram
 
             for (int i = 0; i < boundarySizeX - 1; i++)
             {
-                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), moveAmount + 48, 0);
+                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), position.X + moveAmount + 48, position.Y);
                 fences.Add(fence);
                 moveAmount += 48;
             }
 
-            AnimalBoundaries fenceCorner1 = new AnimalBoundaries(1, "TopRightCorner", 230, 0);
+            AnimalBoundaries fenceCorner1 = new AnimalBoundaries(1, "TopRightCorner", position.X + tempPos2 - 6, position.Y);
             fences.Add(fenceCorner1);
 
             moveAmount = 40;
 
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
-                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY2" + (1 + i), 233, moveAmount);
+                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY2" + (1 + i),position.X + tempPos2 - 3, position.Y + moveAmount );
                 fences.Add(fence);
                 moveAmount += 48;
             }
 
-            AnimalBoundaries fenceCorner2 = new AnimalBoundaries(4, "DownRightCorner", 230, 230);
+            AnimalBoundaries fenceCorner2 = new AnimalBoundaries(4, "DownRightCorner", position.X + tempPos2 - 6, position.Y + tempPos3);
             fences.Add(fenceCorner2);
 
             moveAmount = 44;
 
             for (int i = 0; i < boundarySizeX - 1; i++)
             {
-                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), moveAmount, 233);
+                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), position.X + moveAmount + 4, position.Y + tempPos3 + 3);
                 fences.Add(fence);
                 moveAmount += 48;
             }
 
-            AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", 6, 230);
+            AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", position.X + 6, position.Y + tempPos3);
             fences.Add(fenceCorner3);
-
         }
+
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            GenerateAnimalBoundaries(5,5);
+            GenerateAnimalBoundaries(3f,3f, fencePosition);
 
             foreach (var fence in fences) 
             {
                 fence.LoadContent(Content);
             }
-
-            
 
             // TODO: use this.Content to load your game content here
         }

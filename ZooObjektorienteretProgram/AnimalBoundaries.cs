@@ -18,11 +18,11 @@ namespace ZooObjektorienteretProgram
         private List<Texture2D> boundarySprites = new List<Texture2D>();
         private Vector2 spritePosition;
         private int chosenSprite;
-        private int moveAmountX;
-        private int moveAmountY;
+        private float moveAmountX;
+        private float moveAmountY;
         private string name;
 
-        public AnimalBoundaries(int ChosenSprite, string Name, int MoveAmountX, int MoveAmountY) 
+        public AnimalBoundaries(int ChosenSprite, string Name, float MoveAmountX, float MoveAmountY) 
         { 
             this.chosenSprite = ChosenSprite;
             this.moveAmountX = MoveAmountX;
