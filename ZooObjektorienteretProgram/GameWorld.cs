@@ -31,7 +31,7 @@ namespace ZooObjektorienteretProgram
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
 
-            sheep = Content.Load<Texture2D>("sheep"); 
+            sheep = Content.Load<Texture2D>("tile_sheep"); 
 
             // TODO: use this.Content to load your game content here
         }

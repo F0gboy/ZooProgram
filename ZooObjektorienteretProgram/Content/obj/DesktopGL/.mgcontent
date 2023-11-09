@@ -4,13 +4,13 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/kaspe/OneDrive/Dokumenter/GitHub/WorkSpaces/TestingGitHub/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png</File>
-    <File>C:/Users/kaspe/OneDrive/Dokumenter/GitHub/WorkSpaces/TestingGitHub/ZooProgram/ZooObjektorienteretProgram/Content/Fence2.png</File>
-    <File>C:/Users/kaspe/OneDrive/Dokumenter/GitHub/WorkSpaces/TestingGitHub/ZooProgram/ZooObjektorienteretProgram/Content/Fence3.png</File>
-    <File>C:/Users/kaspe/OneDrive/Dokumenter/GitHub/WorkSpaces/TestingGitHub/ZooProgram/ZooObjektorienteretProgram/Content/Fence4.png</File>
-    <File>C:/Users/kaspe/OneDrive/Dokumenter/GitHub/WorkSpaces/TestingGitHub/ZooProgram/ZooObjektorienteretProgram/Content/Fence5.png</File>
-    <File>C:/Users/kaspe/OneDrive/Dokumenter/GitHub/WorkSpaces/TestingGitHub/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png</File>
-    <File>C:/Users/kaspe/OneDrive/Dokumenter/GitHub/WorkSpaces/TestingGitHub/ZooProgram/ZooObjektorienteretProgram/Content/sheep.png</File>
+    <File>E:/GithubLib/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png</File>
+    <File>E:/GithubLib/ZooProgram/ZooObjektorienteretProgram/Content/Fence2.png</File>
+    <File>E:/GithubLib/ZooProgram/ZooObjektorienteretProgram/Content/Fence3.png</File>
+    <File>E:/GithubLib/ZooProgram/ZooObjektorienteretProgram/Content/Fence4.png</File>
+    <File>E:/GithubLib/ZooProgram/ZooObjektorienteretProgram/Content/Fence5.png</File>
+    <File>E:/GithubLib/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png</File>
+    <File>E:/GithubLib/ZooProgram/ZooObjektorienteretProgram/Content/tile_sheep.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

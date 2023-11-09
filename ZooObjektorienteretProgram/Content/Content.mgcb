@@ -85,7 +85,7 @@
 /processorParam:TextureFormat=Color
 /build:Fence6.png
 
-#begin sheep.png
+#begin tile_sheep.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -95,5 +95,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:sheep.png
+/build:tile_sheep.png
 

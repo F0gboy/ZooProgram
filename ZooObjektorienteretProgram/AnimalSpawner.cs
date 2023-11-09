@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +8,13 @@ using System.Threading.Tasks;
 
 namespace ZooObjektorienteretProgram
 {
-    internal class AnimalSpawner
+    public class AnimalSpawner : Game
     {
+        private Texture2D sheep;
         public void SpawnAnimal()
         {
+
+
             // placeholder to get acces to the case. 
             Console.WriteLine("Choice an animal");
             string animal = Console.ReadLine();
@@ -18,9 +23,8 @@ namespace ZooObjektorienteretProgram
             switch (animal)
             {
                 case "sheep":
-                    // needs to be change into spawning an animal. 
-                    Console.WriteLine("pig");
-                    // needs something to add position here. 
+                    sheep = Content.Load<Texture2D>("tile_sheep");
+
                     break;
                 case "Pig":
                     Console.WriteLine("pig");

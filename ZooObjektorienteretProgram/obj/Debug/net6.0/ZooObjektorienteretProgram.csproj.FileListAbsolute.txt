@@ -111,7 +111,6 @@ E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fenc
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence4.xnb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence5.xnb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence6.xnb
-E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\sheep.xnb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\ZooObjektorienteretProgram.exe
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\ZooObjektorienteretProgram.deps.json
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\ZooObjektorienteretProgram.runtimeconfig.json
@@ -137,3 +136,5 @@ E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\refint\ZooOb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektorienteretProgram.pdb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektorienteretProgram.genruntimeconfig.cache
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ref\ZooObjektorienteretProgram.dll
+E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\animals\tile_sheep.xnb
+E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_sheep.xnb
