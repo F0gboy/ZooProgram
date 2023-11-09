@@ -45,19 +45,21 @@ namespace ZooObjektorienteretProgram
             base.Initialize();
         }
 
-        public void GenerateAnimalBoundaries(float boundarySizeX, float boundarySizeY, Vector2 position)
+        public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
         {
+            //De hardcodede værdier som f.eks "position.y + 5" er fordi at sprite billederne er forskellige pixel størrelser, så skal rykke dem lidt så de liner op.
+
+
             animalFence = new AnimalBoundaries(0, "TopLeftCorner", position.X + 5, position.Y + 0);
             fences.Add(animalFence);
 
-            float tempPos3 = boundarySizeY * 48;
-            float tempPos2 = boundarySizeX * 48;
+            int tempPos3 = boundarySizeY * 48;
+            int tempPos2 = boundarySizeX * 48;
 
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY1" + (1 + i), position.X, position.Y + -5f + moveAmount);
                 fences.Add(fence);
-                float tempPos1 = boundarySizeY * 48;
                 moveAmount += 48;
             }
 
@@ -103,7 +105,7 @@ namespace ZooObjektorienteretProgram
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            GenerateAnimalBoundaries(3f,3f, fencePosition);
+           GenerateAnimalBoundaries( 5, 5, fencePosition);
 
             foreach (var fence in fences) 
             {

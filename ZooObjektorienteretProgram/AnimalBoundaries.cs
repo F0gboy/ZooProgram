@@ -41,6 +41,20 @@ namespace ZooObjektorienteretProgram
             spritePosition.Y = GameWorld.ScreenSize.Y / 2 + moveAmountY;
         }
 
+        public Rectangle CollisionBox
+        {
+            get
+            {
+                return new Rectangle(
+                    (int)(spritePosition.X - boundarySprites[chosenSprite].Bounds.X / 2),
+                    (int)(spritePosition.Y - boundarySprites[chosenSprite].Bounds.Y / 2),
+                    (int)boundarySprites[chosenSprite].Bounds.X,
+                    (int)boundarySprites[chosenSprite].Bounds.Y
+                );
+            }
+        }
+
+
         public override void Draw(SpriteBatch spriteBatch)
         {
             Vector2 origin = new Vector2(boundarySprites[chosenSprite].Width / 2, boundarySprites[chosenSprite].Height / 2);
