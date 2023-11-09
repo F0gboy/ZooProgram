@@ -16,7 +16,7 @@ namespace ZooObjektorienteretProgram
         private Texture2D chicken;
         private Texture2D horse;
         private Texture2D bunny;
-        private Texture2D bee;
+        private Texture2D dolphin;
         private Texture2D unicorn;
         private Texture2D fish;
         private Texture2D duck;
@@ -68,8 +68,8 @@ namespace ZooObjektorienteretProgram
                     bunny = Content.Load<Texture2D>("tile_bunny");
                     break;
                 case 7:
-                    Console.WriteLine("bee");
-                    bee = Content.Load<Texture2D>("tile_bee");
+                    Console.WriteLine("dolphin");
+                    dolphin = Content.Load<Texture2D>("tile_dolphin");
                     break;
                 case 8:
                     Console.WriteLine("unicorn");
