@@ -2,7 +2,9 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ZooObjektorienteretProgram
 {
@@ -43,6 +45,7 @@ namespace ZooObjektorienteretProgram
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
         }
 
         public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
@@ -110,6 +113,7 @@ namespace ZooObjektorienteretProgram
             foreach (var fence in fences) 
             {
                 fence.LoadContent(Content);
+                
             }
 
             // TODO: use this.Content to load your game content here

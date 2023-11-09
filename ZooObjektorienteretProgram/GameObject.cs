@@ -20,26 +20,5 @@ namespace ZooObjektorienteretProgram
 
         public abstract void Draw(SpriteBatch spriteBatch);
 
-        public bool IsColliding(GameObject other)
-        {
-            if (this == other)
-                return false;
-
-            return CollisionBox.Intersects(other.CollisionBox);
-        }
-
-        public Rectangle CollisionBox
-        {
-            get
-            {
-                return new Rectangle(
-                    (int)(position.X - sprite.Bounds.X / 2),
-                    (int)(position.Y - sprite.Bounds.Y / 2),
-                    (int)sprite.Bounds.X,
-                    (int)sprite.Bounds.Y
-                );
-            }
-        }
-
     }
 }
