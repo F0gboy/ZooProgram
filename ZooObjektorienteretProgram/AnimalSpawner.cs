@@ -11,47 +11,77 @@ namespace ZooObjektorienteretProgram
     public class AnimalSpawner : Game
     {
         private Texture2D sheep;
+        private Texture2D pig;
+        private Texture2D cow;
+        private Texture2D chicken;
+        private Texture2D horse;
+        private Texture2D bunny;
+        private Texture2D bee;
+        private Texture2D unicorn;
+        private Texture2D fish;
+        private Texture2D duck;
+
+        private int AnimalValue = 0;
+        private int MaxAnimalValue = 10;
+
+        public void UpdateAnimalValue(int newValue)
+        {
+            if (newValue >= 0 && newValue <= MaxAnimalValue)
+            {
+                AnimalValue = newValue;
+            }
+            else if (newValue > MaxAnimalValue)
+            {
+                AnimalValue = MaxAnimalValue;
+            }
+            
+        }
+
+
         public void SpawnAnimal()
         {
-
-
-            // placeholder to get acces to the case. 
-            Console.WriteLine("Choice an animal");
-            string animal = Console.ReadLine();
-            
             // Case to choice animals. 
-            switch (animal)
+            switch (AnimalValue)
             {
-                case "sheep":
-                    sheep = Content.Load<Texture2D>("tile_sheep");
-
+                case 1:
+                    Console.WriteLine("sheep");
+                    Content.Load<Texture2D>("tile_sheep");
                     break;
-                case "Pig":
+                case 2:
                     Console.WriteLine("pig");
+                    pig = Content.Load<Texture2D>("tile_pig");
                     break;
-                case "Cow":
+                case 3:
                     Console.WriteLine("cow");
+                    cow = Content.Load<Texture2D>("tile_cow");
                     break;
-                case "Chicken":
+                case 4:
                     Console.WriteLine("chicken");
+                    chicken = Content.Load<Texture2D>("tile_chicken");
                     break;
-                case "Horse":
+                case 5:
                     Console.WriteLine("horse");
+                    horse = Content.Load<Texture2D>("tile_horse");
                     break;
-                case "Bunny":
+                case 6:
                     Console.WriteLine("bunny");
+                    bunny = Content.Load<Texture2D>("tile_bunny");
                     break;
-                case "Bee":
+                case 7:
                     Console.WriteLine("bee");
+                    bee = Content.Load<Texture2D>("tile_bee");
                     break;
-                case "Unicorn":
+                case 8:
                     Console.WriteLine("unicorn");
+                    unicorn = Content.Load<Texture2D>("tile_unicorn");
                     break;
-                case "Fish":
+                case 9:
                     Console.WriteLine("fish");
+                    fish = Content.Load<Texture2D>("tile_fish");
                     break;
-                case "Duck":
+                case 10:
                     Console.WriteLine("Duck");
+                    duck = Content.Load<Texture2D>("tile_duck");
                     break;
                 default:
                     Console.WriteLine("could not find an animal");
