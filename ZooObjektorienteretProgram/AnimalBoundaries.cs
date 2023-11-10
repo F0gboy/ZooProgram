@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
-using static System.Formats.Asn1.AsnWriter;
 using Microsoft.Xna.Framework.Content;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace ZooObjektorienteretProgram
 {
-    internal class AnimalBoundaries : GameObject
+    internal class AnimalBoundaries
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
@@ -26,8 +26,7 @@ namespace ZooObjektorienteretProgram
             this._spriteBatch = spriteBatch;
         }
 
-
-        public override void LoadContent(ContentManager content)
+        private void LoadContent(ContentManager content)
         {
             for (int i = 0; i < boundarySprites.Count; i++)
             {
@@ -35,13 +34,14 @@ namespace ZooObjektorienteretProgram
             }
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        private void DrawBoundary(GameTime gameTime)
         {
-            for (int i = 0; i < boundarySprites.Count; i++)
+            for(int i = 0;i < boundarySprites.Count;i++) 
             {
-                Vector2 origin = new Vector2(boundarySprites[i].Width / 2, boundarySprites[i].Height / 2);
-                _spriteBatch.Draw(boundarySprites[i], Vector2.Zero, null, Color.White, 0, origin, 1, SpriteEffects.None, 0);
+              //  _spriteBatch.Draw(boundarySprites[i], position, null, Color.White, 0, origin, 1, SpriteEffects.None, 0);
+
             }
+
         }
     }
 }
