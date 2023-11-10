@@ -4,14 +4,16 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png</File>
-    <File>F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence2.png</File>
-    <File>F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence3.png</File>
-    <File>F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence4.png</File>
-    <File>F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence5.png</File>
-    <File>F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png</File>
+    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Button.png</File>
+    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png</File>
+    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence2.png</File>
+    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence3.png</File>
+    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence4.png</File>
+    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence5.png</File>
+    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
