@@ -113,7 +113,6 @@ namespace ZooObjektorienteretProgram
             foreach (var fence in fences) 
             {
                 fence.LoadContent(Content);
-                
             }
 
             // TODO: use this.Content to load your game content here
