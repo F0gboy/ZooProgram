@@ -104,7 +104,6 @@ C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\Zo
 C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektorienteretProgram.csproj.CopyComplete
 C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektorienteretProgram.genruntimeconfig.cache
 C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ref\ZooObjektorienteretProgram.dll
-C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\sheep.xnb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence1.xnb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence2.xnb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence3.xnb
@@ -138,3 +137,4 @@ E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektori
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ref\ZooObjektorienteretProgram.dll
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\animals\tile_sheep.xnb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_sheep.xnb
+C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_sheep.xnb

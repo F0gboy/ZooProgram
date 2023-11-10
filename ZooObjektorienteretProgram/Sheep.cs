@@ -24,8 +24,7 @@ namespace ZooObjektorienteretProgram
         {
             sprite = new Texture2D[1];
             sprite[0] = content.Load<Texture2D>("sheep");
-            Sheep sheep = new Sheep(); 
-
+            Sheep sheep = new Sheep();
         }
         public override void Draw(GameTime GameTime)
         {
@@ -33,6 +32,4 @@ namespace ZooObjektorienteretProgram
             
         }
     }
-    
-
 }

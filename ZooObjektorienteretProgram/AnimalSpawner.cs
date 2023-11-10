@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ZooObjektorienteretProgram
 {
-    public class AnimalSpawner : Game
+    internal class AnimalSpawner : Game
     {
         private Texture2D sheep;
         private Texture2D pig;
@@ -21,6 +22,7 @@ namespace ZooObjektorienteretProgram
         private Texture2D fish;
         private Texture2D duck;
 
+        
         private int AnimalValue = 0;
         private int MaxAnimalValue = 10;
 
@@ -37,6 +39,10 @@ namespace ZooObjektorienteretProgram
             
         }
 
+        // mangler en motode til at ændre værdien på AnimalValue, så man kan vælge dyr. 
+
+
+        // mangler at kunen spawne dyr. 
 
         public void SpawnAnimal()
         {
@@ -45,7 +51,7 @@ namespace ZooObjektorienteretProgram
             {
                 case 1:
                     Console.WriteLine("sheep");
-                    Content.Load<Texture2D>("tile_sheep");
+                    sheep = Content.Load<Texture2D>("tile_sheep"); 
                     break;
                 case 2:
                     Console.WriteLine("pig");
@@ -89,5 +95,6 @@ namespace ZooObjektorienteretProgram
 
             }
          }
+                       
     }
 }

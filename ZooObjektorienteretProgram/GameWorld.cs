@@ -8,7 +8,7 @@ namespace ZooObjektorienteretProgram
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private Texture2D sheep; 
+        private 
 
         private Vector2 Position = Vector2.Zero;
 
@@ -31,7 +31,7 @@ namespace ZooObjektorienteretProgram
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
 
-            sheep = Content.Load<Texture2D>("tile_sheep"); 
+            
 
             // TODO: use this.Content to load your game content here
         }
@@ -52,7 +52,7 @@ namespace ZooObjektorienteretProgram
 
             _spriteBatch.Begin();
 
-            _spriteBatch.Draw(sheep, Position, Color.White);
+            
             
             _spriteBatch.End();
 
