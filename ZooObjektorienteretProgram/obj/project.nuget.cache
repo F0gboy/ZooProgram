@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "kUuF/9/rl4ZHs9a+ky0jzuFE+7gM0mOd89YVVobGGuYRKVE+r4PFmAQk5pA5SM02VEI2ZJima0Qf5nKaaCK4HA==",
+  "dgSpecHash": "si4j7bo8WG5XpRj0od8qY7MXnnTeuZ2jp08knT5Ls59CCWaItI/lMz5qpVxzKvqXxlCoVZ/uWv9A6uExwKk8Tg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zappe\\OneDrive\\Dokumenter\\GitHub\\Not The End\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
+  "projectFilePath": "C:\\Users\\dsadf\\Documents\\GitHub\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\zappe\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\zappe\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\dsadf\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\dsadf\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }

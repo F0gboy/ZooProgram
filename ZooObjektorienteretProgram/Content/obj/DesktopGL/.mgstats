@@ -1,7 +1,2 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png","F:/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence1.xnb","TextureProcessor","Texture2DContent",526,1489,0,131158
-"F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence2.png","F:/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence2.xnb","TextureProcessor","Texture2DContent",527,1381,0,0012641
-"F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence3.png","F:/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence3.xnb","TextureProcessor","Texture2DContent",463,1201,0,0018621
-"F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence4.png","F:/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence4.xnb","TextureProcessor","Texture2DContent",556,1813,0,0020666
-"F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence5.png","F:/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence5.xnb","TextureProcessor","Texture2DContent",560,1525,0,0014992
-"F:/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png","F:/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence6.xnb","TextureProcessor","Texture2DContent",583,1645,0,001963
+"C:/Users/dsadf/Documents/GitHub/ZooProgram/ZooObjektorienteretProgram/Content/Controls/Button.png","C:/Users/dsadf/Documents/GitHub/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Controls/Button.xnb","TextureProcessor","Texture2DContent",324,25685,0,4224904

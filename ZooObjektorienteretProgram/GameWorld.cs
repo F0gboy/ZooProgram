@@ -1,14 +1,24 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ZooObjektorienteretProgram.States;
 
 namespace ZooObjektorienteretProgram
 {
+    
     public class GameWorld : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        private State _currentState;
+        private State _nextState;
+        private static Vector2 screenSize;
+        public static Vector2 ScreenSize { get => screenSize; }
+        public void ChangeState(State state) 
+        { 
+          _nextState = state;
+        }
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -20,13 +30,14 @@ namespace ZooObjektorienteretProgram
         {
             // TODO: Add your initialization logic here
 
+            IsMouseVisible = true;
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -36,14 +47,20 @@ namespace ZooObjektorienteretProgram
                 Exit();
 
             // TODO: Add your update logic here
-
+            if (_nextState != null)
+            {
+                _currentState = _nextState;
+                _nextState = null;
+            }
+            _currentState.Update(gameTime);
+            _currentState.PostUpdate(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            _currentState.Draw(gameTime, _spriteBatch);
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
