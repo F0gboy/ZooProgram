@@ -17,6 +17,7 @@ namespace ZooObjektorienteretProgram
         private AnimalBoundaries animalFence;
         private List<AnimalBoundaries> fences = new();
         private Vector2 fencePosition;
+        private Vector2 fencePositionTemp;
         private int moveAmount = 45;
 
         private static Vector2 screenSize;
@@ -31,15 +32,15 @@ namespace ZooObjektorienteretProgram
             
 
             _graphics.PreferredBackBufferWidth = 1200;
-            _graphics.PreferredBackBufferHeight = 800;
+            _graphics.PreferredBackBufferHeight = 1000;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
-            fencePosition.X = -250;
-            fencePosition.Y = -250;
+            fencePosition.X = -550;
+            fencePosition.Y = -450;
+            fencePositionTemp.X = -150;
+            fencePositionTemp.Y = -450;
         }
-
-
 
         protected override void Initialize()
         {
@@ -48,6 +49,7 @@ namespace ZooObjektorienteretProgram
             _player = new Player(Content, _spriteBatch);
             base.Initialize();
         }
+
         public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
         {
             //De hardcodede værdier som f.eks "position.y + 5" er fordi at sprite billederne er forskellige pixel størrelser, så skal rykke dem lidt så de liner op.
@@ -57,6 +59,8 @@ namespace ZooObjektorienteretProgram
 
             int tempPos3 = boundarySizeY * 48;
             int tempPos2 = boundarySizeX * 48;
+
+            moveAmount = 48;
 
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
@@ -102,11 +106,29 @@ namespace ZooObjektorienteretProgram
             fences.Add(fenceCorner3);
         }
 
+        public void SpawnNextFence()
+        {
+            if (fencePositionTemp.X > 250)
+            {
+                fencePositionTemp.X = -550;
+                fencePositionTemp.Y += 325;
+                GenerateAnimalBoundaries(6, 5, fencePositionTemp);
+            }
+            else
+            {
+                GenerateAnimalBoundaries(6, 5, fencePositionTemp);
+                fencePositionTemp.X += 400;
+            }
+        }
+
 
         protected override void LoadContent()
         {
            
-           GenerateAnimalBoundaries( 5, 5, fencePosition);
+            GenerateAnimalBoundaries( 6, 5, fencePosition);
+
+            SpawnNextFence();
+            
 
             foreach (var fence in fences) 
             {
