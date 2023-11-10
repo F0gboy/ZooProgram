@@ -8,8 +8,7 @@ namespace ZooObjektorienteretProgram
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private 
-
+        
         private Vector2 Position = Vector2.Zero;
 
         public GameWorld()
