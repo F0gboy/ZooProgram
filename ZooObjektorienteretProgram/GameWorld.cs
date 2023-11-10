@@ -47,10 +47,6 @@ namespace ZooObjektorienteretProgram
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(Content, _spriteBatch);
             base.Initialize();
-<<<<<<< Updated upstream
-=======
-
-            
         }
 
         public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
@@ -98,8 +94,6 @@ namespace ZooObjektorienteretProgram
             AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", 6, 230);
             fences.Add(fenceCorner3);
 
->>>>>>> Stashed changes
-        }
 
         public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
         {
@@ -165,6 +159,7 @@ namespace ZooObjektorienteretProgram
 
             foreach (var fence in fences) 
             {
+                AnimalBoundaries fence = fences[i];
                 fence.LoadContent(Content);
             }
 
