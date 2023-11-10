@@ -29,6 +29,8 @@ namespace ZooObjektorienteretProgram
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
+            
+
             _graphics.PreferredBackBufferWidth = 1200;
             _graphics.PreferredBackBufferHeight = 1000;
 
@@ -38,7 +40,6 @@ namespace ZooObjektorienteretProgram
             fencePosition.Y = -450;
             fencePositionTemp.X = -150;
             fencePositionTemp.Y = -450;
-
         }
 
         protected override void Initialize()
@@ -47,58 +48,6 @@ namespace ZooObjektorienteretProgram
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(Content, _spriteBatch);
             base.Initialize();
-<<<<<<< Updated upstream
-=======
-
-            
-        }
-
-        public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
-        {
-            for (int i = 0; i < boundarySizeY - 1; i++)
-            {
-                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY1" + (1 + i), 0, -5 + moveAmount);
-                fences.Add(fence);
-                moveAmount += 48;
-            }
-
-            moveAmount = 0;
-
-            for (int i = 0; i < boundarySizeX - 1; i++)
-            {
-                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), moveAmount + 48, 0);
-                fences.Add(fence);
-                moveAmount += 48;
-            }
-
-            AnimalBoundaries fenceCorner1 = new AnimalBoundaries(1, "TopRightCorner", 230, 0);
-            fences.Add(fenceCorner1);
-
-            moveAmount = 40;
-
-            for (int i = 0; i < boundarySizeY - 1; i++)
-            {
-                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY2" + (1 + i), 233, moveAmount);
-                fences.Add(fence);
-                moveAmount += 48;
-            }
-
-            AnimalBoundaries fenceCorner2 = new AnimalBoundaries(4, "DownRightCorner", 230, 230);
-            fences.Add(fenceCorner2);
-
-            moveAmount = 44;
-
-            for (int i = 0; i < boundarySizeX - 1; i++)
-            {
-                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), moveAmount, 233);
-                fences.Add(fence);
-                moveAmount += 48;
-            }
-
-            AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", 6, 230);
-            fences.Add(fenceCorner3);
-
->>>>>>> Stashed changes
         }
 
         public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
@@ -175,26 +124,16 @@ namespace ZooObjektorienteretProgram
 
         protected override void LoadContent()
         {
+           
+            GenerateAnimalBoundaries( 6, 5, fencePosition);
+
+            SpawnNextFence();
             
-
-            GenerateAnimalBoundaries(6, 5, fencePosition);
-
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-
 
             foreach (var fence in fences) 
             {
                 fence.LoadContent(Content);
             }
-
-
 
             // TODO: use this.Content to load your game content here
         }
