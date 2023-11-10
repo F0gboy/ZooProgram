@@ -19,6 +19,7 @@ namespace ZooObjektorienteretProgram
         public abstract void LoadContent(ContentManager content);
 
         public abstract void Draw(SpriteBatch spriteBatch);
+
         
     }
 }

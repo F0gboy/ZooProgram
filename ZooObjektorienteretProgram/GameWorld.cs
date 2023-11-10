@@ -1,6 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ZooObjektorienteretProgram
 {
@@ -10,12 +14,32 @@ namespace ZooObjektorienteretProgram
         private SpriteBatch _spriteBatch;
         private Player _player;
 
+        private AnimalBoundaries animalFence;
+        private List<AnimalBoundaries> fences = new();
+        private Vector2 fencePosition;
+        private int moveAmount = 45;
+
+        private static Vector2 screenSize;
+        public static Vector2 ScreenSize { get => screenSize; }
+
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            
+
+            _graphics.PreferredBackBufferWidth = 1200;
+            _graphics.PreferredBackBufferHeight = 800;
+
+            screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
+
+            fencePosition.X = -250;
+            fencePosition.Y = -250;
         }
+
+
 
         protected override void Initialize()
         {
@@ -77,9 +101,72 @@ namespace ZooObjektorienteretProgram
 >>>>>>> Stashed changes
         }
 
+        public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
+        {
+            //De hardcodede værdier som f.eks "position.y + 5" er fordi at sprite billederne er forskellige pixel størrelser, så skal rykke dem lidt så de liner op.
+
+
+            animalFence = new AnimalBoundaries(0, "TopLeftCorner", position.X + 5, position.Y + 0);
+            fences.Add(animalFence);
+
+            int tempPos3 = boundarySizeY * 48;
+            int tempPos2 = boundarySizeX * 48;
+
+            for (int i = 0; i < boundarySizeY - 1; i++)
+            {
+                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY1" + (1 + i), position.X, position.Y + -5f + moveAmount);
+                fences.Add(fence);
+                moveAmount += 48;
+            }
+
+            moveAmount = 0;
+
+            for (int i = 0; i < boundarySizeX - 1; i++)
+            {
+                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), position.X + moveAmount + 48, position.Y);
+                fences.Add(fence);
+                moveAmount += 48;
+            }
+
+            AnimalBoundaries fenceCorner1 = new AnimalBoundaries(1, "TopRightCorner", position.X + tempPos2 - 6, position.Y);
+            fences.Add(fenceCorner1);
+
+            moveAmount = 40;
+
+            for (int i = 0; i < boundarySizeY - 1; i++)
+            {
+                AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY2" + (1 + i),position.X + tempPos2 - 3, position.Y + moveAmount );
+                fences.Add(fence);
+                moveAmount += 48;
+            }
+
+            AnimalBoundaries fenceCorner2 = new AnimalBoundaries(4, "DownRightCorner", position.X + tempPos2 - 6, position.Y + tempPos3);
+            fences.Add(fenceCorner2);
+
+            moveAmount = 44;
+
+            for (int i = 0; i < boundarySizeX - 1; i++)
+            {
+                AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), position.X + moveAmount + 4, position.Y + tempPos3 + 3);
+                fences.Add(fence);
+                moveAmount += 48;
+            }
+
+            AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", position.X + 6, position.Y + tempPos3);
+            fences.Add(fenceCorner3);
+        }
+
+
         protected override void LoadContent()
         {
             
+
+           GenerateAnimalBoundaries( 5, 5, fencePosition);
+
+            foreach (var fence in fences) 
+            {
+                fence.LoadContent(Content);
+            }
 
             // TODO: use this.Content to load your game content here
         }
@@ -99,12 +186,16 @@ namespace ZooObjektorienteretProgram
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            _spriteBatch.Begin(samplerState: SamplerState.PointWrap);
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
-            _player.DrawButtons(_spriteBatch);
-
+            //animalFence.Draw(_spriteBatch);
+            
+            foreach (var fence in fences)
+            {
+                fence.Draw(_spriteBatch);
+            }
+            
             _spriteBatch.End();
-
 
             base.Draw(gameTime);
         }
