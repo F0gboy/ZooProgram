@@ -38,8 +38,6 @@ namespace ZooObjektorienteretProgram
 
             fencePosition.X = -550;
             fencePosition.Y = -450;
-            fencePositionTemp.X = -550;
-            fencePositionTemp.Y = -450;
         }
 
         protected override void Initialize()
@@ -54,6 +52,8 @@ namespace ZooObjektorienteretProgram
         {
             //De hardcodede værdier som f.eks "position.y + 5" er fordi at sprite billederne er forskellige pixel størrelser, så skal rykke dem lidt så de liner op.
 
+
+            //sætter inital fence, top venstre hjørne, og tilføjer til animalFence list.
             animalFence = new AnimalBoundaries(0, "TopLeftCorner", position.X + 5, position.Y + 0);
             fences.Add(animalFence);
 
@@ -61,6 +61,8 @@ namespace ZooObjektorienteretProgram
             int tempPos2 = boundarySizeX * 48;
 
             moveAmount = 48;
+
+            //laver den første side af fences.
 
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
@@ -71,6 +73,8 @@ namespace ZooObjektorienteretProgram
 
             moveAmount = 0;
 
+            //laver den næste side af fences
+
             for (int i = 0; i < boundarySizeX - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), position.X + moveAmount + 48, position.Y);
@@ -78,10 +82,14 @@ namespace ZooObjektorienteretProgram
                 moveAmount += 48;
             }
 
+            //sætter næste corner fence
+
             AnimalBoundaries fenceCorner1 = new AnimalBoundaries(1, "TopRightCorner", position.X + tempPos2 - 6, position.Y);
             fences.Add(fenceCorner1);
 
             moveAmount = 40;
+
+            //laver næste side af fences
 
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
@@ -90,10 +98,14 @@ namespace ZooObjektorienteretProgram
                 moveAmount += 48;
             }
 
+            //laver næste corner fence
+
             AnimalBoundaries fenceCorner2 = new AnimalBoundaries(4, "DownRightCorner", position.X + tempPos2 - 6, position.Y + tempPos3);
             fences.Add(fenceCorner2);
 
             moveAmount = 44;
+
+            //laver sidste side af fences
 
             for (int i = 0; i < boundarySizeX - 1; i++)
             {
@@ -102,22 +114,27 @@ namespace ZooObjektorienteretProgram
                 moveAmount += 48;
             }
 
+            //laver sidste corner for at afslutte indhegningen.
+
             AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", position.X + 6, position.Y + tempPos3);
             fences.Add(fenceCorner3);
         }
 
         public void SpawnNextFence()
         {
-            if (fencePositionTemp.X > 200)
+            //Tjekker om fence positionen er ude fra skærmen, hvis den er, sæt den tilbage til start positionen, og ryk den en gang ned.
+            //Hvis den ikke er ude fra skærmen, ryk den en gang til højre.
+
+            if (fencePosition.X > 200)
             {
-                fencePositionTemp.X = -550;
-                fencePositionTemp.Y += 325;
-                GenerateAnimalBoundaries(6, 5, fencePositionTemp);
+                fencePosition.X = -550;
+                fencePosition.Y += 325;
+                GenerateAnimalBoundaries(6, 5, fencePosition);
             }
             else
             {
-                fencePositionTemp.X += 400;
-                GenerateAnimalBoundaries(6, 5, fencePositionTemp);
+                fencePosition.X += 400;
+                GenerateAnimalBoundaries(6, 5, fencePosition);
             }
         }
 
@@ -126,6 +143,8 @@ namespace ZooObjektorienteretProgram
         {
            
             GenerateAnimalBoundaries( 6, 5, fencePosition);
+
+
 
             foreach (var fence in fences) 
             {
