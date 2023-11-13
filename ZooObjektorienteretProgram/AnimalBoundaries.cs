@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
-using static System.Formats.Asn1.AsnWriter;
 using Microsoft.Xna.Framework.Content;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace ZooObjektorienteretProgram
 {
-    internal class AnimalBoundaries : GameObject
+    internal class AnimalBoundaries
     {
         private SpriteBatch _spriteBatch;
         private Rectangle rectangle;
@@ -30,7 +30,7 @@ namespace ZooObjektorienteretProgram
             this.name = Name;
         }
 
-        public override void LoadContent(ContentManager content)
+        private void LoadContent(ContentManager content)
         {
             for (int i = 0; i < 6; i++)
             {
@@ -41,7 +41,7 @@ namespace ZooObjektorienteretProgram
             spritePosition.Y = GameWorld.ScreenSize.Y / 2 + moveAmountY;
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        private void DrawBoundary(GameTime gameTime)
         {
             Vector2 origin = new Vector2(boundarySprites[chosenSprite].Width / 2, boundarySprites[chosenSprite].Height / 2);
             spriteBatch.Draw(boundarySprites[chosenSprite], spritePosition, null, Color.White, 0, origin, 3, SpriteEffects.None, 0);
@@ -58,6 +58,7 @@ namespace ZooObjektorienteretProgram
                     (int)boundarySprites[chosenSprite].Bounds.Y
                 );
             }
+
         }
     }
 }
