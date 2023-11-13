@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
+using ZooObjektorienteretProgram.States;
 
 namespace ZooObjektorienteretProgram
 {
+    
     public class GameWorld : Game
     {
         private GraphicsDeviceManager _graphics;
@@ -24,6 +25,15 @@ namespace ZooObjektorienteretProgram
         private static Vector2 screenSize;
         public static Vector2 ScreenSize { get => screenSize; }
 
+        private State _currentState;
+        private State _nextState;
+        
+        
+        
+        public void ChangeState(State state) 
+        { 
+          _nextState = state;
+        }
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -53,6 +63,11 @@ namespace ZooObjektorienteretProgram
             }
             
 
+            IsMouseVisible = true;
+            _graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferHeight = 1280;
+            _graphics.IsFullScreen = false;
+            _graphics.ApplyChanges();
             base.Initialize();
         }
 
@@ -159,6 +174,8 @@ namespace ZooObjektorienteretProgram
                 fence.LoadContent(Content);
             }
 
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -170,13 +187,20 @@ namespace ZooObjektorienteretProgram
             // TODO: Add your update logic here
             _player.MouseUpdate();
             _spawner.AnimalUpdate();
+            if (_nextState != null)
+            {
+                _currentState = _nextState;
+                _nextState = null;
+            }
+            _currentState.Update(gameTime);
+            _currentState.PostUpdate(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            _currentState.Draw(gameTime, _spriteBatch);
             // TODO: Add your drawing code here
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
