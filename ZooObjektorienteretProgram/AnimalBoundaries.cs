@@ -30,7 +30,7 @@ namespace ZooObjektorienteretProgram
             this.name = Name;
         }
 
-        private void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content)
         {
             for (int i = 0; i < 6; i++)
             {
@@ -41,7 +41,7 @@ namespace ZooObjektorienteretProgram
             spritePosition.Y = GameWorld.ScreenSize.Y / 2 + moveAmountY;
         }
 
-        private void DrawBoundary(GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch)
         {
             Vector2 origin = new Vector2(boundarySprites[chosenSprite].Width / 2, boundarySprites[chosenSprite].Height / 2);
             spriteBatch.Draw(boundarySprites[chosenSprite], spritePosition, null, Color.White, 0, origin, 3, SpriteEffects.None, 0);

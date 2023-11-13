@@ -1,12 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
+﻿using ZooObjektorienteretProgram.States;
+using System;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using ZooObjektorienteretProgram.States;
 
 namespace ZooObjektorienteretProgram
 {
-    
+
     public class GameWorld : Game
     {
         private GraphicsDeviceManager _graphics;
@@ -29,11 +30,6 @@ namespace ZooObjektorienteretProgram
         private State _nextState;
         
         
-        
-        public void ChangeState(State state) 
-        { 
-          _nextState = state;
-        }
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -49,6 +45,11 @@ namespace ZooObjektorienteretProgram
 
             fencePosition.X = -550;
             fencePosition.Y = -450;
+        }
+
+        public void ChangeState(State state)
+        {
+            _nextState = state;
         }
 
         protected override void Initialize()
@@ -167,14 +168,12 @@ namespace ZooObjektorienteretProgram
            
             GenerateAnimalBoundaries( 6, 5, fencePosition);
 
-
-
             foreach (var fence in fences) 
             {
                 fence.LoadContent(Content);
             }
 
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
             // TODO: use this.Content to load your game content here
         }
