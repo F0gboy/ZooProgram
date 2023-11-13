@@ -13,8 +13,9 @@ namespace ZooObjektorienteretProgram
 
         private State _currentState;
         private State _nextState;
-        private static Vector2 screenSize;
-        public static Vector2 ScreenSize { get => screenSize; }
+        
+        
+        
         public void ChangeState(State state) 
         { 
           _nextState = state;
@@ -31,6 +32,10 @@ namespace ZooObjektorienteretProgram
             // TODO: Add your initialization logic here
 
             IsMouseVisible = true;
+            _graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferHeight = 1280;
+            _graphics.IsFullScreen = false;
+            _graphics.ApplyChanges();
             base.Initialize();
         }
 
