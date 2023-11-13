@@ -97,6 +97,13 @@
 /processorParam:TextureFormat=Color
 /build:Fence6.png
 
+#begin Font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Font.spritefont
+
 #begin tile_bull.png
 /importer:TextureImporter
 /processor:TextureProcessor

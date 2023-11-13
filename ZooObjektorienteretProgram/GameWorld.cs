@@ -29,14 +29,11 @@ namespace ZooObjektorienteretProgram
         private State _currentState;
         private State _nextState;
         
-        
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
-            
 
             _graphics.PreferredBackBufferWidth = 1200;
             _graphics.PreferredBackBufferHeight = 1000;

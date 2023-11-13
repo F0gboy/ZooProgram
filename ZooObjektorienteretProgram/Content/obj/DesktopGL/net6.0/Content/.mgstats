@@ -1,10 +1,2 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_bull.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/tile_bull.xnb","TextureProcessor","Texture2DContent",2366,1109,0,121187
-"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_bunny.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/tile_bunny.xnb","TextureProcessor","Texture2DContent",2297,1109,0,0020412
-"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_chicken.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/tile_chicken.xnb","TextureProcessor","Texture2DContent",2081,1109,0,0020893
-"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_cow.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/tile_cow.xnb","TextureProcessor","Texture2DContent",2392,1109,0,0028856
-"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_duck.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/tile_duck.xnb","TextureProcessor","Texture2DContent",2298,1109,0,0017949
-"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_fish.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/tile_fish.xnb","TextureProcessor","Texture2DContent",2322,1109,0,0014475
-"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_horse.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/tile_horse.xnb","TextureProcessor","Texture2DContent",2390,1109,0,0013135
-"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_pig.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/tile_pig.xnb","TextureProcessor","Texture2DContent",2313,1109,0,0019232
-"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_sheep.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/tile_sheep.xnb","TextureProcessor","Texture2DContent",2393,1109,0,0016891
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Font.spritefont","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Content/Font.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0,1448731

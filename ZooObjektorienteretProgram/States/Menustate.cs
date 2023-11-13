@@ -17,8 +17,8 @@ namespace ZooObjektorienteretProgram.States
         public MenuState(GameWorld game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
-            var buttonTexture = _content.Load<Texture2D>("Controls/Button");
-            var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
+            var buttonTexture = _content.Load<Texture2D>("Button");
+            var buttonFont = _content.Load<SpriteFont>("Font");
 
             var newGameButton = new MenuButton(buttonTexture, buttonFont)
             {
@@ -45,11 +45,11 @@ namespace ZooObjektorienteretProgram.States
             quitGameButton.Click += QuitGameButton_Click;
 
             _components = new List<Component>()
-      {
-        newGameButton,
-        loadGameButton,
-        quitGameButton,
-      };
+            {
+                newGameButton,
+                loadGameButton,
+                quitGameButton,
+            };
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
