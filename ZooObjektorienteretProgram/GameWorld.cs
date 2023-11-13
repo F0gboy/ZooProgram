@@ -35,8 +35,8 @@ namespace ZooObjektorienteretProgram
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            _graphics.PreferredBackBufferWidth = 1200;
-            _graphics.PreferredBackBufferHeight = 1000;
+            //_graphics.PreferredBackBufferWidth = 1200;
+            //_graphics.PreferredBackBufferHeight = 1000;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
@@ -52,14 +52,14 @@ namespace ZooObjektorienteretProgram
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            _graphics.IsFullScreen = true;
+            //_graphics.IsFullScreen = true;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(Content, _spriteBatch);_spawner = new AnimalSpawner(Content);
+
             for (int i = 0; i < rnd.Next(10,25); i++)
             {
                 _spawner.SpawnAnimal(rnd.Next(1, 10));
             }
-            
 
             IsMouseVisible = true;
             _graphics.PreferredBackBufferWidth = 1920;
@@ -72,7 +72,6 @@ namespace ZooObjektorienteretProgram
         public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
         {
             //De hardcodede værdier som f.eks "position.y + 5" er fordi at sprite billederne er forskellige pixel størrelser, så skal rykke dem lidt så de liner op.
-
 
             //sætter inital fence, top venstre hjørne, og tilføjer til animalFence list.
             animalFence = new AnimalBoundaries(0, "TopLeftCorner", position.X + 5, position.Y + 0);
@@ -162,7 +161,6 @@ namespace ZooObjektorienteretProgram
 
         protected override void LoadContent()
         {
-           
             GenerateAnimalBoundaries( 6, 5, fencePosition);
 
             foreach (var fence in fences) 
@@ -170,7 +168,6 @@ namespace ZooObjektorienteretProgram
                 fence.LoadContent(Content);
             }
 
-            
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
             // TODO: use this.Content to load your game content here
         }
@@ -196,7 +193,9 @@ namespace ZooObjektorienteretProgram
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
             _currentState.Draw(gameTime, _spriteBatch);
+
             // TODO: Add your drawing code here
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 

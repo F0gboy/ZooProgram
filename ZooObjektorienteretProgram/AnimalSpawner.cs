@@ -44,6 +44,7 @@ namespace ZooObjektorienteretProgram
                     animal.ClickedAnimal();
                 }
             }
+
             foreach (var animal in animals)
             {
                 if (animal.dead == true)
@@ -54,7 +55,9 @@ namespace ZooObjektorienteretProgram
                 {
                     animal.Move();
                 }
-                
+
+                animal.Move();
+
             }
 
         }
