@@ -38,7 +38,7 @@ namespace ZooObjektorienteretProgram
 
             fencePosition.X = -550;
             fencePosition.Y = -450;
-            fencePositionTemp.X = -150;
+            fencePositionTemp.X = -550;
             fencePositionTemp.Y = -450;
         }
 
@@ -108,7 +108,7 @@ namespace ZooObjektorienteretProgram
 
         public void SpawnNextFence()
         {
-            if (fencePositionTemp.X > 300)
+            if (fencePositionTemp.X > 200)
             {
                 fencePositionTemp.X = -550;
                 fencePositionTemp.Y += 325;
@@ -116,8 +116,8 @@ namespace ZooObjektorienteretProgram
             }
             else
             {
-                GenerateAnimalBoundaries(6, 5, fencePositionTemp);
                 fencePositionTemp.X += 400;
+                GenerateAnimalBoundaries(6, 5, fencePositionTemp);
             }
         }
 
@@ -126,12 +126,6 @@ namespace ZooObjektorienteretProgram
         {
            
             GenerateAnimalBoundaries( 6, 5, fencePosition);
-
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-
 
             foreach (var fence in fences) 
             {
