@@ -138,3 +138,4 @@ E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ref\ZooObjek
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\animals\tile_sheep.xnb
 E:\GithubLib\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_sheep.xnb
 C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_sheep.xnb
+C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\GrassBackground.xnb

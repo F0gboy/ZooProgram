@@ -11,6 +11,8 @@ namespace ZooObjektorienteretProgram
         
         private Vector2 Position = Vector2.Zero;
 
+        private Texture2D _backgroundTexture; 
+
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -29,6 +31,7 @@ namespace ZooObjektorienteretProgram
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            _backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
             
 
@@ -49,9 +52,11 @@ namespace ZooObjektorienteretProgram
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+
+
             _spriteBatch.Begin();
 
-            
+            _spriteBatch.Draw(_backgroundTexture, new Vector2(0, 0), Color.White);
             
             _spriteBatch.End();
 
