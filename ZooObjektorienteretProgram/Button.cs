@@ -19,8 +19,7 @@ namespace ZooObjektorienteretProgram
         private Texture2D sprite;
         private ContentManager content;
         
-        //hej
-        //hej
+
 
         public Button(ContentManager content)
         {

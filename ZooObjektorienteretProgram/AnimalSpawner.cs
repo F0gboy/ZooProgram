@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,83 +12,103 @@ namespace ZooObjektorienteretProgram
 {
     internal class AnimalSpawner : Game
     {
+        private Point mousePosition;
+        private MouseState mouseState;
+
         private Texture2D sheep;
         private Texture2D pig;
         private Texture2D cow;
         private Texture2D chicken;
         private Texture2D horse;
         private Texture2D bunny;
-        private Texture2D dolphin;
-        private Texture2D unicorn;
+        private Texture2D bull;
         private Texture2D fish;
         private Texture2D duck;
+        List<Animal> animals = new List<Animal>();
 
-        
-        private int AnimalValue = 0;
-        private int MaxAnimalValue = 10;
-
-        public void UpdateAnimalValue(int newValue)
+        public AnimalSpawner(ContentManager content)
         {
-            if (newValue >= 0 && newValue <= MaxAnimalValue)
+            LoadContent(content);
+
+        } 
+
+        public void AnimalUpdate()
+        {
+            mouseState = Mouse.GetState();
+            mousePosition = new Point(mouseState.X, mouseState.Y);
+
+            if (mouseState.LeftButton == ButtonState.Pressed)
             {
-                AnimalValue = newValue;
+                foreach (var animal in animals)
+                {
+                    animal.ClickedAnimal();
+                }
             }
-            else if (newValue > MaxAnimalValue)
+            foreach (var animal in animals)
             {
-                AnimalValue = MaxAnimalValue;
+                if (animal.dead == true)
+                {
+                    animals.Remove(animal);
+                }
+                else
+                {
+                    animal.Move();
+                }
+                
             }
-            
+
         }
 
-        // mangler en motode til at ændre værdien på AnimalValue, så man kan vælge dyr. 
-
-
-        // mangler at kunen spawne dyr. 
-
-        public void SpawnAnimal()
+        public void SpawnAnimal(int spawnNum)
         {
             // Case to choice animals. 
-            switch (AnimalValue)
+            switch (spawnNum)
             {
                 case 1:
-                    Console.WriteLine("sheep");
-                    sheep = Content.Load<Texture2D>("tile_sheep"); 
+                    animals.Add(new Animal());
+                    animals[animals.Count-1].SelectSprite(sheep);
+                    animals[animals.Count - 1].price = 0.5f;
                     break;
                 case 2:
-                    Console.WriteLine("pig");
-                    pig = Content.Load<Texture2D>("tile_pig");
+                    animals.Add(new Animal());
+                    animals[animals.Count-1].SelectSprite(pig);
+                    animals[animals.Count - 1].price = 0.75f;
                     break;
+
                 case 3:
-                    Console.WriteLine("cow");
-                    cow = Content.Load<Texture2D>("tile_cow");
+                    animals.Add(new Animal());
+                    animals[animals.Count-1].SelectSprite(cow);
+                    animals[animals.Count - 1].price = 1f;
                     break;
                 case 4:
-                    Console.WriteLine("chicken");
-                    chicken = Content.Load<Texture2D>("tile_chicken");
+                    animals.Add(new Animal());
+                    animals[animals.Count-1].SelectSprite(chicken);
+                    animals[animals.Count - 1].price = 1.5f;
                     break;
                 case 5:
-                    Console.WriteLine("horse");
-                    horse = Content.Load<Texture2D>("tile_horse");
+                    animals.Add(new Animal());
+                    animals[animals.Count-1].SelectSprite(horse);
+                    animals[animals.Count - 1].price = 2f;
                     break;
                 case 6:
-                    Console.WriteLine("bunny");
-                    bunny = Content.Load<Texture2D>("tile_bunny");
+                    animals.Add(new Animal());
+                    animals[animals.Count-1].SelectSprite(bunny);
+                    animals[animals.Count - 1].price = 2.5f;
                     break;
                 case 7:
-                    Console.WriteLine("dolphin");
-                    dolphin = Content.Load<Texture2D>("tile_dolphin");
+                    animals.Add(new Animal());
+                    animals[animals.Count-1].SelectSprite(bull);
+                    animals[animals.Count - 1].price = 3f;
                     break;
                 case 8:
-                    Console.WriteLine("unicorn");
-                    unicorn = Content.Load<Texture2D>("tile_unicorn");
+                    animals.Add(new Animal());
+                    animals[animals.Count-1].SelectSprite(fish);
+                    animals[animals.Count - 1].price = 4f;
                     break;
                 case 9:
-                    Console.WriteLine("fish");
-                    fish = Content.Load<Texture2D>("tile_fish");
-                    break;
-                case 10:
-                    Console.WriteLine("Duck");
-                    duck = Content.Load<Texture2D>("tile_duck");
+                    animals.Add(new Animal());
+                    animals[animals.Count-1].SelectSprite(duck);
+                    animals[animals.Count - 1].price = 5f;
                     break;
                 default:
                     Console.WriteLine("could not find an animal");
@@ -95,6 +116,31 @@ namespace ZooObjektorienteretProgram
 
             }
          }
-                       
+
+        public void AnimalDraw(SpriteBatch spriteBatch)
+        {
+            if (animals.Count != 0)
+            {
+                foreach (var animal in animals)
+                {
+                    animal.Draw(spriteBatch);
+                }
+            }
+        }
+          
+        public void LoadContent(ContentManager Content)
+        {
+            sheep = Content.Load<Texture2D>("tile_sheep");
+            pig = Content.Load<Texture2D>("tile_pig");
+            cow = Content.Load<Texture2D>("tile_cow");
+            chicken = Content.Load<Texture2D>("tile_chicken");
+            horse = Content.Load<Texture2D>("tile_horse");
+            bunny = Content.Load<Texture2D>("tile_bunny");
+            bull = Content.Load<Texture2D>("tile_bull");
+            fish = Content.Load<Texture2D>("tile_fish");
+            duck = Content.Load<Texture2D>("tile_duck");
+        }
+
+
     }
 }

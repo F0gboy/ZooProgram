@@ -80,3 +80,12 @@ C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Con
 C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence5.xnb
 C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Fence6.xnb
 C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Button.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_sheep.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_bull.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_bunny.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_chicken.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_cow.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_duck.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_fish.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_horse.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\tile_pig.xnb
