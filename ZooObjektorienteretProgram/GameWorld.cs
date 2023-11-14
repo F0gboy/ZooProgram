@@ -1,9 +1,12 @@
+
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 ﻿using ZooObjektorienteretProgram.States;
 using System;
-using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 
 namespace ZooObjektorienteretProgram
 {
@@ -12,10 +15,17 @@ namespace ZooObjektorienteretProgram
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
+        private Money moneyManager;
+        public SpriteFont moneyFont;
+        private Money cash;
+        private float elapsedSeconds;
+        private float drainInterval = 1f;
+        private Food___Water foodWaterObject;
+
         private Player _player;
         private AnimalSpawner _spawner;
         private Random rnd = new Random();
-        
 
         private AnimalBoundaries animalFence;
         private List<AnimalBoundaries> fences = new();
@@ -28,12 +38,14 @@ namespace ZooObjektorienteretProgram
 
         private State _currentState;
         private State _nextState;
-        
+
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            cash = new Money(Content);
 
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
@@ -48,11 +60,14 @@ namespace ZooObjektorienteretProgram
         public void ChangeState(State state)
         {
             _nextState = state;
+
         }
 
         protected override void Initialize()
         {
+            foodWaterObject = new Food___Water();
             // TODO: Add your initialization logic here
+
             //_graphics.IsFullScreen = true;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(Content, _spriteBatch);_spawner = new AnimalSpawner(Content);
@@ -159,7 +174,12 @@ namespace ZooObjektorienteretProgram
 
         protected override void LoadContent()
         {
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            moneyFont = Content.Load<SpriteFont>("Money");
+            foodWaterObject.LoadContent(Content);
+
             GenerateAnimalBoundaries( 6, 5, fencePosition);
+
 
             foreach (var fence in fences) 
             {
@@ -175,8 +195,20 @@ namespace ZooObjektorienteretProgram
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            cash.AddMoney();
+            cash.SpendMoney();
             // TODO: Add your update logic here
+
+            elapsedSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            foodWaterObject.Update();
+
+            if (elapsedSeconds >= drainInterval)
+            {
+                foodWaterObject.Drain();
+                elapsedSeconds = 0; // Reset the elapsed time
+            }
+
             _player.MouseUpdate();
             _spawner.AnimalUpdate();
             if (_nextState != null)
@@ -186,6 +218,7 @@ namespace ZooObjektorienteretProgram
             }
             _currentState.Update(gameTime);
             _currentState.PostUpdate(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -193,12 +226,13 @@ namespace ZooObjektorienteretProgram
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _currentState.Draw(gameTime, _spriteBatch);
-
-            // TODO: Add your drawing code here
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
-            //animalFence.Draw(_spriteBatch);
+            _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
+
+            foodWaterObject.Draw(gameTime, _spriteBatch);
+
+            _currentState.Draw(gameTime, _spriteBatch);
             
             foreach (var fence in fences)
             {
@@ -211,5 +245,6 @@ namespace ZooObjektorienteretProgram
 
             base.Draw(gameTime);
         }
+        
     }
 }
