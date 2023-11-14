@@ -24,7 +24,7 @@ namespace ZooObjektorienteretProgram
         private Texture2D bull;
         private Texture2D fish;
         private Texture2D duck;
-        List<Animal> animals = new List<Animal>();
+        public List<Animal> animals = new List<Animal>();
 
         public AnimalSpawner(ContentManager content)
         {

@@ -51,11 +51,7 @@ namespace ZooObjektorienteretProgram
 
         public void Move()
         {
-            if (dead == true)
-            {
-
-            }
-            if (rnd.Next(1, 10) > 6)
+            if (rnd.Next(1, 10) > 3)
             {
 
             }

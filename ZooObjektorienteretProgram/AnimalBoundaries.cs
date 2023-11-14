@@ -52,10 +52,10 @@ namespace ZooObjektorienteretProgram
             get
             {
                 return new Rectangle(
-                    (int)(spritePosition.X - boundarySprites[chosenSprite].Bounds.X / 2),
-                    (int)(spritePosition.Y - boundarySprites[chosenSprite].Bounds.Y / 2),
-                    (int)boundarySprites[chosenSprite].Bounds.X,
-                    (int)boundarySprites[chosenSprite].Bounds.Y
+                    (int)(spritePosition.X - boundarySprites[chosenSprite].Bounds.X),
+                    (int)(spritePosition.Y - boundarySprites[chosenSprite].Bounds.Y),
+                    (int)boundarySprites[chosenSprite].Bounds.X * 2,
+                    (int)boundarySprites[chosenSprite].Bounds.Y * 2
                 );
             }
 
