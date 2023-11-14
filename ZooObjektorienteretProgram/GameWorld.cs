@@ -35,8 +35,9 @@ namespace ZooObjektorienteretProgram
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            //_graphics.PreferredBackBufferWidth = 1200;
-            //_graphics.PreferredBackBufferHeight = 1000;
+            _graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.IsFullScreen = true;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
@@ -62,10 +63,7 @@ namespace ZooObjektorienteretProgram
             }
 
             IsMouseVisible = true;
-            _graphics.PreferredBackBufferWidth = 1920;
-            _graphics.PreferredBackBufferHeight = 1280;
-            _graphics.IsFullScreen = false;
-            _graphics.ApplyChanges();
+            
             base.Initialize();
         }
 
@@ -167,7 +165,7 @@ namespace ZooObjektorienteretProgram
             {
                 fence.LoadContent(Content);
             }
-            _backgroundTexture = Content.Load<Texture2D>("GrassBackground");
+            //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
             // TODO: use this.Content to load your game content here
