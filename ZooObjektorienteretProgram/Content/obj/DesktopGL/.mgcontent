@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+<<<<<<< HEAD
     <File>C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Drinking sound.wav</File>
     <File>C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Eat Sound.wav</File>
     <File>C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png</File>
@@ -20,6 +21,25 @@
     <File>C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Water1.png</File>
     <File>C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Water2.png</File>
     <File>C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Water3.png</File>
+=======
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Button.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence2.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence3.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence4.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence5.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Font.spritefont</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_bull.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_bunny.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_chicken.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_cow.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_duck.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_fish.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_horse.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_pig.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_sheep.png</File>
+>>>>>>> e2ec2da869a3efbfbc32e87f1abb734898686f19
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
@@ -38,5 +58,9 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+<<<<<<< HEAD
+=======
+    <File xsi:nil="true" />
+>>>>>>> e2ec2da869a3efbfbc32e87f1abb734898686f19
   </DestFiles>
 </SourceFileCollection>

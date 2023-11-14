@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+<<<<<<< HEAD
 "C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Drinking sound.wav","C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Drinking sound.xnb","SoundEffectProcessor","SoundEffectContent",289998,289893,0,2121005
 "C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Eat Sound.wav","C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Eat Sound.xnb","SoundEffectProcessor","SoundEffectContent",334580,334473,0,1248314
 "C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png","C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence1.xnb","TextureProcessor","Texture2DContent",526,1489,0,0412666
@@ -15,3 +16,22 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Water1.png","C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Water1.xnb","TextureProcessor","Texture2DContent",297,16469,0,0025708
 "C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Water2.png","C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Water2.xnb","TextureProcessor","Texture2DContent",306,16469,0,0027903
 "C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/Water3.png","C:/Users/zappe/OneDrive/Dokumenter/GitHub/Not The End/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Water3.xnb","TextureProcessor","Texture2DContent",298,16469,0,0025945
+=======
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Button.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Button.xnb","TextureProcessor","Texture2DContent",291304,2250085,0,1452541
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence1.xnb","TextureProcessor","Texture2DContent",526,1489,0,0063776
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence2.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence2.xnb","TextureProcessor","Texture2DContent",527,1381,0,0042588
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence3.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence3.xnb","TextureProcessor","Texture2DContent",463,1201,0,0039888
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence4.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence4.xnb","TextureProcessor","Texture2DContent",556,1813,0,0043362
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence5.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence5.xnb","TextureProcessor","Texture2DContent",560,1525,0,0008698
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence6.xnb","TextureProcessor","Texture2DContent",583,1645,0,0025332
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Font.spritefont","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Font.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0,0891304
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_bull.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/tile_bull.xnb","TextureProcessor","Texture2DContent",2366,1109,0,0015929
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_bunny.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/tile_bunny.xnb","TextureProcessor","Texture2DContent",2297,1109,0,0090546
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_chicken.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/tile_chicken.xnb","TextureProcessor","Texture2DContent",2081,1109,0,0021492
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_cow.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/tile_cow.xnb","TextureProcessor","Texture2DContent",2392,1109,0,0015303
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_duck.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/tile_duck.xnb","TextureProcessor","Texture2DContent",2298,1109,0,0016348
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_fish.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/tile_fish.xnb","TextureProcessor","Texture2DContent",2322,1109,0,0011584
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_horse.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/tile_horse.xnb","TextureProcessor","Texture2DContent",2390,1109,0,0014024
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_pig.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/tile_pig.xnb","TextureProcessor","Texture2DContent",2313,1109,0,0010596
+"F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_sheep.png","F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/tile_sheep.xnb","TextureProcessor","Texture2DContent",2393,1109,0,0017505
+>>>>>>> e2ec2da869a3efbfbc32e87f1abb734898686f19
