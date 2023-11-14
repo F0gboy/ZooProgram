@@ -1,21 +1,18 @@
-﻿using ZooObjektorienteretProgram.States;
-using System;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ZooObjektorienteretProgram
 {
-
     public class GameWorld : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Player _player;
-        private AnimalSpawner _spawner;
-        private Random rnd = new Random();
-        
 
         private AnimalBoundaries animalFence;
         private List<AnimalBoundaries> fences = new();
@@ -26,18 +23,16 @@ namespace ZooObjektorienteretProgram
         private static Vector2 screenSize;
         public static Vector2 ScreenSize { get => screenSize; }
 
-        private State _currentState;
-        private State _nextState;
-        
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            _graphics.PreferredBackBufferWidth = 1920;
-            _graphics.PreferredBackBufferHeight = 1080;
-            //_graphics.IsFullScreen = true;
+            
+
+            _graphics.PreferredBackBufferWidth = 1200;
+            _graphics.PreferredBackBufferHeight = 1000;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
@@ -45,31 +40,18 @@ namespace ZooObjektorienteretProgram
             fencePosition.Y = -450;
         }
 
-        public void ChangeState(State state)
-        {
-            _nextState = state;
-        }
-
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            //_graphics.IsFullScreen = true;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _player = new Player(Content, _spriteBatch);_spawner = new AnimalSpawner(Content);
-
-            for (int i = 0; i < rnd.Next(10,25); i++)
-            {
-                _spawner.SpawnAnimal(rnd.Next(1, 10));
-            }
-
-            IsMouseVisible = true;
-            
+            _player = new Player(Content, _spriteBatch);
             base.Initialize();
         }
 
         public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
         {
             //De hardcodede værdier som f.eks "position.y + 5" er fordi at sprite billederne er forskellige pixel størrelser, så skal rykke dem lidt så de liner op.
+
 
             //sætter inital fence, top venstre hjørne, og tilføjer til animalFence list.
             animalFence = new AnimalBoundaries(0, "TopLeftCorner", position.X + 5, position.Y + 0);
@@ -159,15 +141,16 @@ namespace ZooObjektorienteretProgram
 
         protected override void LoadContent()
         {
+           
             GenerateAnimalBoundaries( 6, 5, fencePosition);
+
+
 
             foreach (var fence in fences) 
             {
                 fence.LoadContent(Content);
             }
-            //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
-            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -178,22 +161,12 @@ namespace ZooObjektorienteretProgram
 
             // TODO: Add your update logic here
             _player.MouseUpdate();
-            _spawner.AnimalUpdate();
-            if (_nextState != null)
-            {
-                _currentState = _nextState;
-                _nextState = null;
-            }
-            _currentState.Update(gameTime);
-            _currentState.PostUpdate(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            _currentState.Draw(gameTime, _spriteBatch);
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
@@ -206,8 +179,6 @@ namespace ZooObjektorienteretProgram
             }
             
             _spriteBatch.End();
-
-            _spawner.AnimalDraw(_spriteBatch);
 
             base.Draw(gameTime);
         }
