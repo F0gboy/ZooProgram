@@ -32,26 +32,9 @@ namespace ZooObjektorienteretProgram
         private AnimalBoundaries animalFence;
         private List<List<AnimalBoundaries>> fenceLists = new List<List<AnimalBoundaries>>();
         private List<AnimalBoundaries> allFences = new();
-        private List<Rectangle> fenceRecs = new();
-        private List<AnimalBoundaries> fence1 = new();
-        private Rectangle fence1Rec = new Rectangle();
-        private List<AnimalBoundaries> fence2 = new();
-        private Rectangle fence2Rec = new Rectangle();
-        private List<AnimalBoundaries> fence3 = new();
-        private Rectangle fence3Rec = new Rectangle();
-        private List<AnimalBoundaries> fence4 = new();
-        private Rectangle fence4Rec = new Rectangle();
-        private List<AnimalBoundaries> fence5 = new();
-        private Rectangle fence5Rec = new Rectangle();
-        private List<AnimalBoundaries> fence6 = new();
-        private Rectangle fence6Rec = new Rectangle();
-        private List<AnimalBoundaries> fence7 = new();
-        private Rectangle fence7Rec = new Rectangle();
-        private List<AnimalBoundaries> fence8 = new();
-        private Rectangle fence8Rec = new Rectangle();
-        private List<AnimalBoundaries> fence9 = new();
-        private Rectangle fence9Rec = new Rectangle();
-        int s;
+        public List<Rectangle> fenceRecs = new();
+        
+        int s = 0;
 
         private Vector2 fencePosition;
         private Vector2 fencePositionTemp;
@@ -85,26 +68,10 @@ namespace ZooObjektorienteretProgram
                 Rectangle fence1Rec = new Rectangle();
                 fenceRecs.Add(fence1Rec);
 
+                List<AnimalBoundaries> fenceTemp = new();
+                fenceLists.Add(fenceTemp);
             }
-
-            fenceLists.Add(fence1);
-            fenceRecs.Add(fence1Rec);
-            fenceLists.Add(fence2);
-            fenceRecs.Add(fence2Rec);
-            fenceLists.Add(fence3);
-            fenceRecs.Add(fence3Rec);
-            fenceLists.Add(fence4);
-            fenceRecs.Add(fence4Rec);
-            fenceLists.Add(fence5);
-            fenceRecs.Add(fence5Rec);
-            fenceLists.Add(fence6);
-            fenceRecs.Add(fence6Rec);
-            fenceLists.Add(fence7);
-            fenceRecs.Add(fence7Rec);
-            fenceLists.Add(fence8);
-            fenceRecs.Add(fence8Rec);
-            fenceLists.Add(fence9);
-            fenceRecs.Add(fence9Rec);
+           
         }
 
         public void ChangeState(State state)
@@ -205,6 +172,7 @@ namespace ZooObjektorienteretProgram
             AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", position.X + 6, position.Y + tempPos3);
             allFences.Add(fenceCorner3);
             fenceLists[s].Add(fenceCorner3);
+
         }
 
         public void SpawnNextFence()
@@ -212,7 +180,7 @@ namespace ZooObjektorienteretProgram
             //Tjekker om fence positionen er ude fra skærmen, hvis den er, sæt den tilbage til start positionen, og ryk den en gang ned.
             //Hvis den ikke er ude fra skærmen, ryk den en gang til højre.
 
-            s = 0;
+            s++;
 
             if (fencePosition.X > 200)
             {
@@ -226,7 +194,7 @@ namespace ZooObjektorienteretProgram
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
             }
 
-            s += 1;
+            
         }
 
 
@@ -237,8 +205,7 @@ namespace ZooObjektorienteretProgram
 
             GenerateAnimalBoundaries( 6, 5, fencePosition, s);
             //fenceRecs[0].X = fencePosition.X + 50;
-            //fenceRecs[0].Y = fencePosition.Y + 50;
-            
+            fenceRecs[0].Y = fencePosition.Y + 50;
 
             for (int i = 0; i < 15; i++)
             {
