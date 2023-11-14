@@ -11,7 +11,11 @@ using System.Threading.Tasks;
 namespace ZooObjektorienteretProgram
 {
     internal abstract class GameObject
-    {
+    
+        private Texture2D sprite;
+        protected Vector2 position1;
+        protected Vector2 position2;
+
         protected Texture2D[] sprite;
         protected Vector2 position;
         protected float animationSpeed;
@@ -36,7 +40,6 @@ namespace ZooObjektorienteretProgram
                 return new Vector2(CurrentSprite.Width * scale, CurrentSprite.Height * scale); 
             }
         }
-
 
         public GameObject() { }
 
