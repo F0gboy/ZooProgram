@@ -18,7 +18,7 @@ namespace ZooObjektorienteretProgram.States
         protected GraphicsDevice _graphicsDevice;
 
         protected GameWorld _game;
-
+        public bool gamestart = false;
         #endregion
 
         #region Methods

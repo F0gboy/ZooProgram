@@ -28,7 +28,8 @@ namespace ZooObjektorienteretProgram
 
         private State _currentState;
         private State _nextState;
-        
+        public bool gameStarted = false;
+       
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -44,7 +45,7 @@ namespace ZooObjektorienteretProgram
             fencePosition.X = -550;
             fencePosition.Y = -450;
         }
-
+          
         public void ChangeState(State state)
         {
             _nextState = state;
@@ -57,10 +58,10 @@ namespace ZooObjektorienteretProgram
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(Content, _spriteBatch);_spawner = new AnimalSpawner(Content);
 
-            for (int i = 0; i < rnd.Next(10,25); i++)
-            {
-                _spawner.SpawnAnimal(rnd.Next(1, 10));
-            }
+            //for (int i = 0; i < rnd.Next(10,25); i++)
+            //{
+            //    _spawner.SpawnAnimal(rnd.Next(1, 10));
+            //}
 
             IsMouseVisible = true;
             
@@ -159,6 +160,7 @@ namespace ZooObjektorienteretProgram
 
         protected override void LoadContent()
         {
+           
             GenerateAnimalBoundaries( 6, 5, fencePosition);
 
             foreach (var fence in fences) 
@@ -167,18 +169,24 @@ namespace ZooObjektorienteretProgram
             }
             //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
-            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
+            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content, this);
             // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            
+
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             // TODO: Add your update logic here
-            _player.MouseUpdate();
-            _spawner.AnimalUpdate();
+            if (gameStarted == true)
+            {
+                _player.MouseUpdate();
+                _spawner.AnimalUpdate();
+            }
+            
             if (_nextState != null)
             {
                 _currentState = _nextState;
@@ -199,15 +207,16 @@ namespace ZooObjektorienteretProgram
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
             //animalFence.Draw(_spriteBatch);
-            
-            foreach (var fence in fences)
+            if (gameStarted == true)
             {
-                fence.Draw(_spriteBatch);
+                foreach (var fence in fences)
+                {
+                    fence.Draw(_spriteBatch);
+                }
+                _spawner.AnimalDraw(_spriteBatch);
             }
-            
             _spriteBatch.End();
 
-            _spawner.AnimalDraw(_spriteBatch);
 
             base.Draw(gameTime);
         }
