@@ -47,15 +47,6 @@ namespace ZooObjektorienteretProgram
 
             foreach (var animal in animals)
             {
-                if (animal.dead == true)
-                {
-                    animals.Remove(animal);
-                }
-                else
-                {
-                    animal.Move();
-                }
-
                 animal.Move();
 
             }
