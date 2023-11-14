@@ -41,9 +41,9 @@ namespace ZooObjektorienteretProgram
         {
             if (sprite != null)
             {
-            spriteBatch.Begin(samplerState: SamplerState.PointWrap);
+            //spriteBatch.Begin(samplerState: SamplerState.PointWrap);
             spriteBatch.Draw(sprite, rectangle, Color.White);
-            spriteBatch.End();
+            //spriteBatch.End();
 
             }
         }
