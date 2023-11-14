@@ -167,6 +167,7 @@ namespace ZooObjektorienteretProgram
             {
                 fence.LoadContent(Content);
             }
+            _backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
             // TODO: use this.Content to load your game content here
