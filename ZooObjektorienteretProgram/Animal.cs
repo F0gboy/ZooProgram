@@ -33,6 +33,7 @@ namespace ZooObjektorienteretProgram
         {
             sprite = spriteTag;
             rectangle = new Rectangle(250 + (rnd.Next(0, 150)), 100 + (rnd.Next(0, 150)), sprite.Width * 3, sprite.Height * 3);
+            
         }
 
 
@@ -50,6 +51,10 @@ namespace ZooObjektorienteretProgram
 
         public void Move()
         {
+            if (dead == true)
+            {
+
+            }
             if (rnd.Next(1, 10) > 6)
             {
 
