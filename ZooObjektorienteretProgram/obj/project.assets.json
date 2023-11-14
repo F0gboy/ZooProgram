@@ -102,23 +102,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jasper\\.nuget\\packages\\": {},
+    "C:\\Users\\Jasp3\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\zoo\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
+      "projectUniqueName": "C:\\Users\\Jasp3\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
       "projectName": "ZooObjektorienteretProgram",
-      "projectPath": "F:\\zoo\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
-      "packagesPath": "C:\\Users\\Jasper\\.nuget\\packages\\",
-      "outputPath": "F:\\zoo\\ZooProgram\\ZooObjektorienteretProgram\\obj\\",
+      "projectPath": "C:\\Users\\Jasp3\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
+      "packagesPath": "C:\\Users\\Jasp3\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jasp3\\ZooProgram\\ZooObjektorienteretProgram\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jasper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jasp3\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
