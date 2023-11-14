@@ -58,7 +58,7 @@ namespace ZooObjektorienteretProgram.Controls
       PenColour = Color.Black;
     }
 
-    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
       var colour = Color.White;
 

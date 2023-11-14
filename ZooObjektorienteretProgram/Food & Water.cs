@@ -92,7 +92,7 @@ namespace ZooObjektorienteretProgram
         }
 
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void Draw( SpriteBatch spriteBatch)
         {
 
             switch (switchNum)
@@ -123,8 +123,6 @@ namespace ZooObjektorienteretProgram
             }
             spriteBatch.Draw(waterSprite, position2, Color.White);
 
-
-           
         }
         public void AddMoreWater()
         {
@@ -159,5 +157,6 @@ namespace ZooObjektorienteretProgram
 
             
         }
+
     }
 }

@@ -232,8 +232,8 @@ namespace ZooObjektorienteretProgram
 
         protected override void LoadContent()
         {
-            //moneyFont = Content.Load<SpriteFont>("Money");
-            //foodWaterObject.LoadContent(Content);
+            moneyFont = Content.Load<SpriteFont>("Money");
+            foodWaterObject.LoadContent(Content);
 
             GenerateAnimalBoundaries( 6, 5, fencePosition, s);
             //fenceRecs[0].X = fencePosition.X + 50;
@@ -306,13 +306,13 @@ namespace ZooObjektorienteretProgram
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            _currentState.Draw(_spriteBatch);
+
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
-            _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
+            //_spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
 
-            foodWaterObject.Draw(gameTime, _spriteBatch);
-
-            _currentState.Draw(gameTime, _spriteBatch);
+            foodWaterObject.Draw(_spriteBatch);
             
             
             foreach (var fence in allFences)
@@ -320,8 +320,6 @@ namespace ZooObjektorienteretProgram
                 fence.Draw(_spriteBatch);
             }
 
-
-            
             _spriteBatch.End();
 
             _spawner.AnimalDraw(_spriteBatch);

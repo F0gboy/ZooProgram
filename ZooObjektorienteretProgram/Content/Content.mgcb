@@ -1,9 +1,9 @@
 
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:bin/$(Platform)
-/intermediateDir:obj/$(Platform)
-/platform:DesktopGL
+/outputDir:bin
+/intermediateDir:obj
+/platform:Windows
 /config:
 /profile:Reach
 /compress:False
@@ -13,19 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-<<<<<<< HEAD
-#begin Drinking sound.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Drinking sound.wav
-
-#begin Eat Sound.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Eat Sound.wav
-=======
 #begin Button.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -37,7 +24,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Button.png
->>>>>>> e2ec2da869a3efbfbc32e87f1abb734898686f19
+
+#begin Drinking sound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Drinking sound.wav
+
+#begin Eat Sound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Eat Sound.wav
 
 #begin Fence1.png
 /importer:TextureImporter
@@ -111,7 +109,13 @@
 /processorParam:TextureFormat=Color
 /build:Fence6.png
 
-<<<<<<< HEAD
+#begin Font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Font.spritefont
+
 #begin Food1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -148,6 +152,18 @@
 /processorParam:TextureFormat=Color
 /build:Food3.png
 
+#begin GrassBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:GrassBackground.png
+
 #begin Money Sound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -155,22 +171,13 @@
 /build:Money Sound.wav
 
 #begin Money.spritefont
-=======
-#begin Font.spritefont
->>>>>>> e2ec2da869a3efbfbc32e87f1abb734898686f19
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-<<<<<<< HEAD
 /build:Money.spritefont
 
-#begin Water1.png
-=======
-/build:Font.spritefont
-
 #begin tile_bull.png
->>>>>>> e2ec2da869a3efbfbc32e87f1abb734898686f19
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -180,15 +187,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-<<<<<<< HEAD
-/build:Water1.png
-
-#begin Water2.png
-=======
 /build:tile_bull.png
 
 #begin tile_bunny.png
->>>>>>> e2ec2da869a3efbfbc32e87f1abb734898686f19
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -198,15 +199,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-<<<<<<< HEAD
-/build:Water2.png
-
-#begin Water3.png
-=======
 /build:tile_bunny.png
 
 #begin tile_chicken.png
->>>>>>> e2ec2da869a3efbfbc32e87f1abb734898686f19
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -216,9 +211,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-<<<<<<< HEAD
-/build:Water3.png
-=======
 /build:tile_chicken.png
 
 #begin tile_cow.png
@@ -292,5 +284,40 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:tile_sheep.png
->>>>>>> e2ec2da869a3efbfbc32e87f1abb734898686f19
+
+#begin Water1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Water1.png
+
+#begin Water2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Water2.png
+
+#begin Water3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Water3.png
 

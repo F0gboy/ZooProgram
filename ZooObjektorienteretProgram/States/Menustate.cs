@@ -52,12 +52,12 @@ namespace ZooObjektorienteretProgram.States
             };
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
 
             foreach (var component in _components)
-                component.Draw(gameTime, spriteBatch);
+                component.Draw(spriteBatch);
 
             spriteBatch.End();
         }

@@ -23,7 +23,7 @@ namespace ZooObjektorienteretProgram.States
 
         #region Methods
 
-        public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
+        public abstract void Draw(SpriteBatch spriteBatch);
 
         public abstract void PostUpdate(GameTime gameTime);
 
