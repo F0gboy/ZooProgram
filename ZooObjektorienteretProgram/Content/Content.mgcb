@@ -13,6 +13,60 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin AS/bull.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:AS/bull.mp3
+
+#begin AS/bunny.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:AS/bunny.mp3
+
+#begin AS/chicken.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:AS/chicken.mp3
+
+#begin AS/cow.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:AS/cow.mp3
+
+#begin AS/duck.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:AS/duck.mp3
+
+#begin AS/fish.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:AS/fish.mp3
+
+#begin AS/horse.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:AS/horse.mp3
+
+#begin AS/pig.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:AS/pig.mp3
+
+#begin AS/sheep.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:AS/sheep.mp3
+
 #begin Button.png
 /importer:TextureImporter
 /processor:TextureProcessor

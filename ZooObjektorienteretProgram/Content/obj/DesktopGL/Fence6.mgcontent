@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png</SourceFile>
-  <SourceTime>2023-11-10T10:57:09.9131013+01:00</SourceTime>
-  <DestFile>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence6.xnb</DestFile>
-  <DestTime>2023-11-13T18:38:35.5905788+01:00</DestTime>
+  <SourceFile>C:/Users/dsadf/OneDrive/Dokumenter/GitHub/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png</SourceFile>
+  <SourceTime>2023-11-08T10:06:22.5700089+01:00</SourceTime>
+  <DestFile>C:/Users/dsadf/OneDrive/Dokumenter/GitHub/ZooProgram/ZooObjektorienteretProgram/Content/bin/DesktopGL/Fence6.xnb</DestFile>
+  <DestTime>2023-11-14T11:43:42.0399885+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
