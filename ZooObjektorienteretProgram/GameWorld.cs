@@ -33,14 +33,23 @@ namespace ZooObjektorienteretProgram
         private List<List<AnimalBoundaries>> fenceLists = new List<List<AnimalBoundaries>>();
         private List<AnimalBoundaries> allFences = new();
         private List<AnimalBoundaries> fence1 = new();
+        private Rectangle fence1Rec = new Rectangle();
         private List<AnimalBoundaries> fence2 = new();
+        private Rectangle fence2Rec = new Rectangle();
         private List<AnimalBoundaries> fence3 = new();
+        private Rectangle fence3Rec = new Rectangle();
         private List<AnimalBoundaries> fence4 = new();
+        private Rectangle fence4Rec = new Rectangle();
         private List<AnimalBoundaries> fence5 = new();
+        private Rectangle fence5Rec = new Rectangle();
         private List<AnimalBoundaries> fence6 = new();
+        private Rectangle fence6Rec = new Rectangle();
         private List<AnimalBoundaries> fence7 = new();
+        private Rectangle fence7Rec = new Rectangle();
         private List<AnimalBoundaries> fence8 = new();
+        private Rectangle fence8Rec = new Rectangle();
         private List<AnimalBoundaries> fence9 = new();
+        private Rectangle fence9Rec = new Rectangle();
         int s;
 
         private Vector2 fencePosition;
@@ -206,6 +215,9 @@ namespace ZooObjektorienteretProgram
 
         protected override void LoadContent()
         {
+            moneyFont = Content.Load<SpriteFont>("Money");
+            foodWaterObject.LoadContent(Content);
+
             GenerateAnimalBoundaries( 6, 5, fencePosition, s);
 
             for (int i = 0; i < 15; i++)
