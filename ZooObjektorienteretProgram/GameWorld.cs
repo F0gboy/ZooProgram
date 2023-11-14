@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
+using Microsoft.Xna.Framework.Media;
 
 
 namespace ZooObjektorienteretProgram
@@ -28,7 +30,29 @@ namespace ZooObjektorienteretProgram
         private Random rnd = new Random();
 
         private AnimalBoundaries animalFence;
-        private List<AnimalBoundaries> fences = new();
+        private List<List<AnimalBoundaries>> fenceLists = new List<List<AnimalBoundaries>>();
+        private List<AnimalBoundaries> allFences = new();
+        private List<Rectangle> fenceRecs = new();
+        private List<AnimalBoundaries> fence1 = new();
+        private Rectangle fence1Rec = new Rectangle();
+        private List<AnimalBoundaries> fence2 = new();
+        private Rectangle fence2Rec = new Rectangle();
+        private List<AnimalBoundaries> fence3 = new();
+        private Rectangle fence3Rec = new Rectangle();
+        private List<AnimalBoundaries> fence4 = new();
+        private Rectangle fence4Rec = new Rectangle();
+        private List<AnimalBoundaries> fence5 = new();
+        private Rectangle fence5Rec = new Rectangle();
+        private List<AnimalBoundaries> fence6 = new();
+        private Rectangle fence6Rec = new Rectangle();
+        private List<AnimalBoundaries> fence7 = new();
+        private Rectangle fence7Rec = new Rectangle();
+        private List<AnimalBoundaries> fence8 = new();
+        private Rectangle fence8Rec = new Rectangle();
+        private List<AnimalBoundaries> fence9 = new();
+        private Rectangle fence9Rec = new Rectangle();
+        int s;
+
         private Vector2 fencePosition;
         private Vector2 fencePositionTemp;
         private int moveAmount = 45;
@@ -53,8 +77,34 @@ namespace ZooObjektorienteretProgram
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
-            fencePosition.X = -550;
-            fencePosition.Y = -450;
+            fencePosition.X = -900;
+            fencePosition.Y = -480;
+
+            for (int i = 0; i < 9; i++)
+            {
+                Rectangle fence1Rec = new Rectangle();
+                fenceRecs.Add(fence1Rec);
+
+            }
+
+            fenceLists.Add(fence1);
+            fenceRecs.Add(fence1Rec);
+            fenceLists.Add(fence2);
+            fenceRecs.Add(fence2Rec);
+            fenceLists.Add(fence3);
+            fenceRecs.Add(fence3Rec);
+            fenceLists.Add(fence4);
+            fenceRecs.Add(fence4Rec);
+            fenceLists.Add(fence5);
+            fenceRecs.Add(fence5Rec);
+            fenceLists.Add(fence6);
+            fenceRecs.Add(fence6Rec);
+            fenceLists.Add(fence7);
+            fenceRecs.Add(fence7Rec);
+            fenceLists.Add(fence8);
+            fenceRecs.Add(fence8Rec);
+            fenceLists.Add(fence9);
+            fenceRecs.Add(fence9Rec);
         }
 
         public void ChangeState(State state)
@@ -72,35 +122,33 @@ namespace ZooObjektorienteretProgram
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _player = new Player(Content, _spriteBatch);_spawner = new AnimalSpawner(Content);
 
-            for (int i = 0; i < rnd.Next(10,25); i++)
-            {
-                _spawner.SpawnAnimal(rnd.Next(1, 10));
-            }
-
             IsMouseVisible = true;
             
             base.Initialize();
         }
 
-        public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position)
+        public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position, int s)
         {
             //De hardcodede værdier som f.eks "position.y + 5" er fordi at sprite billederne er forskellige pixel størrelser, så skal rykke dem lidt så de liner op.
 
             //sætter inital fence, top venstre hjørne, og tilføjer til animalFence list.
             animalFence = new AnimalBoundaries(0, "TopLeftCorner", position.X + 5, position.Y + 0);
-            fences.Add(animalFence);
+            allFences.Add(animalFence);
+            fenceLists[s].Add(animalFence);
 
             int tempPos3 = boundarySizeY * 48;
             int tempPos2 = boundarySizeX * 48;
 
             moveAmount = 48;
 
-            //laver den første side af fences.
+            //laver den første side af fences
 
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY1" + (1 + i), position.X, position.Y + -5f + moveAmount);
-                fences.Add(fence);
+                allFences.Add(fence);
+                fenceLists[s].Add(fence);
+
                 moveAmount += 48;
             }
 
@@ -111,14 +159,16 @@ namespace ZooObjektorienteretProgram
             for (int i = 0; i < boundarySizeX - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), position.X + moveAmount + 48, position.Y);
-                fences.Add(fence);
+                allFences.Add(fence);
+                fenceLists[s].Add(fence);
                 moveAmount += 48;
             }
 
             //sætter næste corner fence
 
             AnimalBoundaries fenceCorner1 = new AnimalBoundaries(1, "TopRightCorner", position.X + tempPos2 - 6, position.Y);
-            fences.Add(fenceCorner1);
+            allFences.Add(fenceCorner1);
+            fenceLists[s].Add(fenceCorner1);
 
             moveAmount = 40;
 
@@ -127,14 +177,16 @@ namespace ZooObjektorienteretProgram
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY2" + (1 + i),position.X + tempPos2 - 3, position.Y + moveAmount );
-                fences.Add(fence);
+                allFences.Add(fence);
+                fenceLists[s].Add(fence);
                 moveAmount += 48;
             }
 
             //laver næste corner fence
 
             AnimalBoundaries fenceCorner2 = new AnimalBoundaries(4, "DownRightCorner", position.X + tempPos2 - 6, position.Y + tempPos3);
-            fences.Add(fenceCorner2);
+            allFences.Add(fenceCorner2);
+            fenceLists[s].Add(fenceCorner2);
 
             moveAmount = 44;
 
@@ -143,14 +195,16 @@ namespace ZooObjektorienteretProgram
             for (int i = 0; i < boundarySizeX - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), position.X + moveAmount + 4, position.Y + tempPos3 + 3);
-                fences.Add(fence);
+                allFences.Add(fence);
+                fenceLists[s].Add(fence);
                 moveAmount += 48;
             }
 
             //laver sidste corner for at afslutte indhegningen.
 
             AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", position.X + 6, position.Y + tempPos3);
-            fences.Add(fenceCorner3);
+            allFences.Add(fenceCorner3);
+            fenceLists[s].Add(fenceCorner3);
         }
 
         public void SpawnNextFence()
@@ -158,33 +212,46 @@ namespace ZooObjektorienteretProgram
             //Tjekker om fence positionen er ude fra skærmen, hvis den er, sæt den tilbage til start positionen, og ryk den en gang ned.
             //Hvis den ikke er ude fra skærmen, ryk den en gang til højre.
 
+            s = 0;
+
             if (fencePosition.X > 200)
             {
                 fencePosition.X = -550;
                 fencePosition.Y += 325;
-                GenerateAnimalBoundaries(6, 5, fencePosition);
+                GenerateAnimalBoundaries(6, 5, fencePosition, s);
             }
             else
             {
                 fencePosition.X += 400;
-                GenerateAnimalBoundaries(6, 5, fencePosition);
+                GenerateAnimalBoundaries(6, 5, fencePosition, s);
             }
+
+            s += 1;
         }
 
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
-            moneyFont = Content.Load<SpriteFont>("Money");
-            foodWaterObject.LoadContent(Content);
+            //moneyFont = Content.Load<SpriteFont>("Money");
+            //foodWaterObject.LoadContent(Content);
 
-            GenerateAnimalBoundaries( 6, 5, fencePosition);
+            GenerateAnimalBoundaries( 6, 5, fencePosition, s);
+            //fenceRecs[0].X = fencePosition.X + 50;
+            //fenceRecs[0].Y = fencePosition.Y + 50;
+            
 
+            for (int i = 0; i < 15; i++)
+            {
+                _spawner.SpawnAnimal(1);
+                _spawner.animals[i].rectangle.X = 180;
+                _spawner.animals[i].rectangle.Y = 180;
+            }
 
-            foreach (var fence in fences) 
+            foreach (var fence in allFences) 
             {
                 fence.LoadContent(Content);
             }
+
             //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
@@ -211,11 +278,24 @@ namespace ZooObjektorienteretProgram
 
             _player.MouseUpdate();
             _spawner.AnimalUpdate();
+
             if (_nextState != null)
             {
                 _currentState = _nextState;
                 _nextState = null;
             }
+
+            foreach (var animal in _spawner.animals)
+            {
+                foreach (var fence in allFences)
+                {
+                    if (fence.CollisionBox.Intersects(animal.rectangle))
+                    {
+                        animal.Move();
+                    }
+                }
+            }
+
             _currentState.Update(gameTime);
             _currentState.PostUpdate(gameTime);
 
@@ -234,10 +314,13 @@ namespace ZooObjektorienteretProgram
 
             _currentState.Draw(gameTime, _spriteBatch);
             
-            foreach (var fence in fences)
+            
+            foreach (var fence in allFences)
             {
                 fence.Draw(_spriteBatch);
             }
+
+
             
             _spriteBatch.End();
 
