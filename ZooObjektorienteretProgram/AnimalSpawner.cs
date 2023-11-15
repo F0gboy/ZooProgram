@@ -27,10 +27,13 @@ namespace ZooObjektorienteretProgram
         private int selectedAnimal;
         private bool killTime = false;
         public List<Animal> animals = new List<Animal>();
-
-        public AnimalSpawner(ContentManager content)
+        private Money cash;
+        
+        public AnimalSpawner(ContentManager content, Money cash)
         {
+            this.cash = cash;
             LoadContent(content);
+            
 
         } 
 
@@ -73,50 +76,59 @@ namespace ZooObjektorienteretProgram
             switch (spawnNum)
             {
                 case 1:
-                    animals.Add(new Animal());
+                    animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(sheep);
                     animals[animals.Count - 1].price = 0.5f;
+                    cash.SpendMoney(animals[animals.Count - 1].price*cash.baseMoney);
                     break;
                 case 2:
-                    animals.Add(new Animal());
+                    animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(pig);
                     animals[animals.Count - 1].price = 0.75f;
+                    cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
 
                 case 3:
-                    animals.Add(new Animal());
+                    animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(cow);
                     animals[animals.Count - 1].price = 1f;
+                    cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 4:
-                    animals.Add(new Animal());
+                    animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(chicken);
                     animals[animals.Count - 1].price = 1.5f;
+                    cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 5:
-                    animals.Add(new Animal());
+                    animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(horse);
                     animals[animals.Count - 1].price = 2f;
+                    cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 6:
-                    animals.Add(new Animal());
+                    animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(bunny);
                     animals[animals.Count - 1].price = 2.5f;
+                    cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 7:
-                    animals.Add(new Animal());
+                    animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(bull);
                     animals[animals.Count - 1].price = 3f;
+                    cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 8:
-                    animals.Add(new Animal());
+                    animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(fish);
                     animals[animals.Count - 1].price = 4f;
+                    cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 9:
-                    animals.Add(new Animal());
+                    animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(duck);
                     animals[animals.Count - 1].price = 5f;
+                    cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 default:
                     Console.WriteLine("could not find an animal");

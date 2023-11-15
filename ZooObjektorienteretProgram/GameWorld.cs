@@ -15,7 +15,8 @@ namespace ZooObjektorienteretProgram
         private Player _player;
         private AnimalSpawner _spawner;
         private Random rnd = new Random();
-        private SpriteFont moneyFonnt;
+        private SpriteFont moneyFont;
+        private Money cash;
 
         private AnimalBoundaries animalFence;
         private List<AnimalBoundaries> fences = new();
@@ -29,16 +30,21 @@ namespace ZooObjektorienteretProgram
         private State _currentState;
         private State _nextState;
         public bool gameStarted = false;
-       
+
+        private Texture2D _backgroundMenuTexture;
+        private Texture2D _backgroundTexture;
+        private Vector2 _backgroundPosition;
+
+
         public GameWorld()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
+            cash = new Money(Content);
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
-            _graphics.IsFullScreen = true;
+            //_graphics.IsFullScreen = true;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
@@ -56,8 +62,8 @@ namespace ZooObjektorienteretProgram
             // TODO: Add your initialization logic here
             //_graphics.IsFullScreen = true;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _spawner = new AnimalSpawner(Content);
-            _player = new Player(Content, _spriteBatch, _spawner);
+            _spawner = new AnimalSpawner(Content, cash);
+            _player = new Player(Content, _spriteBatch, _spawner, cash);
 
             for (int i = 0; i < rnd.Next(10, 25); i++)
             {
@@ -170,7 +176,8 @@ namespace ZooObjektorienteretProgram
             }
             moneyFont = Content.Load<SpriteFont>("Money");
             _player.Load(Content);
-
+            _backgroundTexture = Content.Load<Texture2D>("GrassBackground");
+            _backgroundMenuTexture = Content.Load<Texture2D>("ZooMenu");
             //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content, this);
@@ -205,24 +212,25 @@ namespace ZooObjektorienteretProgram
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _currentState.Draw(gameTime, _spriteBatch);
+            
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
-
+            _spriteBatch.Draw(_backgroundMenuTexture, _backgroundPosition, Color.White);
             //animalFence.Draw(_spriteBatch);
             if (gameStarted == true)
             {
+                _spriteBatch.Draw(_backgroundTexture, _backgroundPosition, Color.White);
                 _player.DrawButtons(_spriteBatch);
                 foreach (var fence in fences)
                 {
                     fence.Draw(_spriteBatch);
                 }
                 _spawner.AnimalDraw(_spriteBatch);
-                _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
+                _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", new Vector2(50, 50), Color.Gold);
             }
             _spriteBatch.End();
-
+            _currentState.Draw(gameTime, _spriteBatch);
 
             base.Draw(gameTime);
         }

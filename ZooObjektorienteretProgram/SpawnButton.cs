@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,10 +15,12 @@ namespace ZooObjektorienteretProgram
     {
         private int animalNum;
         private AnimalSpawner animalSpawner;
-        public SpawnButton(ContentManager content, int animalNum, AnimalSpawner animalSpawner) : base(content)
+        private Money cash; 
+        public SpawnButton(ContentManager content, int animalNum, AnimalSpawner animalSpawner, Money cash) : base(content)
         {
             this.animalNum = animalNum;
             this.animalSpawner = animalSpawner;
+            this.cash = cash;   
         }
 
         public void Spawn(Vector2 position)
@@ -25,7 +28,7 @@ namespace ZooObjektorienteretProgram
             animalSpawner.SpawnAnimal(animalNum);
             animalSpawner.animals[animalSpawner.animals.Count - 1].rectangle.X = (int)position.X;
             animalSpawner.animals[animalSpawner.animals.Count - 1].rectangle.Y = (int)position.Y;
-
+            
         }
 
         public void SetSprite(Texture2D sprite)

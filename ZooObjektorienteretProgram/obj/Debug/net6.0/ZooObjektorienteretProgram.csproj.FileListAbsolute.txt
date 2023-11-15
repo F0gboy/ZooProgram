@@ -150,3 +150,7 @@ C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Con
 C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\AS\pig.xnb
 C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\AS\sheep.ogg
 C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\AS\sheep.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Money.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Money_Sound.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\GrassBackground.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\ZooMenu.xnb

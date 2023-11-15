@@ -17,8 +17,9 @@ namespace ZooObjektorienteretProgram
         private MouseState mouseState;
         private bool pressed;
         private ContentManager content;
-        GraphicsDeviceManager graphicsDeviceManager;
-        AnimalSpawner AnimalSpawner;
+        private GraphicsDeviceManager graphicsDeviceManager;
+        private AnimalSpawner AnimalSpawner;
+        private Money cash;
 
         private Button testButton;
 
@@ -27,10 +28,11 @@ namespace ZooObjektorienteretProgram
         public List<Button> penButtons = new List<Button>(); 
    
 
-        public Player(ContentManager content, SpriteBatch spriteBatch, AnimalSpawner animalSpawner)
+        public Player(ContentManager content, SpriteBatch spriteBatch, AnimalSpawner animalSpawner, Money cash)
         {
             this.content = content;
             this.AnimalSpawner = animalSpawner;
+            this.cash = cash;
 
             //Test Button
             testButton = new Button(content);
@@ -39,7 +41,7 @@ namespace ZooObjektorienteretProgram
             Random rnd = new Random();
             for (int i = 0; i < 8; i++)
             {
-                penButtons.Add(new SpawnButton(content, i + 1, animalSpawner));
+                penButtons.Add(new SpawnButton(content, i + 1, animalSpawner, cash));
                 penButtons[penButtons.Count - 1].rect = new Rectangle(rnd.Next(100, 750), rnd.Next(100, 700), penButtons[penButtons.Count - 1].rect.Width, penButtons[penButtons.Count - 1].rect.Height);
             }
             
