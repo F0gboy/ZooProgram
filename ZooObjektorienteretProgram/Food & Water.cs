@@ -28,6 +28,7 @@ namespace ZooObjektorienteretProgram
         private List<Texture2D> waterSprites = new List<Texture2D>(3);
         private List<Texture2D> foodSprites = new List<Texture2D>(3);
         public Rectangle rectangle;
+        public Rectangle rectangle1;
         private SoundEffect eatingSound;
         private SoundEffect drinkingSound;
         private int waterLevel = 100;
@@ -37,16 +38,16 @@ namespace ZooObjektorienteretProgram
         private int waterLevelNew;
         private int switchNum1;
 
-        public Food___Water()
+        public Food___Water(Rectangle rec)
         {
+            this.rectangle = rec;
+            this.rectangle1 = rec;
             
         }
         public override void LoadContent(ContentManager content)
         {
             eatingSound = content.Load<SoundEffect>("Eat Sound");
             drinkingSound = content.Load<SoundEffect>("Drinking sound");
-
-            
 
             foodSprite1 = content.Load<Texture2D>("Food1");
             foodSprite2 = content.Load<Texture2D>("Food2");
@@ -55,9 +56,6 @@ namespace ZooObjektorienteretProgram
             waterSprite1 = content.Load<Texture2D>("Water1");
             waterSprite2 = content.Load<Texture2D>("Water2");
             waterSprite3 = content.Load<Texture2D>("Water3");
-
-            position1 = new Vector2(50, 100);
-            position2 = new Vector2(200, 100);
         }
 
         public void Update()
@@ -107,7 +105,8 @@ namespace ZooObjektorienteretProgram
                 default:
                     break;
             }           
-            spriteBatch.Draw(foodSprite, position1, Color.White);
+
+            spriteBatch.Draw(foodSprite, rectangle, Color.White);
 
             switch (switchNum1)
             {
@@ -121,7 +120,9 @@ namespace ZooObjektorienteretProgram
                 default:
                     break;
             }
-            spriteBatch.Draw(waterSprite, position2, Color.White);
+
+            
+            spriteBatch.Draw(waterSprite, rectangle1, Color.White);
 
         }
         public void AddMoreWater()

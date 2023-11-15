@@ -24,6 +24,7 @@ namespace ZooObjektorienteretProgram
         private float elapsedSeconds;
         private float drainInterval = 1f;
         private Food___Water foodWaterObject;
+        private Food___Water foodWaterObject2;
 
         private Player _player;
         private AnimalSpawner _spawner;
@@ -34,6 +35,7 @@ namespace ZooObjektorienteretProgram
         private List<AnimalBoundaries> allFences = new();
         public List<Rectangle> fenceRecs = new List<Rectangle>();
         public Texture2D whiteRectangle;
+        private List<Food___Water> foodAndWaterObjects = new List<Food___Water>();
 
         int s = 0;
 
@@ -47,6 +49,7 @@ namespace ZooObjektorienteretProgram
         private State _currentState;
         private State _nextState;
         private Rectangle tempRec;
+        private Rectangle tempRec2;
 
         public GameWorld()
         {
@@ -62,8 +65,8 @@ namespace ZooObjektorienteretProgram
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
-            fencePosition.X = -900;
-            fencePosition.Y = -480;
+            fencePosition.X = -850;
+            fencePosition.Y = -400;
 
             for (int i = 0; i < 9; i++)
             {
@@ -73,18 +76,23 @@ namespace ZooObjektorienteretProgram
                 List<AnimalBoundaries> fenceTemp = new();
                 fenceLists.Add(fenceTemp);
             }
-           
         }
 
         public void ChangeState(State state)
         {
             _nextState = state;
-
         }
 
         protected override void Initialize()
         {
-            foodWaterObject = new Food___Water();
+
+            for (int i = 0; i < 9; i++)
+            {
+                foodWaterObject = new Food___Water(tempRec);
+                foodAndWaterObjects.Add(foodWaterObject);
+            }
+            
+
             // TODO: Add your initialization logic here
 
             //_graphics.IsFullScreen = true;
@@ -184,42 +192,89 @@ namespace ZooObjektorienteretProgram
 
             s++;
 
-            if (fencePosition.X > 200)
+            if (fencePosition.X > 500)
             {
-                fencePosition.X = -550;
-                fencePosition.Y += 325;
+                fencePosition.X = -650;
+                tempRec.Y += 425;
+                tempRec.X = 370;
+                fenceRecs[s] = tempRec;
+                fencePosition.Y += 425;
+                tempRec2 = tempRec;
+                tempRec2.X -= 50;
+
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
+
+                foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y - 160, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+                foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 150, tempRec2.Y - 160, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+
+                for (int i = 0; i < 15; i++)
+                {
+                    _spawner.SpawnAnimal(s, fenceRecs);
+                    _spawner.animals[i].rectangle = new Rectangle(tempRec.X, tempRec.Y, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
+                }
             }
             else
             {
-                fencePosition.X += 400;
+                tempRec.X += 350;
+                fenceRecs[s] = tempRec;
+
+                tempRec2 = tempRec;
+                tempRec2.Y -= 160;
+                tempRec2.X -= 50;
+
+                fencePosition.X += 350;
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
+
+                foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y , (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+                foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 150, tempRec2.Y , (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+
+                for (int i = 0; i < 15; i++)
+                {
+                    _spawner.SpawnAnimal(s, fenceRecs);
+                    _spawner.animals[i].rectangle = new Rectangle(tempRec.X, tempRec.Y, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
+                }
             }   
         }
 
         protected override void LoadContent()
         {
             moneyFont = Content.Load<SpriteFont>("Money");
-            foodWaterObject.LoadContent(Content);
+
+            foreach (var foodAndWater in foodAndWaterObjects)
+            {
+                foodAndWater.LoadContent(Content);
+            }
 
             GenerateAnimalBoundaries( 6, 5, fencePosition, s);
-            tempRec.X = fenceRecs[0].X + 80;
-            tempRec.Y = fenceRecs[0].Y + 80;
-            tempRec.Width = 250;
-            tempRec.Height = 250;
 
-            foreach (var fenceRec in fenceRecs)
-            {
-                tempRec.X = fenceRec.X + 80;
-                tempRec.Y = fenceRec.Y + 80;
-            }
+
+            tempRec.X = fenceRecs[0].X + 175;
+            tempRec.Y = fenceRecs[0].Y + 200;
+            tempRec.Width = 160;
+            tempRec.Height = 120;
+            fenceRecs[0] = tempRec;
+            tempRec2 = tempRec;
+            tempRec2.X -= 50;
+            tempRec2.Y -= 160;
+
+            foodAndWaterObjects[0].rectangle = new Rectangle(tempRec2.X, tempRec2.Y, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+            foodAndWaterObjects[0].rectangle1 = new Rectangle(tempRec2.X + 150, tempRec2.Y, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+
 
             for (int i = 0; i < 15; i++)
             {
-                _spawner.SpawnAnimal(1);
-                _spawner.animals[i].rectangle.X = 180;
-                _spawner.animals[i].rectangle.Y = 180;
+                _spawner.SpawnAnimal(0, fenceRecs);
+                _spawner.animals[i].rectangle = new Rectangle(220, 220, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
             }
+
+            SpawnNextFence();
+            SpawnNextFence();
+            SpawnNextFence();
+            SpawnNextFence();
+            SpawnNextFence();
+            SpawnNextFence();
+            SpawnNextFence();
+            SpawnNextFence();
 
             foreach (var fence in allFences) 
             {
@@ -242,11 +297,17 @@ namespace ZooObjektorienteretProgram
 
             elapsedSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            foodWaterObject.Update();
+            foreach (var foodAndWater in foodAndWaterObjects)
+            {
+                foodAndWater.Update();
+            }
 
             if (elapsedSeconds >= drainInterval)
             {
-                foodWaterObject.Drain();
+                foreach (var foodAndWater in foodAndWaterObjects)
+                {
+                    foodAndWater.Drain();
+                }
                 elapsedSeconds = 0; // Reset the elapsed time
             }
 
@@ -257,17 +318,6 @@ namespace ZooObjektorienteretProgram
             {
                 _currentState = _nextState;
                 _nextState = null;
-            }
-
-            foreach (var animal in _spawner.animals)
-            {
-                foreach (var fence in allFences)
-                {
-                    if (fence.CollisionBox.Intersects(animal.rectangle))
-                    {
-                        animal.Move();
-                    }
-                }
             }
 
             _currentState.Update(gameTime);
@@ -289,11 +339,21 @@ namespace ZooObjektorienteretProgram
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
             rect.SetData(data);
 
-            _spriteBatch.Draw(rect, tempRec, Color.White);
+
+            //_spriteBatch.Draw(rect, tempRec, Color.White);
+            
+
+            //foreach (var rects in fenceRecs)
+            //{
+            //    _spriteBatch.Draw(rect, rects, Color.White);
+            //}
 
             //_spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
 
-            foodWaterObject.Draw(_spriteBatch);
+            foreach (var foodAndWater in foodAndWaterObjects)
+            {
+                foodAndWater.Draw(_spriteBatch);
+            }
             
             foreach (var fence in allFences)
             {

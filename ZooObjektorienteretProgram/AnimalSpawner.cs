@@ -49,7 +49,7 @@ namespace ZooObjektorienteretProgram
             {
                 if (animal.dead == true)
                 {
-                    animals.Remove(animal);
+                   // animals.Remove(animal);
                 }
                 else
                 {
@@ -62,55 +62,55 @@ namespace ZooObjektorienteretProgram
 
         }
 
-        public void SpawnAnimal(int spawnNum)
+        public void SpawnAnimal(int spawnNum, List<Rectangle> centers)
         {
             // Case to choice animals. 
             switch (spawnNum)
             {
-                case 1:
-                    animals.Add(new Animal());
-                    animals[animals.Count-1].SelectSprite(sheep);
+                case 0:
+                    animals.Add(new Animal(centers[0]));
+                    animals[animals.Count-1].SelectSprite(sheep, centers[0]);
                     animals[animals.Count - 1].price = 0.5f;
                     break;
-                case 2:
-                    animals.Add(new Animal());
-                    animals[animals.Count-1].SelectSprite(pig);
+                case 1:
+                    animals.Add(new Animal(centers[1]));
+                    animals[animals.Count-1].SelectSprite(pig, centers[1]);
                     animals[animals.Count - 1].price = 0.75f;
                     break;
 
-                case 3:
-                    animals.Add(new Animal());
-                    animals[animals.Count-1].SelectSprite(cow);
+                case 2:
+                    animals.Add(new Animal(centers[2]));
+                    animals[animals.Count-1].SelectSprite(cow, centers[2]);
                     animals[animals.Count - 1].price = 1f;
                     break;
-                case 4:
-                    animals.Add(new Animal());
-                    animals[animals.Count-1].SelectSprite(chicken);
+                case 3:
+                    animals.Add(new Animal(centers[3]));
+                    animals[animals.Count-1].SelectSprite(chicken, centers[3]);
                     animals[animals.Count - 1].price = 1.5f;
                     break;
-                case 5:
-                    animals.Add(new Animal());
-                    animals[animals.Count-1].SelectSprite(horse);
+                case 4:
+                    animals.Add(new Animal(centers[4]));
+                    animals[animals.Count-1].SelectSprite(horse, centers[4]);
                     animals[animals.Count - 1].price = 2f;
                     break;
-                case 6:
-                    animals.Add(new Animal());
-                    animals[animals.Count-1].SelectSprite(bunny);
+                case 5:
+                    animals.Add(new Animal(centers[5]));
+                    animals[animals.Count-1].SelectSprite(bunny, centers[5]);
                     animals[animals.Count - 1].price = 2.5f;
                     break;
-                case 7:
-                    animals.Add(new Animal());
-                    animals[animals.Count-1].SelectSprite(bull);
+                case 6:
+                    animals.Add(new Animal(centers[6]));
+                    animals[animals.Count-1].SelectSprite(bull, centers[6]);
                     animals[animals.Count - 1].price = 3f;
                     break;
-                case 8:
-                    animals.Add(new Animal());
-                    animals[animals.Count-1].SelectSprite(fish);
+                case 7:
+                    animals.Add(new Animal(centers[7]));
+                    animals[animals.Count-1].SelectSprite(fish, centers[7]);
                     animals[animals.Count - 1].price = 4f;
                     break;
-                case 9:
-                    animals.Add(new Animal());
-                    animals[animals.Count-1].SelectSprite(duck);
+                case 8:
+                    animals.Add(new Animal(centers[8]));
+                    animals[animals.Count-1].SelectSprite(duck, centers[8]);
                     animals[animals.Count - 1].price = 5f;
                     break;
                 default:
