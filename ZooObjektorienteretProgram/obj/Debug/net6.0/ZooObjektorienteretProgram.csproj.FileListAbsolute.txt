@@ -106,3 +106,5 @@ C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\Zo
 C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ZooObjektorienteretProgram.genruntimeconfig.cache
 C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\obj\Debug\net6.0\ref\ZooObjektorienteretProgram.dll
 C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\ZooMenu.xnb
+C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\kaspe\OneDrive\Dokumenter\GitHub\WorkSpaces\TestingGitHub\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll

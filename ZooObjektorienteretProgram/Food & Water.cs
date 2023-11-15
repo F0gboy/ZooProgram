@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 using System.Reflection.Metadata;
+using System.Media; 
 
 namespace ZooObjektorienteretProgram
 {
@@ -145,17 +146,16 @@ namespace ZooObjektorienteretProgram
         {
             
             
-                waterLevel--;
-                //drinkingSound.Play();
+            waterLevel--;
+            //drinkingSound.Play();
+             
 
-            
-            
-            
-                foodLevel--;
-                //eatingSound.Play();
-                
 
+            foodLevel--;
+            //eatingSound.Play();
             
+
+
         }
 
     }

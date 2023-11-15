@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
 using Microsoft.Xna.Framework.Media;
+using System.Media;
 
 
 namespace ZooObjektorienteretProgram
@@ -95,6 +96,8 @@ namespace ZooObjektorienteretProgram
             _player = new Player(Content, _spriteBatch);_spawner = new AnimalSpawner(Content);
 
             IsMouseVisible = true;
+
+            
             
             base.Initialize();
         }
@@ -213,7 +216,7 @@ namespace ZooObjektorienteretProgram
 
             GenerateAnimalBoundaries( 6, 5, fencePosition, s);
             //fenceRecs[0].X = fencePosition.X + 50;
-            // fenceRecs[0].Y = fencePosition.Y + 50;
+            //fenceRecs[0].Y = fencePosition.Y + 50;
 
             for (int i = 0; i < 15; i++)
             {
@@ -227,7 +230,6 @@ namespace ZooObjektorienteretProgram
                 fence.LoadContent(Content);
             }
 
-            //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
             // TODO: use this.Content to load your game content here

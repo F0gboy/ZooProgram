@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZooObjektorienteretProgram")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c02d67ff5e0182a1dcd39793b3ae45375c0a5fcc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fee08395f5f68f7b37b85af5aaeafa458f67b6e0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZooObjektorienteretProgram")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZooObjektorienteretProgram")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
