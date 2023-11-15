@@ -84,38 +84,38 @@ namespace ZooObjektorienteretProgram
                 case 2:
                     animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(pig);
-                    animals[animals.Count - 1].price = 0.75f;
+                    animals[animals.Count - 1].price = 1f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
 
                 case 3:
                     animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(cow);
-                    animals[animals.Count - 1].price = 1f;
+                    animals[animals.Count - 1].price = 1.5f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 4:
                     animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(chicken);
-                    animals[animals.Count - 1].price = 1.5f;
+                    animals[animals.Count - 1].price = 2f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 5:
                     animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(horse);
-                    animals[animals.Count - 1].price = 2f;
+                    animals[animals.Count - 1].price = 2.5f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 6:
                     animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(bunny);
-                    animals[animals.Count - 1].price = 2.5f;
+                    animals[animals.Count - 1].price = 3f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 7:
                     animals.Add(new Animal(cash));
                     animals[animals.Count-1].SelectSprite(bull);
-                    animals[animals.Count - 1].price = 3f;
+                    animals[animals.Count - 1].price = 3.5f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 8:

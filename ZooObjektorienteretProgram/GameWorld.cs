@@ -18,6 +18,10 @@ namespace ZooObjektorienteretProgram
         private SpriteFont moneyFont;
         private Money cash;
 
+        private float elapsedSeconds;
+        private float drainInterval = 1f;
+        private Food___Water foodWaterObject;
+
         private AnimalBoundaries animalFence;
         private List<AnimalBoundaries> fences = new();
         private Vector2 fencePosition;
@@ -61,9 +65,10 @@ namespace ZooObjektorienteretProgram
         {
             // TODO: Add your initialization logic here
             //_graphics.IsFullScreen = true;
+            foodWaterObject = new Food___Water();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spawner = new AnimalSpawner(Content, cash);
-            _player = new Player(Content, _spriteBatch, _spawner, cash);
+            _player = new Player(Content, _spriteBatch, _spawner, cash, moneyFont);
 
             for (int i = 0; i < rnd.Next(10, 25); i++)
             {
@@ -174,7 +179,9 @@ namespace ZooObjektorienteretProgram
             {
                 fence.LoadContent(Content);
             }
+            foodWaterObject.LoadContent(Content);
             moneyFont = Content.Load<SpriteFont>("Money");
+            _player.font = moneyFont;
             _player.Load(Content);
             _backgroundTexture = Content.Load<Texture2D>("GrassBackground");
             _backgroundMenuTexture = Content.Load<Texture2D>("ZooMenu");
@@ -196,6 +203,17 @@ namespace ZooObjektorienteretProgram
             {
                 _player.MouseUpdate();
                 _spawner.AnimalUpdate();
+
+
+                // det er her jeg tjekker level for food and water
+                foodWaterObject.Update();
+                // Her gør jeg så Drain køre været sekund
+                elapsedSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (elapsedSeconds >= drainInterval)
+                {
+                    foodWaterObject.Drain();
+                    elapsedSeconds = 0;
+                }
             }
             
             if (_nextState != null)
@@ -227,7 +245,9 @@ namespace ZooObjektorienteretProgram
                     fence.Draw(_spriteBatch);
                 }
                 _spawner.AnimalDraw(_spriteBatch);
-                _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", new Vector2(50, 50), Color.Gold);
+                _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}$", new Vector2(50, 50), Color.Gold);
+                foodWaterObject.Draw(_spriteBatch);
+
             }
             _spriteBatch.End();
             _currentState.Draw(gameTime, _spriteBatch);

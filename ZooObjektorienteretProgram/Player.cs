@@ -20,7 +20,7 @@ namespace ZooObjektorienteretProgram
         private GraphicsDeviceManager graphicsDeviceManager;
         private AnimalSpawner AnimalSpawner;
         private Money cash;
-
+        public SpriteFont font;
         private Button testButton;
 
 
@@ -28,12 +28,12 @@ namespace ZooObjektorienteretProgram
         public List<Button> penButtons = new List<Button>(); 
    
 
-        public Player(ContentManager content, SpriteBatch spriteBatch, AnimalSpawner animalSpawner, Money cash)
+        public Player(ContentManager content, SpriteBatch spriteBatch, AnimalSpawner animalSpawner, Money cash, SpriteFont font)
         {
             this.content = content;
             this.AnimalSpawner = animalSpawner;
             this.cash = cash;
-
+            this.font = font;
             //Test Button
             testButton = new Button(content);
             testButton.rect = new Rectangle(100,100,testButton.rect.Width, testButton.rect.Height);
@@ -41,8 +41,57 @@ namespace ZooObjektorienteretProgram
             Random rnd = new Random();
             for (int i = 0; i < 8; i++)
             {
-                penButtons.Add(new SpawnButton(content, i + 1, animalSpawner, cash));
+                string text = "";
+                switch (i)
+                {
+                    case 0:
+                        text = "Sheep - 5$";
+                        break;
+
+                        case 1:
+                        text = "Pig - 10$";
+
+                        break;
+
+                        case 2:
+                        text = "Cow - 15$";
+
+                        break;
+
+
+                        case 3:
+                        text = "Chicken - 20$";
+
+                        break; 
+                    
+                    case 4:
+                        text = "Horse - 25$";
+                        break; 
+                    
+                    case 5:
+                        text = "Bunny - 30$";
+                        break; 
+                    
+                    case 6: 
+                        text = "Bull - 35$";
+
+                        break;
+                    
+                    case 7:
+                        text = "Fish - 40$";
+
+                        break;
+                    
+                    case 8: 
+                        text = "Duck - 50$";
+
+                        break;
+                    default:
+                        break;
+                }
+                penButtons.Add(new SpawnButton(content, i + 1, animalSpawner, cash, this, text));
                 penButtons[penButtons.Count - 1].rect = new Rectangle(rnd.Next(100, 750), rnd.Next(100, 700), penButtons[penButtons.Count - 1].rect.Width, penButtons[penButtons.Count - 1].rect.Height);
+                
             }
             
             
@@ -56,14 +105,24 @@ namespace ZooObjektorienteretProgram
 
             foreach (SpawnButton button in penButtons)
             {
-                if (button.rect.Contains(mousePosition) == true && mouseState.LeftButton == ButtonState.Pressed && button.pressed == false)
+                if (button.rect.Contains(mousePosition) == true)
                 {
 
-                    button.Spawn(new Vector2(250, 250));
-                    button.pressed = true;
+
+                    button.color = Color.LightGray;
+                    if (mouseState.LeftButton == ButtonState.Pressed && button.pressed == false)
+                    {
+                        button.Spawn(new Vector2(250, 250));
+                        button.pressed = true;
+
+                    }
 
                 }
-                else if (mouseState.LeftButton == ButtonState.Released)
+                else
+                {
+                    button.color = Color.White;
+                }
+                if (mouseState.LeftButton == ButtonState.Released)
                 {
                     button.pressed = false;
 

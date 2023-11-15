@@ -33,7 +33,6 @@ namespace ZooObjektorienteretProgram
         {
             
             spriteBatch.Draw(sprite, rect, Color.White);
-            
 
         }
 
@@ -43,5 +42,7 @@ namespace ZooObjektorienteretProgram
             
 
         }
+
+      
     }
 }
