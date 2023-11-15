@@ -45,8 +45,11 @@ namespace ZooObjektorienteretProgram
 
         private State _currentState;
         private State _nextState;
+
+        private Texture2D _backgroundMenuTexture; 
         private Texture2D _backgroundTexture;
         private Vector2 _backgroundPosition; 
+
 
         public GameWorld()
         {
@@ -206,6 +209,7 @@ namespace ZooObjektorienteretProgram
             foodWaterObject.LoadContent(Content);
 
             _backgroundTexture = Content.Load<Texture2D>("GrassBackground");
+            _backgroundMenuTexture = Content.Load<Texture2D>("ZooMenu");
 
             GenerateAnimalBoundaries( 6, 5, fencePosition, s);
             //fenceRecs[0].X = fencePosition.X + 50;
@@ -280,7 +284,7 @@ namespace ZooObjektorienteretProgram
             _currentState.Draw(_spriteBatch);
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
-
+            // draw.background has to be loaded first or else stuff gets hidden behind the background. 
             _spriteBatch.Draw(_backgroundTexture, _backgroundPosition, Color.White); 
             
             //_spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
