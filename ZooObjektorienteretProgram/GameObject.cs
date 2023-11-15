@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace ZooObjektorienteretProgram
 {
-    internal abstract class GameObject
+    internal abstract class GameObject { 
     
         private Texture2D sprite;
         protected Vector2 position1;
         protected Vector2 position2;
 
-        protected Texture2D[] sprite;
+        protected Texture2D[] sprites;
         protected Vector2 position;
         protected float animationSpeed;
         private float animationTime;
@@ -29,7 +29,7 @@ namespace ZooObjektorienteretProgram
         {
             get
             {
-                return sprite[(int)animationTime];
+                return sprites[(int)animationTime];
             }
         }
 

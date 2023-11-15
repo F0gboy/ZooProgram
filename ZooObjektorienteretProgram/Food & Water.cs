@@ -92,7 +92,7 @@ namespace ZooObjektorienteretProgram
         }
 
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
 
             switch (switchNum)
@@ -159,5 +159,6 @@ namespace ZooObjektorienteretProgram
 
             
         }
+
     }
 }

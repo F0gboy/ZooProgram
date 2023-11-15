@@ -199,10 +199,8 @@ namespace ZooObjektorienteretProgram
         {
             
 
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-            cash.AddMoney();
-            cash.SpendMoney();
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) Exit();
+
             // TODO: Add your update logic here
 			if (gameStarted == true) {
             elapsedSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -237,18 +235,15 @@ namespace ZooObjektorienteretProgram
 			if (gameStarted == true) {
             _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
 
-            foodWaterObject.Draw(gameTime, _spriteBatch);
+            foodWaterObject.Draw(_spriteBatch);
 
             _currentState.Draw(gameTime, _spriteBatch);
+            _player.DrawButtons(_spriteBatch);
+            _spawner.AnimalDraw(_spriteBatch);
             
             foreach (var fence in fences)
             {
-                _player.DrawButtons(_spriteBatch);
-                foreach (var fence in fences)
-                {
-                    fence.Draw(_spriteBatch);
-                }
-                _spawner.AnimalDraw(_spriteBatch);
+                fence.Draw(_spriteBatch);    
             }
 				}
             _spriteBatch.End();
