@@ -13,16 +13,16 @@ namespace ZooObjektorienteretProgram.States
     public class MenuState : State
     {
         private List<Component> _components;
-
-        public MenuState(GameWorld game, GraphicsDevice graphicsDevice, ContentManager content)
+        private GameWorld _world;
+        public MenuState(GameWorld game, GraphicsDevice graphicsDevice, ContentManager content, GameWorld world)
           : base(game, graphicsDevice, content)
         {
             var buttonTexture = _content.Load<Texture2D>("Button");
             var buttonFont = _content.Load<SpriteFont>("Font");
-
+            _world = world;
             var newGameButton = new MenuButton(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 200),
+                Position = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width/2-75, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height/2-50 + 300),
                 Text = "New Game",
             };
 
@@ -30,7 +30,7 @@ namespace ZooObjektorienteretProgram.States
 
             var loadGameButton = new MenuButton(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 250),
+                Position = new Vector2(30000, 25000),
                 Text = "Load Game",
             };
 
@@ -38,7 +38,7 @@ namespace ZooObjektorienteretProgram.States
 
             var quitGameButton = new MenuButton(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 300),
+                Position = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 75, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 + 50 + 300),
                 Text = "Quit Game",
             };
 
@@ -69,7 +69,9 @@ namespace ZooObjektorienteretProgram.States
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
+            _world.gameStarted = true;
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            
         }
 
         public override void PostUpdate(GameTime gameTime)

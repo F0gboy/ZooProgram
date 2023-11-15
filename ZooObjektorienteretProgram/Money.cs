@@ -31,8 +31,8 @@ namespace ZooObjektorienteretProgram
             KeyboardState keyState = Keyboard.GetState();
             if (keyState.IsKeyDown(Keys.E))
             {
-                MoneyCount += bacisMoney;
-                moneySound.Play();
+                moneyCount += money;
+           		moneySound.Play();
             }
         }
         public void SpendMoney()
@@ -40,7 +40,7 @@ namespace ZooObjektorienteretProgram
             KeyboardState keyState = Keyboard.GetState();
             if (keyState.IsKeyDown(Keys.Q))
             {
-                MoneyCount -= 1;
+                moneyCount -= money;
             }
         }
     }

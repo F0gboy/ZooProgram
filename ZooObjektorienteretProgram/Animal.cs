@@ -23,11 +23,14 @@ namespace ZooObjektorienteretProgram
         public Rectangle rectangle;
         public bool dead = false;
         public Rectangle center;
+        private Money cash
 
 
-        public Animal(Rectangle Center)
+        public Animal(Rectangle Center, Money cash)
         {
             this.center = Center;
+            this.cash = cash;
+        
         }
 
 
@@ -116,6 +119,7 @@ namespace ZooObjektorienteretProgram
             mousePosition = new Point(mouseState.X, mouseState.Y);
             if (rectangle.Contains(mousePosition) == true)
             {
+                cash.AddMoney(cash.baseMoney*price*2);
                 dead = true;
             }
         }

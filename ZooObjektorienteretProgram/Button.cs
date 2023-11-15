@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -16,8 +17,9 @@ namespace ZooObjektorienteretProgram
     {
         public Rectangle rect;
         private GraphicsDeviceManager graphics;
-        private Texture2D sprite;
+        protected Texture2D sprite;
         private ContentManager content;
+        public bool pressed;
         
 
 
@@ -31,16 +33,16 @@ namespace ZooObjektorienteretProgram
         {
             
             spriteBatch.Draw(sprite, rect, Color.White);
-            
 
         }
 
         public override void LoadContent(ContentManager content)
         {
 
-            sprite = content.Load<Texture2D>("Button");
-            rect = new Rectangle(rect.X,rect.Y,sprite.Width/4,sprite.Height/4);
+            
 
         }
+
+      
     }
 }

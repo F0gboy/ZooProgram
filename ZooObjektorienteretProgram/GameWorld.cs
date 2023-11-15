@@ -29,6 +29,15 @@ namespace ZooObjektorienteretProgram
         private Player _player;
         private AnimalSpawner _spawner;
         private Random rnd = new Random();
+        private SpriteFont moneyFont;
+        private Money cash;
+
+        private float elapsedSeconds;
+        private float drainInterval = 1f;
+        private Food___Water foodWaterObject;
+        
+        private Rectangle tempRec;
+        private Rectangle tempRec2;
 
         private AnimalBoundaries animalFence;
         private List<List<AnimalBoundaries>> fenceLists = new List<List<AnimalBoundaries>>();
@@ -48,8 +57,12 @@ namespace ZooObjektorienteretProgram
 
         private State _currentState;
         private State _nextState;
-        private Rectangle tempRec;
-        private Rectangle tempRec2;
+        public bool gameStarted = false;
+
+        private Texture2D _backgroundMenuTexture;
+        private Texture2D _backgroundTexture;
+        private Vector2 _backgroundPosition;
+
 
         public GameWorld()
         {
@@ -77,7 +90,7 @@ namespace ZooObjektorienteretProgram
                 fenceLists.Add(fenceTemp);
             }
         }
-
+          
         public void ChangeState(State state)
         {
             _nextState = state;
@@ -96,8 +109,10 @@ namespace ZooObjektorienteretProgram
             // TODO: Add your initialization logic here
 
             //_graphics.IsFullScreen = true;
+            foodWaterObject = new Food___Water();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _player = new Player(Content, _spriteBatch);_spawner = new AnimalSpawner(Content);
+            _spawner = new AnimalSpawner(Content, cash);
+            _player = new Player(Content, _spriteBatch, _spawner, cash, moneyFont);
 
             IsMouseVisible = true;
             
@@ -280,39 +295,48 @@ namespace ZooObjektorienteretProgram
             {
                 fence.LoadContent(Content);
             }
-
+            foodWaterObject.LoadContent(Content);
+            moneyFont = Content.Load<SpriteFont>("Money");
+            _player.font = moneyFont;
+            _player.Load(Content);
+            _backgroundTexture = Content.Load<Texture2D>("GrassBackground");
+            _backgroundMenuTexture = Content.Load<Texture2D>("ZooMenu");
             //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
-            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
+            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content, this);
             // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            
+
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             cash.AddMoney();
             cash.SpendMoney();
             // TODO: Add your update logic here
-
-            elapsedSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            foreach (var foodAndWater in foodAndWaterObjects)
+			if (gameStarted == true)
             {
-                foodAndWater.Update();
-            }
+	            _player.MouseUpdate();
+	            _spawner.AnimalUpdate();
+            
+	            elapsedSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
+	
+	            foreach (var foodAndWater in foodAndWaterObjects)
+	            {
+	                foodAndWater.Update();
+	            }
 
-            if (elapsedSeconds >= drainInterval)
-            {
-                foreach (var foodAndWater in foodAndWaterObjects)
-                {
-                    foodAndWater.Drain();
-                }
-                elapsedSeconds = 0; // Reset the elapsed time
+	            if (elapsedSeconds >= drainInterval)
+	            {
+	                foreach (var foodAndWater in foodAndWaterObjects)
+	                {
+	                    foodAndWater.Drain();
+	                }
+	                elapsedSeconds = 0; // Reset the elapsed time
+	           	}
             }
-
-            _player.MouseUpdate();
-            _spawner.AnimalUpdate();
 
             if (_nextState != null)
             {
@@ -330,7 +354,7 @@ namespace ZooObjektorienteretProgram
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _currentState.Draw(_spriteBatch);
+            
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
@@ -338,31 +362,30 @@ namespace ZooObjektorienteretProgram
             Color[] data = new Color[150 * 150];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
             rect.SetData(data);
-
-
-            //_spriteBatch.Draw(rect, tempRec, Color.White);
-            
-
-            //foreach (var rects in fenceRecs)
-            //{
-            //    _spriteBatch.Draw(rect, rects, Color.White);
-            //}
-
-            //_spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
-
-            foreach (var foodAndWater in foodAndWaterObjects)
+			_spriteBatch.Draw(_backgroundMenuTexture, _backgroundPosition, Color.White);
+			
+			if (gameStarted == true)
             {
-                foodAndWater.Draw(_spriteBatch);
-            }
-            
-            foreach (var fence in allFences)
-            {
-                fence.Draw(_spriteBatch);
-            }
+           		_spriteBatch.Draw(_backgroundMenuTexture, _backgroundPosition, Color.White);
+           	 
+	            foreach (var foodAndWater in foodAndWaterObjects)
+	            {
+	                foodAndWater.Draw(_spriteBatch);
+	            }
+	            
+	            foreach (var fence in allFences)
+	            {
+	                fence.Draw(_spriteBatch);
+	            }
+	            
+	            _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}$", new Vector2(50, 50), Color.Gold);
 
+			}
+	        _spriteBatch.End();
+
+            }
             _spriteBatch.End();
-
-            _spawner.AnimalDraw(_spriteBatch);
+            _currentState.Draw(gameTime, _spriteBatch);
 
             base.Draw(gameTime);
         }
