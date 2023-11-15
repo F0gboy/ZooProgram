@@ -20,19 +20,21 @@ namespace ZooObjektorienteretProgram
         private Player player;
         private string text;
         public Color color = Color.White;
+        public List<Rectangle> rects;
 
-        public SpawnButton(ContentManager content, int animalNum, AnimalSpawner animalSpawner, Money cash, Player player, string text) : base(content)
+        public SpawnButton(ContentManager content, int animalNum, AnimalSpawner animalSpawner, Money cash, Player player, string text, List<Rectangle> Rects) : base(content)
         {
             this.player = player;
             this.animalNum = animalNum;
             this.animalSpawner = animalSpawner;
-            this.cash = cash;   
+            this.cash = cash;
             this.text = text;
+            this.rects = Rects;
         }
-
+            
         public void Spawn(Vector2 position)
         {
-            animalSpawner.SpawnAnimal(animalNum);
+            animalSpawner.SpawnAnimal(animalNum, rects);
             animalSpawner.animals[animalSpawner.animals.Count - 1].rectangle.X = (int)position.X;
             animalSpawner.animals[animalSpawner.animals.Count - 1].rectangle.Y = (int)position.Y;
             

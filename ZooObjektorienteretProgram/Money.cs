@@ -16,32 +16,25 @@ namespace ZooObjektorienteretProgram
     {
         private SoundEffect moneySound;
         public double moneyCount;
-        private int bacisMoney = 10;
+        public int baseMoney = 10;
         public double MoneyCount { get => moneyCount; set => moneyCount = value; }
 
+
         public Money(ContentManager content)
-        {            
+        {
             moneySound = content.Load<SoundEffect>("Money Sound");
-            
+
         }
 
-        public void AddMoney()
+        public void AddMoney(float money)
         {
-            
-            KeyboardState keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.E))
-            {
-                moneyCount += money;
-           		moneySound.Play();
-            }
+            moneyCount += money;
+            //moneySound.Play();
         }
-        public void SpendMoney()
+
+        public void SpendMoney(float money)
         {
-            KeyboardState keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Q))
-            {
-                moneyCount -= money;
-            }
+            moneyCount -= money;
         }
     }
 }

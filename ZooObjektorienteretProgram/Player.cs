@@ -22,18 +22,20 @@ namespace ZooObjektorienteretProgram
         private Money cash;
         public SpriteFont font;
         private Button testButton;
+        public List<Rectangle> rects;
 
 
 
         public List<Button> penButtons = new List<Button>(); 
    
 
-        public Player(ContentManager content, SpriteBatch spriteBatch, AnimalSpawner animalSpawner, Money cash, SpriteFont font)
+        public Player(ContentManager content, SpriteBatch spriteBatch, AnimalSpawner animalSpawner, Money cash, SpriteFont font, List<Rectangle> Rects)
         {
             this.content = content;
             this.AnimalSpawner = animalSpawner;
             this.cash = cash;
             this.font = font;
+            this.rects = Rects;
             //Test Button
             testButton = new Button(content);
             testButton.rect = new Rectangle(100,100,testButton.rect.Width, testButton.rect.Height);
@@ -89,7 +91,7 @@ namespace ZooObjektorienteretProgram
                     default:
                         break;
                 }
-                penButtons.Add(new SpawnButton(content, i + 1, animalSpawner, cash, this, text));
+                penButtons.Add(new SpawnButton(content, i + 1, animalSpawner, cash, this, text, rects));
                 penButtons[penButtons.Count - 1].rect = new Rectangle(rnd.Next(100, 750), rnd.Next(100, 700), penButtons[penButtons.Count - 1].rect.Width, penButtons[penButtons.Count - 1].rect.Height);
                 
             }

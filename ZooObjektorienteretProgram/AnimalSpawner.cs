@@ -76,56 +76,56 @@ namespace ZooObjektorienteretProgram
             switch (spawnNum)
             {
                 case 0:
-                    animals.Add(new Animal(centers[0]));
+                    animals.Add(new Animal(centers[0], cash));
                     animals[animals.Count-1].SelectSprite(sheep, centers[0]);
                     animals[animals.Count - 1].price = 0.5f;
                     cash.SpendMoney(animals[animals.Count - 1].price*cash.baseMoney);
                     break;
                 case 1:
-                    animals.Add(new Animal(cash, centers[1]));
+                    animals.Add(new Animal(centers[1], cash));
                     animals[animals.Count-1].SelectSprite(pig, centers[1]);
                     animals[animals.Count - 1].price = 1f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
 
                 case 2:
-                    animals.Add(new Animal(cash, centers[2]));
+                    animals.Add(new Animal(centers[2], cash));
                     animals[animals.Count-1].SelectSprite(cow, centers[2]);
                     animals[animals.Count - 1].price = 1.5f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 3:
-                    animals.Add(new Animal(cash, centers[3]));
+                    animals.Add(new Animal(centers[3], cash));
                     animals[animals.Count-1].SelectSprite(chicken, centers[3]);
                     animals[animals.Count - 1].price = 2f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 4:
-                    animals.Add(new Animal(cash, centers[4]));
+                    animals.Add(new Animal(centers[4], cash));
                     animals[animals.Count-1].SelectSprite(horse, centers[4]);
                     animals[animals.Count - 1].price = 2.5f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 5:
-                    animals.Add(new Animal(cash, centers[5]));
+                    animals.Add(new Animal(centers[5], cash));
                     animals[animals.Count-1].SelectSprite(bunny, centers[5]);
                     animals[animals.Count - 1].price = 3f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 6:
-                    animals.Add(new Animal(cash, centers[6]));
+                    animals.Add(new Animal(centers[6], cash));
                     animals[animals.Count-1].SelectSprite(bull, centers[6]);
                     animals[animals.Count - 1].price = 3.5f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 7:
-                    animals.Add(new Animal(cash, centers[7]));
+                    animals.Add(new Animal(centers[7], cash));
                     animals[animals.Count-1].SelectSprite(fish, centers[7]);
                     animals[animals.Count - 1].price = 4f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);
                     break;
                 case 8:
-                    animals.Add(new Animal(cash, centers[8]));
+                    animals.Add(new Animal(centers[8], cash));
                     animals[animals.Count-1].SelectSprite(duck, centers[8]);
                     animals[animals.Count - 1].price = 5f;
                     cash.SpendMoney(animals[animals.Count - 1].price * cash.baseMoney);

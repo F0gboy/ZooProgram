@@ -53,9 +53,13 @@ namespace ZooObjektorienteretProgram
             foodSprite2 = content.Load<Texture2D>("Food2");
             foodSprite3 = content.Load<Texture2D>("Food3");
 
+            foodSprite = foodSprite3;
+
             waterSprite1 = content.Load<Texture2D>("Water1");
             waterSprite2 = content.Load<Texture2D>("Water2");
             waterSprite3 = content.Load<Texture2D>("Water3");
+
+            waterSprite = waterSprite3;
         }
 
         public void Update()

@@ -23,7 +23,7 @@ namespace ZooObjektorienteretProgram
         public Rectangle rectangle;
         public bool dead = false;
         public Rectangle center;
-        private Money cash
+        private Money cash;
 
 
         public Animal(Rectangle Center, Money cash)
@@ -46,10 +46,7 @@ namespace ZooObjektorienteretProgram
         {
             if (sprite != null)
             {
-                 spriteBatch.Begin(samplerState: SamplerState.PointWrap);
                  spriteBatch.Draw(sprite, rectangle, Color.White);
-                 spriteBatch.End();
-               
             }
         }
 
@@ -80,37 +77,7 @@ namespace ZooObjektorienteretProgram
                     rectangle.X += numberx;
                     rectangle.Y += numbery;
                 }
-            }
-            
-
-            //int w = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            //int h = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-            //if (rectangle.X > 480)
-            //{
-            //    rectangle.X = 479;
-            //}
-            //if (rectangle.X < 0)
-            //{
-            //    rectangle.X = 0;
-            //}
-
-            //if (rectangle.Y > h)
-            //{
-            //    rectangle.Y = h;
-            //}
-            //if (rectangle.Y < 0)
-            //{
-            //    rectangle.Y = 0;
-            //}
-
-
-
-            
-
-
-            //Animal pressed
-            
-            
+            }            
         }
 
         public void ClickedAnimal()

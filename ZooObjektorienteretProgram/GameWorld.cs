@@ -20,20 +20,14 @@ namespace ZooObjektorienteretProgram
 
         private Money moneyManager;
         public SpriteFont moneyFont;
-        private Money cash;
         private float elapsedSeconds;
         private float drainInterval = 1f;
-        private Food___Water foodWaterObject;
-        private Food___Water foodWaterObject2;
 
         private Player _player;
         private AnimalSpawner _spawner;
         private Random rnd = new Random();
-        private SpriteFont moneyFont;
         private Money cash;
 
-        private float elapsedSeconds;
-        private float drainInterval = 1f;
         private Food___Water foodWaterObject;
         
         private Rectangle tempRec;
@@ -109,10 +103,9 @@ namespace ZooObjektorienteretProgram
             // TODO: Add your initialization logic here
 
             //_graphics.IsFullScreen = true;
-            foodWaterObject = new Food___Water();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spawner = new AnimalSpawner(Content, cash);
-            _player = new Player(Content, _spriteBatch, _spawner, cash, moneyFont);
+            _player = new Player(Content, _spriteBatch, _spawner, cash, moneyFont, fenceRecs);
 
             IsMouseVisible = true;
             
@@ -215,12 +208,12 @@ namespace ZooObjektorienteretProgram
                 fenceRecs[s] = tempRec;
                 fencePosition.Y += 425;
                 tempRec2 = tempRec;
-                tempRec2.X -= 50;
+                tempRec2.X -= 45;
 
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
 
-                foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y - 160, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
-                foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 150, tempRec2.Y - 160, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+                foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y - 60, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+                foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 155, tempRec2.Y - 60, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
 
                 for (int i = 0; i < 15; i++)
                 {
@@ -234,14 +227,14 @@ namespace ZooObjektorienteretProgram
                 fenceRecs[s] = tempRec;
 
                 tempRec2 = tempRec;
-                tempRec2.Y -= 160;
+                tempRec2.Y -= 60;
                 tempRec2.X -= 50;
 
                 fencePosition.X += 350;
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
 
                 foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y , (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
-                foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 150, tempRec2.Y , (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+                foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 155, tempRec2.Y , (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
 
                 for (int i = 0; i < 15; i++)
                 {
@@ -270,10 +263,10 @@ namespace ZooObjektorienteretProgram
             fenceRecs[0] = tempRec;
             tempRec2 = tempRec;
             tempRec2.X -= 50;
-            tempRec2.Y -= 160;
+            tempRec2.Y -= 60;
 
             foodAndWaterObjects[0].rectangle = new Rectangle(tempRec2.X, tempRec2.Y, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
-            foodAndWaterObjects[0].rectangle1 = new Rectangle(tempRec2.X + 150, tempRec2.Y, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
+            foodAndWaterObjects[0].rectangle1 = new Rectangle(tempRec2.X + 155, tempRec2.Y, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
 
 
             for (int i = 0; i < 15; i++)
@@ -301,7 +294,6 @@ namespace ZooObjektorienteretProgram
             _player.Load(Content);
             _backgroundTexture = Content.Load<Texture2D>("GrassBackground");
             _backgroundMenuTexture = Content.Load<Texture2D>("ZooMenu");
-            //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content, this);
             // TODO: use this.Content to load your game content here
@@ -309,12 +301,10 @@ namespace ZooObjektorienteretProgram
 
         protected override void Update(GameTime gameTime)
         {
-            
-
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+           
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            cash.AddMoney();
-            cash.SpendMoney();
+
             // TODO: Add your update logic here
 			if (gameStarted == true)
             {
@@ -354,41 +344,42 @@ namespace ZooObjektorienteretProgram
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            
-
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
             Texture2D rect = new Texture2D(_graphics.GraphicsDevice, 150, 150);
             Color[] data = new Color[150 * 150];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
             rect.SetData(data);
-			_spriteBatch.Draw(_backgroundMenuTexture, _backgroundPosition, Color.White);
-			
-			if (gameStarted == true)
-            {
-           		_spriteBatch.Draw(_backgroundMenuTexture, _backgroundPosition, Color.White);
-           	 
-	            foreach (var foodAndWater in foodAndWaterObjects)
-	            {
-	                foodAndWater.Draw(_spriteBatch);
-	            }
-	            
-	            foreach (var fence in allFences)
-	            {
-	                fence.Draw(_spriteBatch);
-	            }
-	            
-	            _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}$", new Vector2(50, 50), Color.Gold);
+            _spriteBatch.Draw(_backgroundMenuTexture, _backgroundPosition, Color.White);
 
-			}
-	        _spriteBatch.End();
+            if (gameStarted == true)
+            {
+                _spriteBatch.Draw(_backgroundTexture, _backgroundPosition, Color.White);
+
+                foreach (var fence in allFences)
+                {
+                    fence.Draw(_spriteBatch);
+                }
+
+                foreach (var foodAndWater in foodAndWaterObjects)
+                {
+                    foodAndWater.Draw(_spriteBatch);
+                }
+
+                _spawner.AnimalDraw(_spriteBatch);
+
+                _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}$", new Vector2(50, 50), Color.Gold);
+
+                _player.DrawButtons(_spriteBatch);
 
             }
             _spriteBatch.End();
-            _currentState.Draw(gameTime, _spriteBatch);
+
+
+            _currentState.Draw(_spriteBatch);
 
             base.Draw(gameTime);
+
         }
-        
     }
 }

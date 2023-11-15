@@ -4,38 +4,50 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/AS/bull.mp3</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/AS/bunny.mp3</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/AS/chicken.mp3</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/AS/cow.mp3</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/AS/duck.mp3</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/AS/fish.mp3</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/AS/horse.mp3</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/AS/pig.mp3</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/AS/sheep.mp3</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Button.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence2.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence3.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence4.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence5.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Font.spritefont</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/GrassBackground.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Money_Sound.wav</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/Money.spritefont</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/tile_bull.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/tile_bunny.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/tile_chicken.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/tile_cow.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/tile_duck.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/tile_fish.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/tile_horse.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/tile_pig.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/tile_sheep.png</File>
-    <File>C:/Users/Leonard/Fork/ZooProgram/ZooObjektorienteretProgram/Content/ZooMenu.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/AS/bull.mp3</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/AS/bunny.mp3</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/AS/chicken.mp3</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/AS/cow.mp3</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/AS/duck.mp3</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/AS/fish.mp3</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/AS/horse.mp3</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/AS/pig.mp3</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/AS/sheep.mp3</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Button.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence1.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence2.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence3.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence4.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence5.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Fence6.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Font.spritefont</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Food1.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Food2.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Food3.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/GrassBackground.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Money_Sound.wav</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Money.spritefont</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_bull.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_bunny.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_chicken.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_cow.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_duck.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_fish.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_horse.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_pig.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/tile_sheep.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Water1.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Water2.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/Water3.png</File>
+    <File>F:/zoo/ZooProgram/ZooObjektorienteretProgram/Content/ZooMenu.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
