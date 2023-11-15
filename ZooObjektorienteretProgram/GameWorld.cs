@@ -56,12 +56,13 @@ namespace ZooObjektorienteretProgram
             // TODO: Add your initialization logic here
             //_graphics.IsFullScreen = true;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _player = new Player(Content, _spriteBatch);_spawner = new AnimalSpawner(Content);
+            _spawner = new AnimalSpawner(Content);
+            _player = new Player(Content, _spriteBatch, _spawner);
 
-            //for (int i = 0; i < rnd.Next(10,25); i++)
-            //{
-            //    _spawner.SpawnAnimal(rnd.Next(1, 10));
-            //}
+            for (int i = 0; i < rnd.Next(10, 25); i++)
+            {
+                _spawner.SpawnAnimal(rnd.Next(1, 10));
+            }
 
             IsMouseVisible = true;
             
@@ -167,6 +168,8 @@ namespace ZooObjektorienteretProgram
             {
                 fence.LoadContent(Content);
             }
+
+            _player.Load(Content);
             //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content, this);
@@ -209,6 +212,7 @@ namespace ZooObjektorienteretProgram
             //animalFence.Draw(_spriteBatch);
             if (gameStarted == true)
             {
+                _player.DrawButtons(_spriteBatch);
                 foreach (var fence in fences)
                 {
                     fence.Draw(_spriteBatch);

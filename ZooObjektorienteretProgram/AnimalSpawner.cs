@@ -24,7 +24,9 @@ namespace ZooObjektorienteretProgram
         private Texture2D bull;
         private Texture2D fish;
         private Texture2D duck;
-        List<Animal> animals = new List<Animal>();
+        private int selectedAnimal;
+        private bool killTime = false;
+        public List<Animal> animals = new List<Animal>();
 
         public AnimalSpawner(ContentManager content)
         {
@@ -45,10 +47,22 @@ namespace ZooObjektorienteretProgram
                 }
             }
 
-            foreach (var animal in animals)
+            for (int i = 0; i < animals.Count; i++)
             {
-                animal.Move();
 
+                animals[i].Move();
+                if (animals[i].dead == true)
+                {
+                    selectedAnimal = i;
+                    killTime = true;
+                    break;
+                }
+            }
+
+            if (killTime == true)
+            {
+                animals.RemoveAt(selectedAnimal);
+                killTime = false;
             }
 
         }
