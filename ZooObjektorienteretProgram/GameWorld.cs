@@ -15,7 +15,7 @@ namespace ZooObjektorienteretProgram
         private Player _player;
         private AnimalSpawner _spawner;
         private Random rnd = new Random();
-        
+        private SpriteFont moneyFonnt;
 
         private AnimalBoundaries animalFence;
         private List<AnimalBoundaries> fences = new();
@@ -38,7 +38,7 @@ namespace ZooObjektorienteretProgram
 
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
-            //_graphics.IsFullScreen = true;
+            _graphics.IsFullScreen = true;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
@@ -168,8 +168,9 @@ namespace ZooObjektorienteretProgram
             {
                 fence.LoadContent(Content);
             }
-
+            moneyFont = Content.Load<SpriteFont>("Money");
             _player.Load(Content);
+
             //_backgroundTexture = Content.Load<Texture2D>("GrassBackground");
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content, this);
@@ -218,6 +219,7 @@ namespace ZooObjektorienteretProgram
                     fence.Draw(_spriteBatch);
                 }
                 _spawner.AnimalDraw(_spriteBatch);
+                _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
             }
             _spriteBatch.End();
 
