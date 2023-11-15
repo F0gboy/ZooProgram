@@ -32,8 +32,9 @@ namespace ZooObjektorienteretProgram
         private AnimalBoundaries animalFence;
         private List<List<AnimalBoundaries>> fenceLists = new List<List<AnimalBoundaries>>();
         private List<AnimalBoundaries> allFences = new();
-        public List<Rectangle> fenceRecs = new();
-        
+        public List<Rectangle> fenceRecs = new List<Rectangle>();
+        public Texture2D whiteRectangle;
+
         int s = 0;
 
         private Vector2 fencePosition;
@@ -45,6 +46,7 @@ namespace ZooObjektorienteretProgram
 
         private State _currentState;
         private State _nextState;
+        private Rectangle tempRec;
 
         public GameWorld()
         {
@@ -192,11 +194,8 @@ namespace ZooObjektorienteretProgram
             {
                 fencePosition.X += 400;
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
-            }
-
-            
+            }   
         }
-
 
         protected override void LoadContent()
         {
@@ -204,8 +203,16 @@ namespace ZooObjektorienteretProgram
             foodWaterObject.LoadContent(Content);
 
             GenerateAnimalBoundaries( 6, 5, fencePosition, s);
-            //fenceRecs[0].X = fencePosition.X + 50;
-            fenceRecs[0].Y = fencePosition.Y + 50;
+            tempRec.X = fenceRecs[0].X + 80;
+            tempRec.Y = fenceRecs[0].Y + 80;
+            tempRec.Width = 250;
+            tempRec.Height = 250;
+
+            foreach (var fenceRec in fenceRecs)
+            {
+                tempRec.X = fenceRec.X + 80;
+                tempRec.Y = fenceRec.Y + 80;
+            }
 
             for (int i = 0; i < 15; i++)
             {
@@ -277,10 +284,16 @@ namespace ZooObjektorienteretProgram
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
+            Texture2D rect = new Texture2D(_graphics.GraphicsDevice, 150, 150);
+            Color[] data = new Color[150 * 150];
+            for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
+            rect.SetData(data);
+
+            _spriteBatch.Draw(rect, tempRec, Color.White);
+
             //_spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}", Vector2.Zero, Color.Gold);
 
             foodWaterObject.Draw(_spriteBatch);
-            
             
             foreach (var fence in allFences)
             {
