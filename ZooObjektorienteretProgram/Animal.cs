@@ -27,6 +27,7 @@ namespace ZooObjektorienteretProgram
         private float adjustedPrice;
 
 
+
         public Animal(Rectangle Center, Money cash)
         {
             this.center = Center;
@@ -34,6 +35,7 @@ namespace ZooObjektorienteretProgram
         }
 
 
+        //select sprite
         public void SelectSprite(Texture2D spriteTag, Rectangle rec)
         {
             //select sprite and set rectangle
@@ -42,6 +44,7 @@ namespace ZooObjektorienteretProgram
         }
 
 
+        //draw animal
         public override void Draw(SpriteBatch spriteBatch)
         {
             //if sprite is not null, draw it
@@ -51,6 +54,7 @@ namespace ZooObjektorienteretProgram
             }
         }
 
+        //move animal
         public void Move()
         {
             int numberx = rnd.Next(-2, 3);
@@ -88,9 +92,9 @@ namespace ZooObjektorienteretProgram
 
         }
 
+        //if animal is clicked, add money and set dead to true
         public void ClickedAnimal()
         {
-            //if animal is clicked, add money and set dead to true
             mouseState = Mouse.GetState();
             mousePosition = new Point(mouseState.X, mouseState.Y);
             if (rectangle.Contains(mousePosition) == true)
@@ -105,9 +109,9 @@ namespace ZooObjektorienteretProgram
             
         }
 
+        //if random number is above 2 and rectangle is smaller than 76, grow animal
         public void Grow()
         {
-            //if random number is above 2 and rectangle is smaller than 76, grow animal
             if (rnd.Next(-1,4) > 2 && rectangle.Width < 76)
             {
             rectangle = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width + 1, rectangle.Height + 1);

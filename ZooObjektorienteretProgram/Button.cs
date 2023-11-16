@@ -29,9 +29,10 @@ namespace ZooObjektorienteretProgram
             LoadContent(content);
 
         }
+
+        //draw button
         public override void Draw(SpriteBatch spriteBatch)
         {
-            //draw button
             spriteBatch.Draw(sprite, rect, Color.White);
 
         }

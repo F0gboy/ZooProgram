@@ -51,10 +51,10 @@ namespace ZooObjektorienteretProgram
             this.money = money;
             
         }
+
+        //load sprites
         public override void LoadContent(ContentManager content)
         {
-            //load sprites
-
             foodSprite1 = content.Load<Texture2D>("Food1");
             foodSprite2 = content.Load<Texture2D>("Food2");
             foodSprite3 = content.Load<Texture2D>("Food3");
@@ -68,9 +68,9 @@ namespace ZooObjektorienteretProgram
             waterSprite = waterSprite3;
         }
 
+        //update food and water levels, and their sprites based on the levels
         public void Update()
         {
-            //update food and water levels, and their sprites based on the levels
             foodLevelNew = foodLevel;
             if (foodLevelNew > 50)
             {

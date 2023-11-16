@@ -17,7 +17,7 @@ namespace ZooObjektorienteretProgram
             _deviceMNG = new GraphicsDeviceManager(this);
         }
 
-
+        //Sets the window size
         protected override void Initialize()
 
         {

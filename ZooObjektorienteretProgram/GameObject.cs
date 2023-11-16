@@ -11,10 +11,7 @@ using System.Threading.Tasks;
 namespace ZooObjektorienteretProgram
 {
     internal abstract class GameObject
-    {
-
-   
-    
+    {    
         private Texture2D sprite;
         protected Vector2 position1;
         protected Vector2 position2;
@@ -24,22 +21,20 @@ namespace ZooObjektorienteretProgram
         protected float animationSpeed;
         private float animationTime;
         protected float scale = 1f;
-        protected float rotation = 0f; 
+        protected float rotation = 0f;
 
-
-
+        //get current sprite
         private Texture2D CurrentSprite
         {
-            //get current sprite
             get
             {
                 return sprites[(int)animationTime];
             }
         }
 
+        //get sprite size
         protected Vector2 SpriteSize
         {
-            //get sprite size
             get
             {
                 return new Vector2(CurrentSprite.Width * scale, CurrentSprite.Height * scale); 

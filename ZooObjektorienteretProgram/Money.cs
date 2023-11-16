@@ -26,16 +26,16 @@ namespace ZooObjektorienteretProgram
 
         }
 
+        //add money
         public void AddMoney(float money)
         {
-            //add money
             moneyCount += money;
             //moneySound.Play();
         }
 
+        //spend money
         public void SpendMoney(float money)
         {
-            //spend money
             moneyCount -= money;
         }
     }

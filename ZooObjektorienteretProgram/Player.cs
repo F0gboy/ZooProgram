@@ -36,7 +36,7 @@ namespace ZooObjektorienteretProgram
             this.font = font;
             this.rects = Rects;
             
-            ´//create test button
+            //create test button
             testButton = new Button(content);
             testButton.rect = new Rectangle(100,100,testButton.rect.Width, testButton.rect.Height);
 
@@ -133,12 +133,11 @@ namespace ZooObjektorienteretProgram
             }
         }
 
-        
+        //draw buttons
         public void DrawButtons(SpriteBatch spriteBatch) 
         {
             foreach (var item in penButtons)
             {
-                //draw buttons
                 item.Draw(spriteBatch);
             }
         }
