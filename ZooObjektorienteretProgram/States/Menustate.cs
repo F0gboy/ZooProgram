@@ -22,7 +22,7 @@ namespace ZooObjektorienteretProgram.States
             _world = world;
             var newGameButton = new MenuButton(buttonTexture, buttonFont)
             {
-                Position = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width/2-75, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height/2-50 + 300),
+                Position = new Vector2(1920/ 2-75, 1080/2-50 + 300),
                 Text = "New Game",
             };
 
@@ -38,7 +38,7 @@ namespace ZooObjektorienteretProgram.States
 
             var quitGameButton = new MenuButton(buttonTexture, buttonFont)
             {
-                Position = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 75, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 + 50 + 300),
+                Position = new Vector2(1920 / 2 - 75, 1080 / 2 + 50 + 300),
                 Text = "Quit Game",
             };
 

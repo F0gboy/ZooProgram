@@ -15,14 +15,14 @@ namespace ZooObjektorienteretProgram
     internal class Money
     {
         private SoundEffect moneySound;
-        public double moneyCount = 10;
+        public double moneyCount = 100000;
         public int baseMoney = 10;
         public double MoneyCount { get => moneyCount; set => moneyCount = value; }
 
 
         public Money(ContentManager content)
         {
-            moneySound = content.Load<SoundEffect>("Money Sound");
+            
 
         }
 

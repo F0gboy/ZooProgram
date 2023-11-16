@@ -53,8 +53,8 @@ namespace ZooObjektorienteretProgram
         }
         public override void LoadContent(ContentManager content)
         {
-            eatingSound = content.Load<SoundEffect>("Eat Sound");
-            drinkingSound = content.Load<SoundEffect>("Drinking sound");
+
+
 
             foodSprite1 = content.Load<Texture2D>("Food1");
             foodSprite2 = content.Load<Texture2D>("Food2");

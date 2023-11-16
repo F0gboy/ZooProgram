@@ -68,7 +68,7 @@ namespace ZooObjektorienteretProgram
 
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
-            _graphics.IsFullScreen = true;
+            //_graphics.IsFullScreen = true;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
@@ -393,6 +393,10 @@ namespace ZooObjektorienteretProgram
                 else
                 {
                     _spriteBatch.DrawString(moneyFont, $"Money: {(int)cash.moneyCount}$", new Vector2(50, 50), Color.Red);
+                    if (cash.moneyCount < -500)
+                    {
+                        Exit();
+                    }
                 }
                 
 

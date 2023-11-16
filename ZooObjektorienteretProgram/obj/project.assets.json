@@ -109,9 +109,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Leonard\\Fork\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
-      "projectName": "ZooObjektorienteretProgram",
-      "projectPath": "C:\\Users\\Leonard\\Fork\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
+      "projectUniqueName": "C:\\Users\\Leonard\\Fork\\ZooProgram\\ZooObjektorienteretProgram\\Idle Farm Frenzy.csproj",
+      "projectName": "Idle Farm Frenzy",
+      "projectPath": "C:\\Users\\Leonard\\Fork\\ZooProgram\\ZooObjektorienteretProgram\\Idle Farm Frenzy.csproj",
       "packagesPath": "C:\\Users\\Leonard\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Leonard\\Fork\\ZooProgram\\ZooObjektorienteretProgram\\obj\\",
       "projectStyle": "PackageReference",
