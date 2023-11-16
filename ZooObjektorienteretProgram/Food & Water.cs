@@ -37,11 +37,18 @@ namespace ZooObjektorienteretProgram
         private int switchNum;
         private int waterLevelNew;
         private int switchNum1;
+        private MouseState mouseState;
+        private Point mousePosition;
+        private bool pressed;
+        private Random rnd = new Random();
+        private Money money;
+        public bool animalsPresent = false;
 
-        public Food___Water(Rectangle rec)
+        public Food___Water(Rectangle rec, Money money)
         {
             this.rectangle = rec;
             this.rectangle1 = rec;
+            this.money = money;
             
         }
         public override void LoadContent(ContentManager content)
@@ -91,6 +98,37 @@ namespace ZooObjektorienteretProgram
             {
                 switchNum1 = 3;
             }
+
+            mouseState = Mouse.GetState();
+            mousePosition = new Point(mouseState.X, mouseState.Y);
+            if (rectangle.Contains(mousePosition) == true && mouseState.LeftButton == ButtonState.Pressed && pressed == false)
+            {
+                AddMoreFood();
+                money.SpendMoney(5);
+                pressed = true;
+
+            }
+            else if (mouseState.LeftButton == ButtonState.Released)
+            {
+                pressed = false;
+            }
+
+            if (rectangle1.Contains(mousePosition) == true  && mouseState.LeftButton == ButtonState.Pressed && pressed == false)
+                {
+                    AddMoreWater();
+                    money.SpendMoney(5);
+                    pressed = true;
+
+                }
+                else if (mouseState.LeftButton == ButtonState.Released)
+                 {
+                pressed = false;
+                 }
+            
+
+
+
+
         }
 
 
@@ -146,21 +184,19 @@ namespace ZooObjektorienteretProgram
                 foodLevel = 100;
             }
         }
-        public void Drain()
+        public void Drain(List<Animal> animals)
         {
-            
-            
-                waterLevel--;
-                //drinkingSound.Play();
+
 
             
-            
-            
-                foodLevel--;
-                //eatingSound.Play();
-                
+            waterLevel -= rnd.Next(0, 3);
 
+            foodLevel -= rnd.Next(0, 3);
             
+
+
+
+
         }
 
     }

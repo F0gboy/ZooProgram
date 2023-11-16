@@ -15,7 +15,7 @@ namespace ZooObjektorienteretProgram
     internal class Money
     {
         private SoundEffect moneySound;
-        public double moneyCount;
+        public double moneyCount = 10;
         public int baseMoney = 10;
         public double MoneyCount { get => moneyCount; set => moneyCount = value; }
 

@@ -95,7 +95,7 @@ namespace ZooObjektorienteretProgram
 
             for (int i = 0; i < 9; i++)
             {
-                foodWaterObject = new Food___Water(tempRec);
+                foodWaterObject = new Food___Water(tempRec, cash);
                 foodAndWaterObjects.Add(foodWaterObject);
             }
             
@@ -328,8 +328,12 @@ namespace ZooObjektorienteretProgram
 	            {
 	                foreach (var foodAndWater in foodAndWaterObjects)
 	                {
-	                    foodAndWater.Drain();
+	                    foodAndWater.Drain(_spawner.animals);
 	                }
+                    foreach (Animal animal in _spawner.animals)
+                    {
+                        animal.Grow();
+                    }
 	                elapsedSeconds = 0; // Reset the elapsed time
 	           	}
 
@@ -337,7 +341,7 @@ namespace ZooObjektorienteretProgram
                 {
                     if (Math.Abs(animal.center.X - animal.rectangle.X) > 260 || Math.Abs(animal.center.Y - animal.rectangle.Y) > 260)
                     {
-                        animal.rectangle = new Rectangle(animal.center.X+(animal.center.Width/2), animal.center.Y+(animal.center.Height / 2), animal.rectangle.Width, animal.rectangle.Height);
+                        animal.rectangle = new Rectangle(animal.center.X+(animal.center.Width/2)+rnd.Next(-60, 61), animal.center.Y+(animal.center.Height / 2)+rnd.Next(-60,61), animal.rectangle.Width, animal.rectangle.Height);
                     }
                 }
             }
@@ -382,7 +386,15 @@ namespace ZooObjektorienteretProgram
 
                 _spawner.AnimalDraw(_spriteBatch);
 
-                _spriteBatch.DrawString(moneyFont, $"Money: {cash.moneyCount}$", new Vector2(50, 50), Color.Gold);
+                if (cash.moneyCount >= 0)
+                {
+                    _spriteBatch.DrawString(moneyFont, $"Money: {(int)cash.moneyCount}$", new Vector2(50, 50), Color.Gold);
+                }
+                else
+                {
+                    _spriteBatch.DrawString(moneyFont, $"Money: {(int)cash.moneyCount}$", new Vector2(50, 50), Color.Red);
+                }
+                
 
                 _player.DrawButtons(_spriteBatch);
 
