@@ -24,6 +24,7 @@ namespace ZooObjektorienteretProgram
         public bool dead = false;
         public Rectangle center;
         private Money cash;
+        private float adjustedPrice;
 
 
         public Animal(Rectangle Center, Money cash)
@@ -74,7 +75,12 @@ namespace ZooObjektorienteretProgram
                     rectangle.X += numberx;
                     rectangle.Y += numbery;
                 }
-            }            
+
+
+            }
+
+            
+
         }
 
         public void ClickedAnimal()
@@ -83,13 +89,24 @@ namespace ZooObjektorienteretProgram
             mousePosition = new Point(mouseState.X, mouseState.Y);
             if (rectangle.Contains(mousePosition) == true)
             {
-                cash.AddMoney(cash.baseMoney*price*2);
+                adjustedPrice = (rectangle.Width - 50) + (price*0.6f);
+                cash.AddMoney(adjustedPrice);
                 dead = true;
             }
         }
         public override void LoadContent(ContentManager content)
         {
             
+        }
+
+        public void Grow()
+        {
+            if (rnd.Next(-1,4) > 2 && rectangle.Width < 76)
+            {
+            rectangle = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width + 1, rectangle.Height + 1);
+            
+            }
+               
         }
     }
 }

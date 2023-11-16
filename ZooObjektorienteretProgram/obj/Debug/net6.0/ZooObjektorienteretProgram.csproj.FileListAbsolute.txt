@@ -182,3 +182,9 @@ F:\zoo\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Food3.xnb
 F:\zoo\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Water1.xnb
 F:\zoo\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Water2.xnb
 F:\zoo\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Water3.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Food1.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Food2.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Food3.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Water1.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Water2.xnb
+C:\Users\Leonard\Fork\ZooProgram\ZooObjektorienteretProgram\bin\Debug\net6.0\Content\Water3.xnb

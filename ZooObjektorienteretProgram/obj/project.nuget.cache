@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "J8A/SO7KSXV64RBWih3T3bqwrlLKjVsIoqvfVIaBMhkSzKFpK5ohLpPhaKu2fKHbzRMpqkLJIvQs4GrdjLn0Fw==",
+  "dgSpecHash": "j1x7qY+aib4BRVGXT4A7pmT6uRpZRov+gi471VkU5HST6QlNtgS3iCUbZDFwCFkG8jr78aYbODPOcjl3lqe9Ng==",
   "success": true,
-  "projectFilePath": "F:\\zoo\\ZooProgram\\ZooObjektorienteretProgram\\ZooObjektorienteretProgram.csproj",
+  "projectFilePath": "C:\\Users\\Leonard\\Fork\\ZooProgram\\ZooObjektorienteretProgram\\Idle Farm Frenzy.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Jasper\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\Jasper\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\Leonard\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Leonard\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }
