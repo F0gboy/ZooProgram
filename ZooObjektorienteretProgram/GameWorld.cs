@@ -43,7 +43,6 @@ namespace ZooObjektorienteretProgram
         int s = 0;
 
         private Vector2 fencePosition;
-        private Vector2 fencePositionTemp;
         private int moveAmount = 45;
 
         private static Vector2 screenSize;
@@ -56,7 +55,6 @@ namespace ZooObjektorienteretProgram
         private Texture2D _backgroundMenuTexture;
         private Texture2D _backgroundTexture;
         private Vector2 _backgroundPosition;
-        private MouseState mouseState;
 
         public GameWorld()
         {
@@ -64,17 +62,23 @@ namespace ZooObjektorienteretProgram
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
+
+            //instantiates Money class
             cash = new Money(Content);
 
+            //Sets the screen options.
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
             _graphics.IsFullScreen = true;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
+            //Sets the first fence position
             fencePosition.X = -850;
             fencePosition.Y = -400;
 
+            //Creates 9 new rectangles and adds to FenceRecs list, so it can be used later.
+            //Creates 9 new lists of fences, so fences can be sorted easier.
             for (int i = 0; i < 9; i++)
             {
                 Rectangle fence1Rec = new Rectangle();
@@ -92,17 +96,14 @@ namespace ZooObjektorienteretProgram
 
         protected override void Initialize()
         {
-
+            //Creates 9 new Food And Water objects, and saves them in a list.
             for (int i = 0; i < 9; i++)
             {
                 foodWaterObject = new Food___Water(tempRec);
                 foodAndWaterObjects.Add(foodWaterObject);
             }
             
-
-            // TODO: Add your initialization logic here
-
-            //_graphics.IsFullScreen = true;
+            //Instantiates SpriteBatch, AnimalSpawner, and Player class.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spawner = new AnimalSpawner(Content, cash);
             _player = new Player(Content, _spriteBatch, _spawner, cash, moneyFont, fenceRecs);
@@ -114,9 +115,9 @@ namespace ZooObjektorienteretProgram
 
         public void GenerateAnimalBoundaries(int boundarySizeX, int boundarySizeY, Vector2 position, int s)
         {
-            //De hardcodede værdier som f.eks "position.y + 5" er fordi at sprite billederne er forskellige pixel størrelser, så skal rykke dem lidt så de liner op.
+            //The hardcodede values as "position.Y + 5" is because the sprite textures are different pixel sizes, so it has to be moved abit so they line up when drawn.
 
-            //sætter inital fence, top venstre hjørne, og tilføjer til animalFence list.
+            //Sets initial fence, top left corner, and adds it to allFence list, and that particular pens fence list.
             animalFence = new AnimalBoundaries(0, "TopLeftCorner", position.X + 5, position.Y + 0);
             allFences.Add(animalFence);
             fenceLists[s].Add(animalFence);
@@ -126,8 +127,7 @@ namespace ZooObjektorienteretProgram
 
             moveAmount = 48;
 
-            //laver den første side af fences
-
+            //Creates the first side of fences.
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY1" + (1 + i), position.X, position.Y + -5f + moveAmount);
@@ -139,8 +139,7 @@ namespace ZooObjektorienteretProgram
 
             moveAmount = 0;
 
-            //laver den næste side af fences
-
+            //Sets the next side of fences
             for (int i = 0; i < boundarySizeX - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), position.X + moveAmount + 48, position.Y);
@@ -149,16 +148,14 @@ namespace ZooObjektorienteretProgram
                 moveAmount += 48;
             }
 
-            //sætter næste corner fence
-
+            //Sets TopRightCorner fence.
             AnimalBoundaries fenceCorner1 = new AnimalBoundaries(1, "TopRightCorner", position.X + tempPos2 - 6, position.Y);
             allFences.Add(fenceCorner1);
             fenceLists[s].Add(fenceCorner1);
 
             moveAmount = 40;
 
-            //laver næste side af fences
-
+            //Creates next side of fences
             for (int i = 0; i < boundarySizeY - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(2, "fenceY2" + (1 + i),position.X + tempPos2 - 3, position.Y + moveAmount );
@@ -167,16 +164,14 @@ namespace ZooObjektorienteretProgram
                 moveAmount += 48;
             }
 
-            //laver næste corner fence
-
+            //Creates DownRightCorner fence.
             AnimalBoundaries fenceCorner2 = new AnimalBoundaries(4, "DownRightCorner", position.X + tempPos2 - 6, position.Y + tempPos3);
             allFences.Add(fenceCorner2);
             fenceLists[s].Add(fenceCorner2);
 
             moveAmount = 44;
 
-            //laver sidste side af fences
-
+            //Creates next side of fences
             for (int i = 0; i < boundarySizeX - 1; i++)
             {
                 AnimalBoundaries fence = new AnimalBoundaries(3, "fenceX1" + (1 + i), position.X + moveAmount + 4, position.Y + tempPos3 + 3);
@@ -185,8 +180,7 @@ namespace ZooObjektorienteretProgram
                 moveAmount += 48;
             }
 
-            //laver sidste corner for at afslutte indhegningen.
-
+            //Creates Last DownLeftCorner to end the fence.
             AnimalBoundaries fenceCorner3 = new AnimalBoundaries(5, "DownLeftCorner", position.X + 6, position.Y + tempPos3);
             allFences.Add(fenceCorner3);
             fenceLists[s].Add(fenceCorner3);
@@ -195,39 +189,47 @@ namespace ZooObjektorienteretProgram
 
         public void SpawnNextFence()
         {
-            //Tjekker om fence positionen er ude fra skærmen, hvis den er, sæt den tilbage til start positionen, og ryk den en gang ned.
-            //Hvis den ikke er ude fra skærmen, ryk den en gang til højre.
+            //Checks if the fence position is outside of the screen, if it is, set its position back to the start position, and move it down to the next row of pens
+            //If it isn't outside of the screen, move the fence right.
 
+            //creates iteration value, so we can iterate through lists, and add a new position to the next thing in the list, based on the last value.
             s++;
 
             if (fencePosition.X > 500)
             {
+                
+                //Bit of a mess here, but essentially determines and keeps track of how much the object given should be moved to the right, or down.    
+                //Keeps track of fence movement.
                 fencePosition.X = -650;
                 tempRec.Y += 425;
                 tempRec.X = 370;
+
+                //keeps track of fence collider/rectangle movement.
                 fenceRecs[s] = tempRec;
                 fencePosition.Y += 425;
+
+                //keeps track of foodAndWater movement.
                 tempRec2 = tempRec;
                 tempRec2.X -= 45;
 
+                //Sets the position of animal buy buttons.
                 _player.penButtons[s].rect = new Rectangle(tempRec.X - 50,tempRec.Y + 225, tempRec2.Width,tempRec2.Height);
 
+                //Generates next animal pen.
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
 
+                //Sets the position of food and water objects.
                 foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y - 60, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
                 foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 155, tempRec2.Y - 60, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
 
-                for (int i = 0; i < 15; i++)
-                {
-                    //_spawner.SpawnAnimal(s, fenceRecs);
-                    //_spawner.animals[s].rectangle = new Rectangle(tempRec.X, tempRec.Y, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
-                }
             }
             else
             {
+                //Keeps track of fence movement.
                 tempRec.X += 350;
                 fenceRecs[s] = tempRec;
 
+                //Keeps track of foodAndWater movement.
                 tempRec2 = tempRec;
                 tempRec2.Y -= 60;
                 tempRec2.X -= 50;
@@ -235,21 +237,19 @@ namespace ZooObjektorienteretProgram
                 fencePosition.X += 350;
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
 
+                //Sets the position of animal buy buttons.
                 _player.penButtons[s].rect = new Rectangle(tempRec.X - 50, tempRec.Y + 225, tempRec2.Width, tempRec2.Height);
 
+                //Sets the position of food and water objects.
                 foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y , (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
                 foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 155, tempRec2.Y , (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
 
-                for (int i = 0; i < 15; i++)
-                {
-                   //_spawner.SpawnAnimal(s, fenceRecs);
-                   //_spawner.animals[s].rectangle = new Rectangle(tempRec.X, tempRec.Y, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
-                }
             }   
         }
 
         protected override void LoadContent()
         {
+            //Loads the money font, and loads the food and water objects.
             moneyFont = Content.Load<SpriteFont>("Money");
 
             foreach (var foodAndWater in foodAndWaterObjects)
@@ -259,7 +259,7 @@ namespace ZooObjektorienteretProgram
 
             GenerateAnimalBoundaries( 6, 5, fencePosition, s);
 
-
+            //Sets the position of the first fence, and sets the position of the first food and water objects.
             tempRec.X = fenceRecs[0].X + 175;
             tempRec.Y = fenceRecs[0].Y + 200;
             tempRec.Width = 160;
@@ -269,27 +269,20 @@ namespace ZooObjektorienteretProgram
             tempRec2.X -= 50;
             tempRec2.Y -= 60;
 
+            //Sets the position of the first animal buy buttons.
             _player.penButtons[0].rect = new Rectangle(tempRec.X - 50, tempRec.Y + 225, tempRec2.Width, tempRec2.Height);
 
+            //Sets the position of the first food and water objects.
             foodAndWaterObjects[0].rectangle = new Rectangle(tempRec2.X, tempRec2.Y, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
             foodAndWaterObjects[0].rectangle1 = new Rectangle(tempRec2.X + 155, tempRec2.Y, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
 
-
-            for (int i = 0; i < 15; i++)
+            //Spawns the 8 other fence pens, since the first one is set manually.
+            for (int i = 0; i < 8; i++)
             {
-                //_spawner.SpawnAnimal(0, fenceRecs);
-                //_spawner.animals[i].rectangle = new Rectangle(220, 220, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
+                SpawnNextFence();
             }
-
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-            SpawnNextFence();
-
+            
+            //Runs loadContent on Classes/Objects.
             foreach (var fence in allFences) 
             {
                 fence.LoadContent(Content);
@@ -302,7 +295,7 @@ namespace ZooObjektorienteretProgram
             _backgroundMenuTexture = Content.Load<Texture2D>("ZooMenu");
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content, this);
-            // TODO: use this.Content to load your game content here
+            
         }
 
         protected override void Update(GameTime gameTime)
@@ -311,7 +304,7 @@ namespace ZooObjektorienteretProgram
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            //Checks if the game has started, if it has, run the game, if not, run the menu.
 			if (gameStarted == true)
             {
 	            _player.MouseUpdate();
@@ -319,11 +312,13 @@ namespace ZooObjektorienteretProgram
             
 	            elapsedSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
 	
+                //Updates the food and water objects.
 	            foreach (var foodAndWater in foodAndWaterObjects)
 	            {
 	                foodAndWater.Update();
 	            }
 
+                //Drains the food and water objects.
 	            if (elapsedSeconds >= drainInterval)
 	            {
 	                foreach (var foodAndWater in foodAndWaterObjects)
@@ -333,6 +328,7 @@ namespace ZooObjektorienteretProgram
 	                elapsedSeconds = 0; // Reset the elapsed time
 	           	}
 
+                //if the animal is too far away from its pen, move it back to the pen.
                 foreach (Animal animal in _spawner.animals)
                 {
                     if (Math.Abs(animal.center.X - animal.rectangle.X) > 260 || Math.Abs(animal.center.Y - animal.rectangle.Y) > 260)
@@ -360,21 +356,18 @@ namespace ZooObjektorienteretProgram
 
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
 
-            Texture2D rect = new Texture2D(_graphics.GraphicsDevice, 150, 150);
-            Color[] data = new Color[150 * 150];
-            for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
-            rect.SetData(data);
             _spriteBatch.Draw(_backgroundMenuTexture, _backgroundPosition, Color.White);
 
+            //Draws the menu if the game hasn't started, if it has, draw the game and game background.
             if (gameStarted == true)
             {
                 _spriteBatch.Draw(_backgroundTexture, _backgroundPosition, Color.White);
 
+                //Draws all Fences, and all food and water objects.
                 foreach (var fence in allFences)
                 {
                     fence.Draw(_spriteBatch);
                 }
-
                 foreach (var foodAndWater in foodAndWaterObjects)
                 {
                     foodAndWater.Draw(_spriteBatch);
