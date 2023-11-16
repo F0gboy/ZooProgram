@@ -30,7 +30,6 @@ namespace ZooObjektorienteretProgram
         {
             this.center = Center;
             this.cash = cash;
-        
         }
 
 
@@ -39,8 +38,6 @@ namespace ZooObjektorienteretProgram
             sprite = spriteTag;
             rectangle = new Rectangle(rec.X, rec.Y, sprite.Width * 3, sprite.Height * 3);
         }
-
-
 
         public override void Draw(SpriteBatch spriteBatch)
         {

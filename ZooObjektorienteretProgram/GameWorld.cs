@@ -56,7 +56,7 @@ namespace ZooObjektorienteretProgram
         private Texture2D _backgroundMenuTexture;
         private Texture2D _backgroundTexture;
         private Vector2 _backgroundPosition;
-
+        private MouseState mouseState;
 
         public GameWorld()
         {
@@ -68,7 +68,7 @@ namespace ZooObjektorienteretProgram
 
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
-            //_graphics.IsFullScreen = true;
+            _graphics.IsFullScreen = true;
 
             screenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
@@ -210,6 +210,8 @@ namespace ZooObjektorienteretProgram
                 tempRec2 = tempRec;
                 tempRec2.X -= 45;
 
+                _player.penButtons[s].rect = new Rectangle(tempRec.X - 50,tempRec.Y + 225, tempRec2.Width,tempRec2.Height);
+
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
 
                 foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y - 60, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
@@ -217,8 +219,8 @@ namespace ZooObjektorienteretProgram
 
                 for (int i = 0; i < 15; i++)
                 {
-                    _spawner.SpawnAnimal(s, fenceRecs);
-                    _spawner.animals[i].rectangle = new Rectangle(tempRec.X, tempRec.Y, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
+                    //_spawner.SpawnAnimal(s, fenceRecs);
+                    //_spawner.animals[s].rectangle = new Rectangle(tempRec.X, tempRec.Y, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
                 }
             }
             else
@@ -233,13 +235,15 @@ namespace ZooObjektorienteretProgram
                 fencePosition.X += 350;
                 GenerateAnimalBoundaries(6, 5, fencePosition, s);
 
+                _player.penButtons[s].rect = new Rectangle(tempRec.X - 50, tempRec.Y + 225, tempRec2.Width, tempRec2.Height);
+
                 foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y , (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
                 foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 155, tempRec2.Y , (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
 
                 for (int i = 0; i < 15; i++)
                 {
-                    _spawner.SpawnAnimal(s, fenceRecs);
-                    _spawner.animals[i].rectangle = new Rectangle(tempRec.X, tempRec.Y, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
+                   //_spawner.SpawnAnimal(s, fenceRecs);
+                   //_spawner.animals[s].rectangle = new Rectangle(tempRec.X, tempRec.Y, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
                 }
             }   
         }
@@ -265,14 +269,16 @@ namespace ZooObjektorienteretProgram
             tempRec2.X -= 50;
             tempRec2.Y -= 60;
 
+            _player.penButtons[0].rect = new Rectangle(tempRec.X - 50, tempRec.Y + 225, tempRec2.Width, tempRec2.Height);
+
             foodAndWaterObjects[0].rectangle = new Rectangle(tempRec2.X, tempRec2.Y, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
             foodAndWaterObjects[0].rectangle1 = new Rectangle(tempRec2.X + 155, tempRec2.Y, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
 
 
             for (int i = 0; i < 15; i++)
             {
-                _spawner.SpawnAnimal(0, fenceRecs);
-                _spawner.animals[i].rectangle = new Rectangle(220, 220, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
+                //_spawner.SpawnAnimal(0, fenceRecs);
+                //_spawner.animals[i].rectangle = new Rectangle(220, 220, _spawner.animals[i].rectangle.Width, _spawner.animals[i].rectangle.Height);
             }
 
             SpawnNextFence();
@@ -326,6 +332,14 @@ namespace ZooObjektorienteretProgram
 	                }
 	                elapsedSeconds = 0; // Reset the elapsed time
 	           	}
+
+                foreach (Animal animal in _spawner.animals)
+                {
+                    if (Math.Abs(animal.center.X - animal.rectangle.X) > 260 || Math.Abs(animal.center.Y - animal.rectangle.Y) > 260)
+                    {
+                        animal.rectangle = new Rectangle(animal.center.X+(animal.center.Width/2), animal.center.Y+(animal.center.Height / 2), animal.rectangle.Width, animal.rectangle.Height);
+                    }
+                }
             }
 
             if (_nextState != null)

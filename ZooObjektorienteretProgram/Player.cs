@@ -24,8 +24,6 @@ namespace ZooObjektorienteretProgram
         private Button testButton;
         public List<Rectangle> rects;
 
-
-
         public List<Button> penButtons = new List<Button>(); 
    
 
@@ -41,7 +39,7 @@ namespace ZooObjektorienteretProgram
             testButton.rect = new Rectangle(100,100,testButton.rect.Width, testButton.rect.Height);
 
             Random rnd = new Random();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                 string text = "";
                 switch (i)
@@ -91,7 +89,7 @@ namespace ZooObjektorienteretProgram
                     default:
                         break;
                 }
-                penButtons.Add(new SpawnButton(content, i + 1, animalSpawner, cash, this, text, rects));
+                penButtons.Add(new SpawnButton(content, i, animalSpawner, cash, this, text, rects));
                 penButtons[penButtons.Count - 1].rect = new Rectangle(rnd.Next(100, 750), rnd.Next(100, 700), penButtons[penButtons.Count - 1].rect.Width, penButtons[penButtons.Count - 1].rect.Height);
                 
             }
@@ -109,8 +107,6 @@ namespace ZooObjektorienteretProgram
             {
                 if (button.rect.Contains(mousePosition) == true)
                 {
-
-
                     button.color = Color.LightGray;
                     if (mouseState.LeftButton == ButtonState.Pressed && button.pressed == false)
                     {
@@ -127,9 +123,6 @@ namespace ZooObjektorienteretProgram
                 if (mouseState.LeftButton == ButtonState.Released)
                 {
                     button.pressed = false;
-
-
-
                 }
             }
         }
