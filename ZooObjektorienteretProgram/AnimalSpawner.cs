@@ -31,6 +31,7 @@ namespace ZooObjektorienteretProgram
         
         public AnimalSpawner(ContentManager content, Money cash)
         {
+            //set variables
             this.cash = cash;
             LoadContent(content);
             
@@ -39,9 +40,12 @@ namespace ZooObjektorienteretProgram
 
         public void AnimalUpdate()
         {
+
+            //get mouse position
             mouseState = Mouse.GetState();
             mousePosition = new Point(mouseState.X, mouseState.Y);
 
+            //if left mouse button is pressed, check if an animal is clicked
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 foreach (var animal in animals)
@@ -50,6 +54,7 @@ namespace ZooObjektorienteretProgram
                 }
             }
 
+            //move animals if they are not dead
             for (int i = 0; i < animals.Count; i++)
             {
 
@@ -62,6 +67,7 @@ namespace ZooObjektorienteretProgram
                 }
             }
 
+            //remove dead animals if killTime is true
             if (killTime == true)
             {
                 animals.RemoveAt(selectedAnimal);
@@ -70,9 +76,10 @@ namespace ZooObjektorienteretProgram
 
         }
 
+        //spawn animal based on spawnNum
         public void SpawnAnimal(int spawnNum, List<Rectangle> centers)
         {
-            // Case to choice animals. 
+            //add animal to list and set its sprite and price
             switch (spawnNum)
             {
                 case 0:
@@ -137,6 +144,7 @@ namespace ZooObjektorienteretProgram
             }
          }
 
+        //draw animals if there are any
         public void AnimalDraw(SpriteBatch spriteBatch)
         {
             if (animals.Count != 0)
@@ -148,6 +156,7 @@ namespace ZooObjektorienteretProgram
             }
         }
           
+        //load animal sprites
         public void LoadContent(ContentManager Content)
         {
             sheep = Content.Load<Texture2D>("tile_sheep");

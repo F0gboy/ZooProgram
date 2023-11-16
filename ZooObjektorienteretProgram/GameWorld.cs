@@ -221,7 +221,6 @@ namespace ZooObjektorienteretProgram
                 //Sets the position of food and water objects.
                 foodAndWaterObjects[s].rectangle = new Rectangle(tempRec2.X, tempRec2.Y - 60, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
                 foodAndWaterObjects[s].rectangle1 = new Rectangle(tempRec2.X + 155, tempRec2.Y - 60, (int)(tempRec2.Width / 1.5f), (int)(tempRec2.Height / 1.5f));
-
             }
             else
             {
@@ -379,6 +378,7 @@ namespace ZooObjektorienteretProgram
 
                 _spawner.AnimalDraw(_spriteBatch);
 
+                //Draws the money, and checks if the player has positive or negative money, and sets the color based on that, if money is negative, and below -500, exit the game.
                 if (cash.moneyCount >= 0)
                 {
                     _spriteBatch.DrawString(moneyFont, $"Money: {(int)cash.moneyCount}$", new Vector2(50, 50), Color.Gold);

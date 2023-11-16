@@ -36,12 +36,15 @@ namespace ZooObjektorienteretProgram
 
         public void SelectSprite(Texture2D spriteTag, Rectangle rec)
         {
+            //select sprite and set rectangle
             sprite = spriteTag;
             rectangle = new Rectangle(rec.X, rec.Y, sprite.Width * 3, sprite.Height * 3);
         }
 
+
         public override void Draw(SpriteBatch spriteBatch)
         {
+            //if sprite is not null, draw it
             if (sprite != null)
             {
                  spriteBatch.Draw(sprite, rectangle, Color.White);
@@ -55,6 +58,7 @@ namespace ZooObjektorienteretProgram
 
             if (rnd.Next(1, 10) > 6)
             {
+                //if animal is outside of center, move it towards center
                 if (!rectangle.Intersects(center))
                 {
 
@@ -72,6 +76,7 @@ namespace ZooObjektorienteretProgram
                 }
                 else
                 {
+                    //if animal is inside center, move it randomly
                     rectangle.X += numberx;
                     rectangle.Y += numbery;
                 }
@@ -85,6 +90,7 @@ namespace ZooObjektorienteretProgram
 
         public void ClickedAnimal()
         {
+            //if animal is clicked, add money and set dead to true
             mouseState = Mouse.GetState();
             mousePosition = new Point(mouseState.X, mouseState.Y);
             if (rectangle.Contains(mousePosition) == true)
@@ -101,6 +107,7 @@ namespace ZooObjektorienteretProgram
 
         public void Grow()
         {
+            //if random number is above 2 and rectangle is smaller than 76, grow animal
             if (rnd.Next(-1,4) > 2 && rectangle.Width < 76)
             {
             rectangle = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width + 1, rectangle.Height + 1);

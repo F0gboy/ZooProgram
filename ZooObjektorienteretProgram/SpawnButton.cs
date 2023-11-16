@@ -24,6 +24,7 @@ namespace ZooObjektorienteretProgram
 
         public SpawnButton(ContentManager content, int animalNum, AnimalSpawner animalSpawner, Money cash, Player player, string text, List<Rectangle> Rects) : base(content)
         {
+            //set variables
             this.player = player;
             this.animalNum = animalNum;
             this.animalSpawner = animalSpawner;
@@ -34,6 +35,7 @@ namespace ZooObjektorienteretProgram
             
         public void Spawn(Vector2 position)
         {
+            //spawn animal based on animalNum
             animalSpawner.SpawnAnimal(animalNum, rects);
             animalSpawner.animals[animalSpawner.animals.Count - 1].rectangle.X = (int)position.X;
             animalSpawner.animals[animalSpawner.animals.Count - 1].rectangle.Y = (int)position.Y;
@@ -42,6 +44,7 @@ namespace ZooObjektorienteretProgram
 
         public void SetSprite(Texture2D sprite)
         {
+            //set sprite and rectangle
             base.sprite = sprite;
             rect = new Rectangle(rect.X, rect.Y, sprite.Width+100, sprite.Height);
 
@@ -49,7 +52,7 @@ namespace ZooObjektorienteretProgram
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-
+            //draw button
             spriteBatch.Draw(sprite, rect, color);
             if (text != null && player.font != null)
             {

@@ -53,8 +53,7 @@ namespace ZooObjektorienteretProgram
         }
         public override void LoadContent(ContentManager content)
         {
-
-
+            //load sprites
 
             foodSprite1 = content.Load<Texture2D>("Food1");
             foodSprite2 = content.Load<Texture2D>("Food2");
@@ -71,6 +70,7 @@ namespace ZooObjektorienteretProgram
 
         public void Update()
         {
+            //update food and water levels, and their sprites based on the levels
             foodLevelNew = foodLevel;
             if (foodLevelNew > 50)
             {
@@ -99,8 +99,11 @@ namespace ZooObjektorienteretProgram
                 switchNum1 = 3;
             }
 
+            
             mouseState = Mouse.GetState();
             mousePosition = new Point(mouseState.X, mouseState.Y);
+
+            //if the player clicks on the food, the level increases and money decreases
             if (rectangle.Contains(mousePosition) == true && mouseState.LeftButton == ButtonState.Pressed && pressed == false)
             {
                 AddMoreFood();
@@ -113,6 +116,7 @@ namespace ZooObjektorienteretProgram
                 pressed = false;
             }
 
+            //if the player clicks on the water, the level increases and money decreases
             if (rectangle1.Contains(mousePosition) == true  && mouseState.LeftButton == ButtonState.Pressed && pressed == false)
                 {
                     AddMoreWater();
@@ -131,7 +135,7 @@ namespace ZooObjektorienteretProgram
 
         }
 
-
+        //draw the food and water sprites based on the switchNum and switchNum1
         public override void Draw( SpriteBatch spriteBatch)
         {
 
@@ -167,6 +171,8 @@ namespace ZooObjektorienteretProgram
             spriteBatch.Draw(waterSprite, rectangle1, Color.White);
 
         }
+
+        //add more water and food
         public void AddMoreWater()
         {
             waterLevel += 100;
@@ -184,19 +190,14 @@ namespace ZooObjektorienteretProgram
                 foodLevel = 100;
             }
         }
+
+        //drain water and food
         public void Drain(List<Animal> animals)
         {
-
-
-            
             waterLevel -= rnd.Next(0, 3);
 
             foodLevel -= rnd.Next(0, 3);
-            
-
-
-
-
+           
         }
 
     }

@@ -29,15 +29,18 @@ namespace ZooObjektorienteretProgram
 
         public Player(ContentManager content, SpriteBatch spriteBatch, AnimalSpawner animalSpawner, Money cash, SpriteFont font, List<Rectangle> Rects)
         {
+            //set variables
             this.content = content;
             this.AnimalSpawner = animalSpawner;
             this.cash = cash;
             this.font = font;
             this.rects = Rects;
-            //Test Button
+            
+            ´//create test button
             testButton = new Button(content);
             testButton.rect = new Rectangle(100,100,testButton.rect.Width, testButton.rect.Height);
 
+            //Writes text on button
             Random rnd = new Random();
             for (int i = 0; i < 9; i++)
             {
@@ -89,6 +92,7 @@ namespace ZooObjektorienteretProgram
                     default:
                         break;
                 }
+                //create buttons and set their positions
                 penButtons.Add(new SpawnButton(content, i, animalSpawner, cash, this, text, rects));
                 penButtons[penButtons.Count - 1].rect = new Rectangle(rnd.Next(100, 750), rnd.Next(100, 700), penButtons[penButtons.Count - 1].rect.Width, penButtons[penButtons.Count - 1].rect.Height);
                 
@@ -97,6 +101,7 @@ namespace ZooObjektorienteretProgram
             
         }
 
+        //update mouse position and check if buttons are pressed
         public void MouseUpdate()
         {
             mouseState = Mouse.GetState();
@@ -110,6 +115,7 @@ namespace ZooObjektorienteretProgram
                     button.color = Color.LightGray;
                     if (mouseState.LeftButton == ButtonState.Pressed && button.pressed == false)
                     {
+                        //spawn animal if button is pressed
                         button.Spawn(new Vector2(250, 250));
                         button.pressed = true;
 
@@ -126,14 +132,18 @@ namespace ZooObjektorienteretProgram
                 }
             }
         }
+
+        
         public void DrawButtons(SpriteBatch spriteBatch) 
         {
             foreach (var item in penButtons)
             {
+                //draw buttons
                 item.Draw(spriteBatch);
             }
         }
 
+        //load button sprite
         public void Load(ContentManager content)
         {
             buttonSprite = content.Load<Texture2D>("Button");

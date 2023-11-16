@@ -30,6 +30,7 @@ namespace ZooObjektorienteretProgram
 
         private Texture2D CurrentSprite
         {
+            //get current sprite
             get
             {
                 return sprites[(int)animationTime];
@@ -38,6 +39,7 @@ namespace ZooObjektorienteretProgram
 
         protected Vector2 SpriteSize
         {
+            //get sprite size
             get
             {
                 return new Vector2(CurrentSprite.Width * scale, CurrentSprite.Height * scale); 
